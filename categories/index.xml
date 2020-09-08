@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on 王冠智的部落格</title>
+    <link>https://joe94113.github.io/categories/</link>
+    <description>Recent content in Categories on 王冠智的部落格</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-tw</language>
+    <lastBuildDate>Sun, 06 Sep 2020 10:07:47 +0800</lastBuildDate>
+    
+	<atom:link href="https://joe94113.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>python</title>
+      <link>https://joe94113.github.io/categories/python/</link>
+      <pubDate>Sun, 06 Sep 2020 10:07:47 +0800</pubDate>
+      
+      <guid>https://joe94113.github.io/categories/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>HTML &amp; CSS</title>
+      <link>https://joe94113.github.io/categories/html-css/</link>
+      <pubDate>Tue, 29 Oct 2019 10:07:47 +0800</pubDate>
+      
+      <guid>https://joe94113.github.io/categories/html-css/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

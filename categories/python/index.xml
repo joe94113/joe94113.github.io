@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>python on 王冠智的部落格</title>
+    <link>https://joe94113.github.io/categories/python/</link>
+    <description>Recent content in python on 王冠智的部落格</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-tw</language>
+    <lastBuildDate>Sun, 06 Sep 2020 10:07:47 +0800</lastBuildDate>
+    
+	<atom:link href="https://joe94113.github.io/categories/python/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Python入門</title>
+      <link>https://joe94113.github.io/blog/python-post/</link>
+      <pubDate>Sun, 06 Sep 2020 10:07:47 +0800</pubDate>
+      
+      <guid>https://joe94113.github.io/blog/python-post/</guid>
+      <description>Python程式入門教學 資料型態 整數 用來表示整數值，可以區分為 short、int、long 與 long long（C99），配置的記憶體長度在不同編譯器上各不相同，可容納的大小各不相同，例如，在 64 位元 Ubuntu 16.</description>
+    </item>
+    
+  </channel>
+</rss>
