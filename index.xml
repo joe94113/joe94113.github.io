@@ -6,24 +6,15 @@
     <description>Recent content on 王冠智的部落格</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
-    <lastBuildDate>Sun, 06 Sep 2020 10:07:47 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 08 Sep 2020 10:07:47 +0800</lastBuildDate>
     
 	<atom:link href="https://joe94113.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Python入門</title>
-      <link>https://joe94113.github.io/blog/python-post/</link>
-      <pubDate>Sun, 06 Sep 2020 10:07:47 +0800</pubDate>
-      
-      <guid>https://joe94113.github.io/blog/python-post/</guid>
-      <description>Python程式入門教學 資料型態 整數 用來表示整數值，可以區分為 short、int、long 與 long long（C99），配置的記憶體長度在不同編譯器上各不相同，可容納的大小各不相同，例如，在 64 位元 Ubuntu 16.</description>
-    </item>
-    
-    <item>
       <title>CSS基本</title>
       <link>https://joe94113.github.io/blog/css-post/</link>
-      <pubDate>Tue, 29 Oct 2019 10:07:47 +0800</pubDate>
+      <pubDate>Tue, 08 Sep 2020 10:07:47 +0800</pubDate>
       
       <guid>https://joe94113.github.io/blog/css-post/</guid>
       <description>CSS到底是什麼? asterisks
@@ -34,13 +25,22 @@ Emphasis 跟 HTML 一樣，CSS 既非標準程式語言，也不是標記語言,
     <item>
       <title>HTML</title>
       <link>https://joe94113.github.io/blog/html-post/</link>
-      <pubDate>Tue, 29 Oct 2019 10:07:47 +0800</pubDate>
+      <pubDate>Tue, 08 Sep 2020 10:07:47 +0800</pubDate>
       
       <guid>https://joe94113.github.io/blog/html-post/</guid>
       <description>HTML 到底是什麼？ HTML 是一種標記語言 (markup language)，而非一般熟知的程式設計語言；
 它會告訴瀏覽器該如何呈現你的網頁──單純簡易或是極其複雜的頁面都沒問題。
 HTML 包含了一系列的元素（elements），
 而元素包含了標籤（tags）與內容（content），我們用標籤來控制內容的呈現樣貌，</description>
+    </item>
+    
+    <item>
+      <title>Python入門</title>
+      <link>https://joe94113.github.io/blog/python-post/</link>
+      <pubDate>Sun, 06 Sep 2020 10:07:47 +0800</pubDate>
+      
+      <guid>https://joe94113.github.io/blog/python-post/</guid>
+      <description>Python程式入門教學 資料型態 整數 用來表示整數值，可以區分為 short、int、long 與 long long（C99），配置的記憶體長度在不同編譯器上各不相同，可容納的大小各不相同，例如，在 64 位元 Ubuntu 16.</description>
     </item>
     
   </channel>

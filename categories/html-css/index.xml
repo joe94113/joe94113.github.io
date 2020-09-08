@@ -6,7 +6,7 @@
     <description>Recent content in HTML &amp; CSS on 王冠智的部落格</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
-    <lastBuildDate>Tue, 29 Oct 2019 10:07:47 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 08 Sep 2020 10:07:47 +0800</lastBuildDate>
     
 	<atom:link href="https://joe94113.github.io/categories/html-css/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>CSS基本</title>
       <link>https://joe94113.github.io/blog/css-post/</link>
-      <pubDate>Tue, 29 Oct 2019 10:07:47 +0800</pubDate>
+      <pubDate>Tue, 08 Sep 2020 10:07:47 +0800</pubDate>
       
       <guid>https://joe94113.github.io/blog/css-post/</guid>
       <description>CSS到底是什麼? asterisks
@@ -25,7 +25,7 @@ Emphasis 跟 HTML 一樣，CSS 既非標準程式語言，也不是標記語言,
     <item>
       <title>HTML</title>
       <link>https://joe94113.github.io/blog/html-post/</link>
-      <pubDate>Tue, 29 Oct 2019 10:07:47 +0800</pubDate>
+      <pubDate>Tue, 08 Sep 2020 10:07:47 +0800</pubDate>
       
       <guid>https://joe94113.github.io/blog/html-post/</guid>
       <description>HTML 到底是什麼？ HTML 是一種標記語言 (markup language)，而非一般熟知的程式設計語言；
