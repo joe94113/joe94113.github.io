@@ -17,9 +17,9 @@
       <pubDate>Tue, 08 Sep 2020 10:07:47 +0800</pubDate>
       
       <guid>https://joe94113.github.io/blog/css-post/</guid>
-      <description>CSS到底是什麼? asterisks
-Emphasis 跟 HTML 一樣，CSS 既非標準程式語言，也不是標記語言,
-而是一種風格頁面語言style sheet language：</description>
+      <description>CSS到底是什麼? 跟 HTML 一樣，CSS 既非標準程式語言，也不是標記語言,
+而是一種風格頁面語言style sheet language：
+它能讓你在 HTML 文件中的元素element上套用不同的頁面樣式style。</description>
     </item>
     
     <item>
