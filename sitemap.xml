@@ -4,17 +4,42 @@
   
   <url>
     <loc>https://joe94113.github.io/blog/</loc>
-    <lastmod>2020-09-08T10:07:47+08:00</lastmod>
+    <lastmod>2020-10-24T10:07:47+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://joe94113.github.io/categories/</loc>
-    <lastmod>2020-09-08T10:07:47+08:00</lastmod>
+    <lastmod>2020-10-24T10:07:47+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://joe94113.github.io/tags/code/</loc>
-    <lastmod>2020-09-08T10:07:47+08:00</lastmod>
+    <lastmod>2020-10-24T10:07:47+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joe94113.github.io/</loc>
+    <lastmod>2020-10-24T10:07:47+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joe94113.github.io/categories/mysql/</loc>
+    <lastmod>2020-10-24T10:07:47+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joe94113.github.io/blog/mysql/</loc>
+    <lastmod>2020-10-24T10:07:47+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joe94113.github.io/tags/new/</loc>
+    <lastmod>2020-10-24T10:07:47+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://joe94113.github.io/tags/</loc>
+    <lastmod>2020-10-24T10:07:47+08:00</lastmod>
   </url>
   
   <url>
@@ -24,16 +49,6 @@
   
   <url>
     <loc>https://joe94113.github.io/blog/htmlcss-post/</loc>
-    <lastmod>2020-09-08T10:07:47+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://joe94113.github.io/</loc>
-    <lastmod>2020-09-08T10:07:47+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://joe94113.github.io/tags/new/</loc>
     <lastmod>2020-09-08T10:07:47+08:00</lastmod>
   </url>
   
@@ -49,11 +64,6 @@
   
   <url>
     <loc>https://joe94113.github.io/blog/linebot-post/</loc>
-    <lastmod>2020-09-08T10:07:47+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://joe94113.github.io/tags/</loc>
     <lastmod>2020-09-08T10:07:47+08:00</lastmod>
   </url>
   
@@ -110,11 +120,6 @@
   <url>
     <loc>https://joe94113.github.io/blog/fifth/</loc>
     <lastmod>2018-10-07T11:39:22+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://joe94113.github.io/blog/fourth/</loc>
-    <lastmod>2018-10-07T11:39:16+02:00</lastmod>
   </url>
   
   <url>

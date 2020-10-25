@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="zh-tw"><head>
+  <meta charset="utf-8">
+  <title>Joe&#39;s Blog</title>
+
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="mysql語法">
+  <meta name="author" content="Joe">
+  <meta name="generator" content="Hugo 0.68.3" />
+
+  <!-- plugins -->
+  
+  <link rel="stylesheet" href="https://joe94113.github.io/plugins/bootstrap/bootstrap.min.css ">
+  
+  <link rel="stylesheet" href="https://joe94113.github.io/plugins/slick/slick.css ">
+  
+  <link rel="stylesheet" href="https://joe94113.github.io/plugins/themify-icons/themify-icons.css ">
+  
+  <link rel="stylesheet" href="https://joe94113.github.io/plugins/venobox/venobox.css ">
+  
+
+  <!-- Main Stylesheet -->
+  
+  <link rel="stylesheet" href="https://joe94113.github.io/scss/style.min.css" media="screen">
+
+  <!--Favicon-->
+  <link rel="shortcut icon" href="https://joe94113.github.io/images/favicon.png " type="image/x-icon">
+  <link rel="icon" href="https://joe94113.github.io/images/favicon.png " type="image/x-icon">
+
+  
+</head><body>
+<!-- preloader start -->
+<div class="preloader">
+  
+</div>
+<!-- preloader end -->
+<!-- navigation -->
+<header class="navigation">
+  <div class="container">
+    
+    <nav class="navbar navbar-expand-lg navbar-white bg-transparent border-bottom pl-0">
+      <a class="navbar-brand mobile-view" href="https://joe94113.github.io"><img class="img-fluid"
+          src="https://joe94113.github.io/images/joelogo.png" alt="Joe&#39;s Blog"></a>
+      <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
+        <i class="ti-menu h3"></i>
+      </button>
+
+      <div class="collapse navbar-collapse text-center" id="navigation">
+        <div class="desktop-view">
+          <ul class="navbar-nav mr-auto">
+            
+            <li class="nav-item">
+              <a class="nav-link" href="https://www.facebook.com/Blizzardsumme/"><i class="ti-facebook"></i></a>
+            </li>
+            
+            <li class="nav-item">
+              <a class="nav-link" href="https://www.instagram.com/guan___zhi/?hl=zh-tw"><i class="ti-instagram"></i></a>
+            </li>
+            
+            <li class="nav-item">
+              <a class="nav-link" href="https://github.com/joe94113"><i class="ti-github"></i></a>
+            </li>
+            
+          </ul>
+        </div>
+
+        <a class="navbar-brand mx-auto desktop-view" href="https://joe94113.github.io"><img class="img-fluid"
+            src="https://joe94113.github.io/images/joelogo.png" alt="Joe&#39;s Blog"></a>
+
+        <ul class="navbar-nav">
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="https://joe94113.github.io/about">About</a>
+          </li>
+          
+          
+        </ul>
+
+        
+        <!-- search -->
+        <div class="search pl-lg-4">
+          <button id="searchOpen" class="search-btn"><i class="ti-search"></i></button>
+          <div class="search-wrapper">
+            <form action="https://joe94113.github.io/search" class="h-100">
+              <input class="search-box px-4" id="search-query" name="s" type="search" placeholder="Type & Hit Enter...">
+            </form>
+            <button id="searchClose" class="search-close"><i class="ti-close text-dark"></i></button>
+          </div>
+        </div>
+        
+
+        
+      </div>
+    </nav>
+  </div>
+</header>
+<!-- /navigation -->
+
+<section class="section-sm">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-10 mx-auto">
+        
+        <a href="/categories/mysql"
+          class="text-primary">My s q l</a>
+        
+        <h2>MySQL入門筆記</h2>
+        <div class="mb-3 post-meta">
+          <span>By Joe</span>
+          
+          <span class="border-bottom border-primary px-2 mx-1"></span>
+          <span>24 October 2020</span>
+          
+        </div>
+        
+        <img src="https://joe94113.github.io/images/post/mysql.png" class="img-fluid w-100 mb-4" alt="MySQL入門筆記">
+        
+        <div class="content mb-5">
+          <h1 id="mysq語法">MySQ語法</h1>
+<!-- raw HTML omitted -->
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-MySQL" data-lang="MySQL"><span style="color:#007020;font-weight:bold">drop</span> <span style="color:#007020;font-weight:bold">database</span> <span style="color:#4070a0">&#34;database名稱&#34;</span>;
+</code></pre></div><p>創建database</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-MySQL" data-lang="MySQL"><span style="color:#007020;font-weight:bold">create</span> <span style="color:#007020;font-weight:bold">database</span> <span style="color:#4070a0">&#34;database名稱&#34;</span>;
+</code></pre></div><p>使用這個database</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-MySQL" data-lang="MySQL"><span style="color:#007020;font-weight:bold">use</span> <span style="color:#4070a0">&#34;database名稱&#34;</span>;
+</code></pre></div><h4 id="基本的crud">基本的CRUD</h4>
+<p>導入數據</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-MySQL" data-lang="MySQL">source <span style="color:#666">/</span>Users<span style="color:#666">/</span>joe<span style="color:#666">/</span>Downloads<span style="color:#666">/</span>data.<span style="color:#007020;font-weight:bold">sql</span>;
+</code></pre></div><p>data.sql
+內容:</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-MySQL" data-lang="MySQL"><span style="color:#007020;font-weight:bold">CREATE</span> <span style="color:#007020;font-weight:bold">TABLE</span> <span style="color:#06287e">employee</span>(
+  id <span style="color:#902000">INT</span> <span style="color:#007020;font-weight:bold">NOT</span> <span style="color:#60add5">NULL</span> <span style="color:#007020">AUTO_INCREMENT</span>,
+  first_name <span style="color:#902000">VARCHAR</span>(<span style="color:#40a070">100</span>) <span style="color:#007020;font-weight:bold">NOT</span> <span style="color:#60add5">NULL</span>,
+  last_name <span style="color:#902000">VARCHAR</span>(<span style="color:#40a070">100</span>) <span style="color:#007020;font-weight:bold">NOT</span> <span style="color:#60add5">NULL</span>,
+  title <span style="color:#902000">VARCHAR</span>(<span style="color:#40a070">100</span>) <span style="color:#007020;font-weight:bold">DEFAULT</span> <span style="color:#60add5">NULL</span>,
+  salary <span style="color:#902000">DOUBLE</span> <span style="color:#007020;font-weight:bold">DEFAULT</span> <span style="color:#60add5">NULL</span>,
+  hire_date <span style="color:#902000">DATE</span> <span style="color:#007020;font-weight:bold">NOT</span> <span style="color:#60add5">NULL</span>,
+  notes <span style="color:#902000">TEXT</span>,
+  <span style="color:#007020;font-weight:bold">PRIMARY</span> <span style="color:#007020;font-weight:bold">KEY</span> (id)
+);
+
+<span style="color:#007020;font-weight:bold">INSERT</span> <span style="color:#007020;font-weight:bold">INTO</span> <span style="color:#06287e">employee</span> (first_name, last_name, title, salary, hire_date) <span style="color:#007020;font-weight:bold">VALUES</span> 
+    (<span style="color:#4070a0">&#39;Robin&#39;</span>, <span style="color:#4070a0">&#39;Jackman&#39;</span>, <span style="color:#4070a0">&#39;Software Engineer&#39;</span>, <span style="color:#40a070">5500</span>, <span style="color:#4070a0">&#39;2001-10-12&#39;</span>),
+    (<span style="color:#4070a0">&#39;Taylor&#39;</span>, <span style="color:#4070a0">&#39;Edward&#39;</span>, <span style="color:#4070a0">&#39;Software Architect&#39;</span>, <span style="color:#40a070">7200</span>, <span style="color:#4070a0">&#39;2002-09-21&#39;</span>),
+    (<span style="color:#4070a0">&#39;Vivian&#39;</span>, <span style="color:#4070a0">&#39;Dickens&#39;</span>, <span style="color:#4070a0">&#39;Database Administrator&#39;</span>, <span style="color:#40a070">6000</span>, <span style="color:#4070a0">&#39;2012-08-29&#39;</span>),
+    (<span style="color:#4070a0">&#39;Harry&#39;</span>, <span style="color:#4070a0">&#39;Clifford&#39;</span>, <span style="color:#4070a0">&#39;Database Administrator&#39;</span>, <span style="color:#40a070">6800</span>, <span style="color:#4070a0">&#39;2015-12-10&#39;</span>),
+    (<span style="color:#4070a0">&#39;Eliza&#39;</span>, <span style="color:#4070a0">&#39;Clifford&#39;</span>, <span style="color:#4070a0">&#39;Software Engineer&#39;</span>, <span style="color:#40a070">4750</span>, <span style="color:#4070a0">&#39;1998-10-19&#39;</span>),
+    (<span style="color:#4070a0">&#39;Nancy&#39;</span>, <span style="color:#4070a0">&#39;Newman&#39;</span>, <span style="color:#4070a0">&#39;Software Engineer&#39;</span>, <span style="color:#40a070">5100</span>, <span style="color:#4070a0">&#39;2007-01-23&#39;</span>),
+    (<span style="color:#4070a0">&#39;Melinda&#39;</span>, <span style="color:#4070a0">&#39;Clifford&#39;</span>, <span style="color:#4070a0">&#39;Project Manager&#39;</span>, <span style="color:#40a070">8500</span>, <span style="color:#4070a0">&#39;2013-10-29&#39;</span>),
+    (<span style="color:#4070a0">&#39;Jack&#39;</span>, <span style="color:#4070a0">&#39;Chan&#39;</span>, <span style="color:#4070a0">&#39;Test Engineer&#39;</span>, <span style="color:#40a070">6500</span>, <span style="color:#4070a0">&#39;2018-09-07&#39;</span>),
+    (<span style="color:#4070a0">&#39;Harley&#39;</span>, <span style="color:#4070a0">&#39;Gilbert&#39;</span>, <span style="color:#4070a0">&#39;Software Architect&#39;</span>, <span style="color:#40a070">8000</span>, <span style="color:#4070a0">&#39;2000-07-17&#39;</span>);
+</code></pre></div><h4 id="查看這個database有哪些table">查看這個database有哪些table</h4>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-MySQL" data-lang="MySQL"><span style="color:#007020;font-weight:bold">show</span> <span style="color:#007020">tables</span>
+
+<span style="color:#666">+----------------+</span>
+<span style="color:#666">|</span> Tables_in_demo <span style="color:#666">|</span>
+<span style="color:#666">+----------------+</span>
+<span style="color:#666">|</span> employee       <span style="color:#666">|</span>
+<span style="color:#666">|</span> movie          <span style="color:#666">|</span>
+<span style="color:#666">|</span> test           <span style="color:#666">|</span>
+</code></pre></div><h4 id="描述table-有哪些屬性---desc-表格名稱">描述table 有哪些屬性   desc 表格名稱</h4>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-MySQL" data-lang="MySQL"><span style="color:#007020;font-weight:bold">desc</span> movie;
+
+<span style="color:#666">+----------------+--------------+------+-----+---------+----------------+</span>
+<span style="color:#666">|</span> Field          <span style="color:#666">|</span> Type         <span style="color:#666">|</span> <span style="color:#60add5">Null</span> <span style="color:#666">|</span> <span style="color:#007020;font-weight:bold">Key</span> <span style="color:#666">|</span> <span style="color:#007020;font-weight:bold">Default</span> <span style="color:#666">|</span> Extra          <span style="color:#666">|</span>
+<span style="color:#666">+----------------+--------------+------+-----+---------+----------------+</span>
+<span style="color:#666">|</span> id             <span style="color:#666">|</span> <span style="color:#902000">int</span>(<span style="color:#40a070">11</span>)      <span style="color:#666">|</span> NO   <span style="color:#666">|</span> PRI <span style="color:#666">|</span> <span style="color:#60add5">NULL</span>    <span style="color:#666">|</span> <span style="color:#007020">auto_increment</span> <span style="color:#666">|</span>
+<span style="color:#666">|</span> title          <span style="color:#666">|</span> <span style="color:#902000">varchar</span>(<span style="color:#40a070">100</span>) <span style="color:#666">|</span> NO   <span style="color:#666">|</span>     <span style="color:#666">|</span> <span style="color:#60add5">NULL</span>    <span style="color:#666">|</span>                <span style="color:#666">|</span>
+<span style="color:#666">|</span> title_year     <span style="color:#666">|</span> <span style="color:#902000">int</span>(<span style="color:#40a070">11</span>)      <span style="color:#666">|</span> NO   <span style="color:#666">|</span>     <span style="color:#666">|</span> <span style="color:#60add5">NULL</span>    <span style="color:#666">|</span>                <span style="color:#666">|</span>
+<span style="color:#666">|</span> director_name  <span style="color:#666">|</span> <span style="color:#902000">varchar</span>(<span style="color:#40a070">50</span>)  <span style="color:#666">|</span> NO   <span style="color:#666">|</span>     <span style="color:#666">|</span> <span style="color:#60add5">NULL</span>    <span style="color:#666">|</span>                <span style="color:#666">|</span>
+<span style="color:#666">|</span> actor_1_name   <span style="color:#666">|</span> <span style="color:#902000">varchar</span>(<span style="color:#40a070">50</span>)  <span style="color:#666">|</span> NO   <span style="color:#666">|</span>     <span style="color:#666">|</span> <span style="color:#60add5">NULL</span>    <span style="color:#666">|</span>                <span style="color:#666">|</span>
+<span style="color:#666">|</span> actor_2_name   <span style="color:#666">|</span> <span style="color:#902000">varchar</span>(<span style="color:#40a070">50</span>)  <span style="color:#666">|</span> NO   <span style="color:#666">|</span>     <span style="color:#666">|</span> <span style="color:#60add5">NULL</span>    <span style="color:#666">|</span>                <span style="color:#666">|</span>
+<span style="color:#666">|</span> duration       <span style="color:#666">|</span> <span style="color:#902000">int</span>(<span style="color:#40a070">11</span>)      <span style="color:#666">|</span> NO   <span style="color:#666">|</span>     <span style="color:#666">|</span> <span style="color:#60add5">NULL</span>    <span style="color:#666">|</span>                <span style="color:#666">|</span>
+<span style="color:#666">|</span> country        <span style="color:#666">|</span> <span style="color:#902000">varchar</span>(<span style="color:#40a070">50</span>)  <span style="color:#666">|</span> NO   <span style="color:#666">|</span>     <span style="color:#666">|</span> <span style="color:#60add5">NULL</span>    <span style="color:#666">|</span>                <span style="color:#666">|</span>
+<span style="color:#666">|</span> content_rating <span style="color:#666">|</span> <span style="color:#902000">varchar</span>(<span style="color:#40a070">10</span>)  <span style="color:#666">|</span> NO   <span style="color:#666">|</span>     <span style="color:#666">|</span> <span style="color:#60add5">NULL</span>    <span style="color:#666">|</span>                <span style="color:#666">|</span>
+<span style="color:#666">|</span> gross          <span style="color:#666">|</span> <span style="color:#902000">bigint</span>(<span style="color:#40a070">20</span>)   <span style="color:#666">|</span> NO   <span style="color:#666">|</span>     <span style="color:#666">|</span> <span style="color:#60add5">NULL</span>    <span style="color:#666">|</span>                <span style="color:#666">|</span>
+<span style="color:#666">|</span> imdb_score     <span style="color:#666">|</span> <span style="color:#902000">float</span>        <span style="color:#666">|</span> YES  <span style="color:#666">|</span>     <span style="color:#666">|</span> <span style="color:#40a070">0</span>       <span style="color:#666">|</span>                <span style="color:#666">|</span>
+<span style="color:#666">+----------------+--------------+------+-----+---------+----------------+</span>
+</code></pre></div><h4 id="查看表格所有數據">查看表格所有數據</h4>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-MySQL" data-lang="MySQL"><span style="color:#007020;font-weight:bold">select</span> <span style="color:#666">*</span> <span style="color:#007020;font-weight:bold">from</span> employee;
+
+<span style="color:#666">+----+------------+-----------+------------------------+--------+------------+-------+</span>
+<span style="color:#666">|</span> id <span style="color:#666">|</span> first_name <span style="color:#666">|</span> last_name <span style="color:#666">|</span> title                  <span style="color:#666">|</span> salary <span style="color:#666">|</span> hire_date  <span style="color:#666">|</span> notes <span style="color:#666">|</span>
+<span style="color:#666">+----+------------+-----------+------------------------+--------+------------+-------+</span>
+<span style="color:#666">|</span>  <span style="color:#40a070">1</span> <span style="color:#666">|</span> Robin      <span style="color:#666">|</span> Jackman   <span style="color:#666">|</span> Software Engineer      <span style="color:#666">|</span>   <span style="color:#40a070">5500</span> <span style="color:#666">|</span> <span style="color:#40a070">2001</span><span style="color:#666">-</span><span style="color:#40a070">10</span><span style="color:#666">-</span><span style="color:#40a070">12</span> <span style="color:#666">|</span> <span style="color:#60add5">NULL</span>  <span style="color:#666">|</span>
+<span style="color:#666">|</span>  <span style="color:#40a070">2</span> <span style="color:#666">|</span> Taylor     <span style="color:#666">|</span> Edward    <span style="color:#666">|</span> Software Architect     <span style="color:#666">|</span>   <span style="color:#40a070">7200</span> <span style="color:#666">|</span> <span style="color:#40a070">2002</span><span style="color:#666">-</span><span style="color:#40a070">09</span><span style="color:#666">-</span><span style="color:#40a070">21</span> <span style="color:#666">|</span> <span style="color:#60add5">NULL</span>  <span style="color:#666">|</span>
+<span style="color:#666">|</span>  <span style="color:#40a070">3</span> <span style="color:#666">|</span> Vivian     <span style="color:#666">|</span> Dickens   <span style="color:#666">|</span> <span style="color:#007020;font-weight:bold">Database</span> Administrator <span style="color:#666">|</span>   <span style="color:#40a070">6000</span> <span style="color:#666">|</span> <span style="color:#40a070">2012</span><span style="color:#666">-</span><span style="color:#40a070">08</span><span style="color:#666">-</span><span style="color:#40a070">29</span> <span style="color:#666">|</span> <span style="color:#60add5">NULL</span>  <span style="color:#666">|</span>
+<span style="color:#666">|</span>  <span style="color:#40a070">4</span> <span style="color:#666">|</span> Harry      <span style="color:#666">|</span> Clifford  <span style="color:#666">|</span> <span style="color:#007020;font-weight:bold">Database</span> Administrator <span style="color:#666">|</span>   <span style="color:#40a070">6800</span> <span style="color:#666">|</span> <span style="color:#40a070">2015</span><span style="color:#666">-</span><span style="color:#40a070">12</span><span style="color:#666">-</span><span style="color:#40a070">10</span> <span style="color:#666">|</span> <span style="color:#60add5">NULL</span>  <span style="color:#666">|</span>
+<span style="color:#666">|</span>  <span style="color:#40a070">5</span> <span style="color:#666">|</span> Eliza      <span style="color:#666">|</span> Clifford  <span style="color:#666">|</span> Software Engineer      <span style="color:#666">|</span>   <span style="color:#40a070">4750</span> <span style="color:#666">|</span> <span style="color:#40a070">1998</span><span style="color:#666">-</span><span style="color:#40a070">10</span><span style="color:#666">-</span><span style="color:#40a070">19</span> <span style="color:#666">|</span> <span style="color:#60add5">NULL</span>  <span style="color:#666">|</span>
+<span style="color:#666">|</span>  <span style="color:#40a070">6</span> <span style="color:#666">|</span> Nancy      <span style="color:#666">|</span> Newman    <span style="color:#666">|</span> Software Engineer      <span style="color:#666">|</span>   <span style="color:#40a070">5100</span> <span style="color:#666">|</span> <span style="color:#40a070">2007</span><span style="color:#666">-</span><span style="color:#40a070">01</span><span style="color:#666">-</span><span style="color:#40a070">23</span> <span style="color:#666">|</span> <span style="color:#60add5">NULL</span>  <span style="color:#666">|</span>
+<span style="color:#666">|</span>  <span style="color:#40a070">7</span> <span style="color:#666">|</span> Melinda    <span style="color:#666">|</span> Clifford  <span style="color:#666">|</span> Project Manager        <span style="color:#666">|</span>   <span style="color:#40a070">8500</span> <span style="color:#666">|</span> <span style="color:#40a070">2013</span><span style="color:#666">-</span><span style="color:#40a070">10</span><span style="color:#666">-</span><span style="color:#40a070">29</span> <span style="color:#666">|</span> <span style="color:#60add5">NULL</span>  <span style="color:#666">|</span>
+<span style="color:#666">|</span>  <span style="color:#40a070">8</span> <span style="color:#666">|</span> Jack       <span style="color:#666">|</span> Chan      <span style="color:#666">|</span> Test Engineer          <span style="color:#666">|</span>   <span style="color:#40a070">6500</span> <span style="color:#666">|</span> <span style="color:#40a070">2018</span><span style="color:#666">-</span><span style="color:#40a070">09</span><span style="color:#666">-</span><span style="color:#40a070">07</span> <span style="color:#666">|</span> <span style="color:#60add5">NULL</span>  <span style="color:#666">|</span>
+<span style="color:#666">|</span>  <span style="color:#40a070">9</span> <span style="color:#666">|</span> Harley     <span style="color:#666">|</span> Gilbert   <span style="color:#666">|</span> Software Architect     <span style="color:#666">|</span>   <span style="color:#40a070">8000</span> <span style="color:#666">|</span> <span style="color:#40a070">2000</span><span style="color:#666">-</span><span style="color:#40a070">07</span><span style="color:#666">-</span><span style="color:#40a070">17</span> <span style="color:#666">|</span> <span style="color:#60add5">NULL</span>  <span style="color:#666">|</span>
+<span style="color:#666">+----+------------+-----------+------------------------+--------+------------+-------+</span>
+</code></pre></div><h4 id="where語句過濾">WHERE語句過濾</h4>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-MySQL" data-lang="MySQL"><span style="color:#007020;font-weight:bold">select</span> <span style="color:#666">*</span> <span style="color:#007020;font-weight:bold">from</span> employee <span style="color:#007020;font-weight:bold">where</span> last_name<span style="color:#666">=</span><span style="color:#4070a0">&#34;Clifford&#34;</span>;
+
+<span style="color:#666">+----+------------+-----------+------------------------+--------+------------+-------+</span>
+<span style="color:#666">|</span> id <span style="color:#666">|</span> first_name <span style="color:#666">|</span> last_name <span style="color:#666">|</span> title                  <span style="color:#666">|</span> salary <span style="color:#666">|</span> hire_date  <span style="color:#666">|</span> notes <span style="color:#666">|</span>
+<span style="color:#666">+----+------------+-----------+------------------------+--------+------------+-------+</span>
+<span style="color:#666">|</span>  <span style="color:#40a070">4</span> <span style="color:#666">|</span> Harry      <span style="color:#666">|</span> Clifford  <span style="color:#666">|</span> <span style="color:#007020;font-weight:bold">Database</span> Administrator <span style="color:#666">|</span>   <span style="color:#40a070">6800</span> <span style="color:#666">|</span> <span style="color:#40a070">2015</span><span style="color:#666">-</span><span style="color:#40a070">12</span><span style="color:#666">-</span><span style="color:#40a070">10</span> <span style="color:#666">|</span> <span style="color:#60add5">NULL</span>  <span style="color:#666">|</span>
+<span style="color:#666">|</span>  <span style="color:#40a070">5</span> <span style="color:#666">|</span> Eliza      <span style="color:#666">|</span> Clifford  <span style="color:#666">|</span> Software Engineer      <span style="color:#666">|</span>   <span style="color:#40a070">4750</span> <span style="color:#666">|</span> <span style="color:#40a070">1998</span><span style="color:#666">-</span><span style="color:#40a070">10</span><span style="color:#666">-</span><span style="color:#40a070">19</span> <span style="color:#666">|</span> <span style="color:#60add5">NULL</span>  <span style="color:#666">|</span>
+<span style="color:#666">|</span>  <span style="color:#40a070">7</span> <span style="color:#666">|</span> Melinda    <span style="color:#666">|</span> Clifford  <span style="color:#666">|</span> Project Manager        <span style="color:#666">|</span>   <span style="color:#40a070">8500</span> <span style="color:#666">|</span> <span style="color:#40a070">2013</span><span style="color:#666">-</span><span style="color:#40a070">10</span><span style="color:#666">-</span><span style="color:#40a070">29</span> <span style="color:#666">|</span> <span style="color:#60add5">NULL</span>  <span style="color:#666">|</span>
+<span style="color:#666">+----+------------+-----------+------------------------+--------+------------+-------+</span>
+</code></pre></div><h4 id="where兩個條件過濾">WHERE兩個條件過濾</h4>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-MySQL" data-lang="MySQL"> <span style="color:#007020;font-weight:bold">select</span> <span style="color:#666">*</span> <span style="color:#007020;font-weight:bold">from</span> employee <span style="color:#007020;font-weight:bold">where</span> last_name<span style="color:#666">=</span><span style="color:#4070a0">&#34;Clifford&#34;</span> <span style="color:#007020;font-weight:bold">and</span> salary<span style="color:#666">=</span><span style="color:#40a070">6800</span>;
+
+<span style="color:#666">+----+------------+-----------+------------------------+--------+------------+-------+</span>
+<span style="color:#666">|</span> id <span style="color:#666">|</span> first_name <span style="color:#666">|</span> last_name <span style="color:#666">|</span> title                  <span style="color:#666">|</span> salary <span style="color:#666">|</span> hire_date  <span style="color:#666">|</span> notes <span style="color:#666">|</span>
+<span style="color:#666">+----+------------+-----------+------------------------+--------+------------+-------+</span>
+<span style="color:#666">|</span>  <span style="color:#40a070">4</span> <span style="color:#666">|</span> Harry      <span style="color:#666">|</span> Clifford  <span style="color:#666">|</span> <span style="color:#007020;font-weight:bold">Database</span> Administrator <span style="color:#666">|</span>   <span style="color:#40a070">6800</span> <span style="color:#666">|</span> <span style="color:#40a070">2015</span><span style="color:#666">-</span><span style="color:#40a070">12</span><span style="color:#666">-</span><span style="color:#40a070">10</span> <span style="color:#666">|</span> <span style="color:#60add5">NULL</span>  <span style="color:#666">|</span>
+<span style="color:#666">+----+------------+-----------+------------------------+--------+------------+-------+</span>
+</code></pre></div><h4 id="新增">新增</h4>
+<p>INSERT INTO yourTABLEname (column1,column2)VALUES(新增項目1,新增項目2);
+範例:</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-MySQL" data-lang="MySQL"><span style="color:#007020;font-weight:bold">INSERT</span> <span style="color:#007020;font-weight:bold">INTO</span> <span style="color:#06287e">employee</span> (first_name, last_name, title, salary, hire_date) <span style="color:#007020;font-weight:bold">VALUES</span> 
+    (<span style="color:#4070a0">&#39;Robin&#39;</span>, <span style="color:#4070a0">&#39;Jackman&#39;</span>, <span style="color:#4070a0">&#39;Software Engineer&#39;</span>, <span style="color:#40a070">5500</span>, <span style="color:#4070a0">&#39;2001-10-12&#39;</span>);
+</code></pre></div><h4 id="更新">更新</h4>
+<p>update語句更新數據(先找到要更改資料，再更改比較不會亂掉)
+!!!注意 update from &ldquo;table名子&rdquo;; 是對整個table進行操作
+update employee set  salary=10000,(預更改coulmn = &ldquo;更改值&rdquo;) where title=&quot;Software Architect&rdquo;;</p>
+<p>更新成功</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-MySQL" data-lang="MySQL"><span style="color:#007020;font-weight:bold">select</span> <span style="color:#666">*</span> <span style="color:#007020;font-weight:bold">from</span> employee <span style="color:#007020;font-weight:bold">where</span> title<span style="color:#666">=</span><span style="color:#4070a0">&#34;Software Architect&#34;</span>;
+
+<span style="color:#666">+----+------------+-----------+--------------------+--------+------------+-------+</span>
+<span style="color:#666">|</span> id <span style="color:#666">|</span> first_name <span style="color:#666">|</span> last_name <span style="color:#666">|</span> title              <span style="color:#666">|</span> salary <span style="color:#666">|</span> hire_date  <span style="color:#666">|</span> notes <span style="color:#666">|</span>
+<span style="color:#666">+----+------------+-----------+--------------------+--------+------------+-------+</span>
+<span style="color:#666">|</span>  <span style="color:#40a070">2</span> <span style="color:#666">|</span> Taylor     <span style="color:#666">|</span> Edward    <span style="color:#666">|</span> Software Architect <span style="color:#666">|</span>  <span style="color:#40a070">10000</span> <span style="color:#666">|</span> <span style="color:#40a070">2002</span><span style="color:#666">-</span><span style="color:#40a070">09</span><span style="color:#666">-</span><span style="color:#40a070">21</span> <span style="color:#666">|</span> <span style="color:#60add5">NULL</span>  <span style="color:#666">|</span>
+<span style="color:#666">|</span>  <span style="color:#40a070">9</span> <span style="color:#666">|</span> Harley     <span style="color:#666">|</span> Gilbert   <span style="color:#666">|</span> Software Architect <span style="color:#666">|</span>  <span style="color:#40a070">10000</span> <span style="color:#666">|</span> <span style="color:#40a070">2000</span><span style="color:#666">-</span><span style="color:#40a070">07</span><span style="color:#666">-</span><span style="color:#40a070">17</span> <span style="color:#666">|</span> <span style="color:#60add5">NULL</span>  <span style="color:#666">|</span>
+<span style="color:#666">+----+------------+-----------+--------------------+--------+------------+-------+</span>
+</code></pre></div><h4 id="刪除">刪除</h4>
+<p>delete語句刪除數據
+!!!注意 delete from &ldquo;table名子&rdquo;; 是對整個table進行操作</p>
+<p>刪除例句</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-MySQL" data-lang="MySQL">delet <span style="color:#007020;font-weight:bold">from</span> employee <span style="color:#007020;font-weight:bold">where</span> title <span style="color:#666">=</span><span style="color:#4070a0">&#34;Software Architect&#34;</span>;
+</code></pre></div><h3 id="sql字符串相關處理方法">SQL字符串相關處理方法</h3>
+<h4 id="字串拼接substring">字串拼接SUBSTRING</h4>
+<p>字串拼接CONCAT(&ldquo;A&rdquo;,&ldquo;B&rdquo;)</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-MySQL" data-lang="MySQL"><span style="color:#007020;font-weight:bold">select</span> <span style="color:#06287e">concat</span>(first_name,<span style="color:#4070a0">&#34;,&#34;</span>,last_name) <span style="color:#007020;font-weight:bold">from</span> employee;
+
+<span style="color:#666">+----------------------------------+</span>
+<span style="color:#666">|</span> <span style="color:#06287e">concat</span>(first_name,<span style="color:#4070a0">&#34;,&#34;</span>,last_name) <span style="color:#666">|</span>
+<span style="color:#666">+----------------------------------+</span>
+<span style="color:#666">|</span> Robin,Jackman                    <span style="color:#666">|</span>
+<span style="color:#666">|</span> Taylor,Edward                    <span style="color:#666">|</span>
+<span style="color:#666">|</span> Vivian,Dickens                   <span style="color:#666">|</span>
+<span style="color:#666">|</span> Harry,Clifford                   <span style="color:#666">|</span>
+<span style="color:#666">|</span> Eliza,Clifford                   <span style="color:#666">|</span>
+<span style="color:#666">|</span> Nancy,Newman                     <span style="color:#666">|</span>
+<span style="color:#666">|</span> Melinda,Clifford                 <span style="color:#666">|</span>
+<span style="color:#666">|</span> Jack,Chan                        <span style="color:#666">|</span>
+<span style="color:#666">|</span> Harley,Gilbert                   <span style="color:#666">|</span>
+<span style="color:#666">+----------------------------------+</span>
+</code></pre></div><p>字串合併取名為fullname</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-MySQL" data-lang="MySQL"> <span style="color:#007020;font-weight:bold">select</span> <span style="color:#06287e">concat</span>(first_name,<span style="color:#4070a0">&#34;,&#34;</span>,last_name) <span style="color:#007020;font-weight:bold">as</span> fullname <span style="color:#007020;font-weight:bold">from</span> employee;
+
+<span style="color:#666">+------------------+</span>
+<span style="color:#666">|</span> fullname         <span style="color:#666">|</span>
+<span style="color:#666">+------------------+</span>
+<span style="color:#666">|</span> Robin,Jackman    <span style="color:#666">|</span>
+<span style="color:#666">|</span> Taylor,Edward    <span style="color:#666">|</span>
+<span style="color:#666">|</span> Vivian,Dickens   <span style="color:#666">|</span>
+<span style="color:#666">|</span> Harry,Clifford   <span style="color:#666">|</span>
+<span style="color:#666">|</span> Eliza,Clifford   <span style="color:#666">|</span>
+<span style="color:#666">|</span> Nancy,Newman     <span style="color:#666">|</span>
+<span style="color:#666">|</span> Melinda,Clifford <span style="color:#666">|</span>
+<span style="color:#666">|</span> Jack,Chan        <span style="color:#666">|</span>
+<span style="color:#666">|</span> Harley,Gilbert   <span style="color:#666">|</span>
+<span style="color:#666">+------------------+</span>
+</code></pre></div><p>字串合併CONCAT_WS  CONCAT_WS(&ldquo;這裡輸入拼接字符串&rdquo;, first_name, last_name)</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-MySQL" data-lang="MySQL"><span style="color:#007020;font-weight:bold">select</span> <span style="color:#06287e">CONCAT_WS</span>(<span style="color:#4070a0">&#34;-&#34;</span>,first_name,last_name) <span style="color:#007020;font-weight:bold">from</span> employee;
+
+<span style="color:#666">+-------------------------------------+</span>
+<span style="color:#666">|</span> <span style="color:#06287e">CONCAT_WS</span>(<span style="color:#4070a0">&#34;-&#34;</span>,first_name,last_name) <span style="color:#666">|</span>
+<span style="color:#666">+-------------------------------------+</span>
+<span style="color:#666">|</span> Robin<span style="color:#666">-</span>Jackman                       <span style="color:#666">|</span>
+<span style="color:#666">|</span> Taylor<span style="color:#666">-</span>Edward                       <span style="color:#666">|</span>
+<span style="color:#666">|</span> Vivian<span style="color:#666">-</span>Dickens                      <span style="color:#666">|</span>
+<span style="color:#666">|</span> Harry<span style="color:#666">-</span>Clifford                      <span style="color:#666">|</span>
+<span style="color:#666">|</span> Eliza<span style="color:#666">-</span>Clifford                      <span style="color:#666">|</span>
+<span style="color:#666">|</span> Nancy<span style="color:#666">-</span>Newman                        <span style="color:#666">|</span>
+<span style="color:#666">|</span> Melinda<span style="color:#666">-</span>Clifford                    <span style="color:#666">|</span>
+<span style="color:#666">|</span> Jack<span style="color:#666">-</span>Chan                           <span style="color:#666">|</span>
+<span style="color:#666">|</span> Harley<span style="color:#666">-</span>Gilbert                      <span style="color:#666">|</span>
+<span style="color:#666">+-------------------------------------+</span>
+</code></pre></div><p>####　字串SUBSTRING
+字串SUBSTRING可簡寫SUBSTR</p>
+<p>第一個字到第四</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-MySQL" data-lang="MySQL"><span style="color:#007020;font-weight:bold">select</span> <span style="color:#06287e">SUBSTRING</span>(<span style="color:#4070a0">&#34;Hello Word&#34;</span>,<span style="color:#40a070">1</span>,<span style="color:#40a070">4</span>);
+
+<span style="color:#666">+-----------------------------+</span>
+<span style="color:#666">|</span> <span style="color:#06287e">SUBSTRING</span>(<span style="color:#4070a0">&#34;Hello Word&#34;</span>,<span style="color:#40a070">1</span>,<span style="color:#40a070">4</span>) <span style="color:#666">|</span>
+<span style="color:#666">+-----------------------------+</span>
+<span style="color:#666">|</span> Hell                        <span style="color:#666">|</span>
+<span style="color:#666">+-----------------------------+</span>
+</code></pre></div><p>從第七個到結束</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-MySQL" data-lang="MySQL"><span style="color:#007020;font-weight:bold">select</span> <span style="color:#06287e">SUBSTRING</span>(<span style="color:#4070a0">&#34;Hello Word&#34;</span>,<span style="color:#40a070">7</span>);
+
+<span style="color:#666">+---------------------------+</span>
+<span style="color:#666">|</span> <span style="color:#06287e">SUBSTRING</span>(<span style="color:#4070a0">&#34;Hello Word&#34;</span>,<span style="color:#40a070">7</span>) <span style="color:#666">|</span>
+<span style="color:#666">+---------------------------+</span>
+<span style="color:#666">|</span> Word                      <span style="color:#666">|</span>
+<span style="color:#666">+---------------------------+</span>
+</code></pre></div><p>從後面數來三個</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-MySQL" data-lang="MySQL"><span style="color:#007020;font-weight:bold">select</span> <span style="color:#06287e">SUBSTRING</span>(<span style="color:#4070a0">&#34;Hello Word&#34;</span>, <span style="color:#666">-</span><span style="color:#40a070">3</span>);
+
+<span style="color:#666">+-----------------------------+</span>
+<span style="color:#666">|</span> <span style="color:#06287e">SUBSTRING</span>(<span style="color:#4070a0">&#34;Hello Word&#34;</span>, <span style="color:#666">-</span><span style="color:#40a070">3</span>) <span style="color:#666">|</span>
+<span style="color:#666">+-----------------------------+</span>
+<span style="color:#666">|</span> ord                         <span style="color:#666">|</span>
+<span style="color:#666">+-----------------------------+</span>
+</code></pre></div><h4 id="replacereverse-and-char_length">REPLACE,REVERSE and CHAR_LENGTH</h4>
+<h5 id="字符串取代replace">字符串取代REPLACE</h5>
+<p>select REPLACE(&ldquo;一段字串&rdquo;,&ldquo;想改變的字串&rdquo;,&ldquo;改變成甚麼&rdquo;);</p>
+<p>範例:</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-MySQL" data-lang="MySQL"><span style="color:#007020;font-weight:bold">select</span> <span style="color:#007020;font-weight:bold">REPLACE</span>(<span style="color:#4070a0">&#34;Hello World&#34;</span>, <span style="color:#4070a0">&#34;World&#34;</span>, <span style="color:#4070a0">&#34;MySQL&#34;</span>);
+
+<span style="color:#666">+------------------------------------------+</span>
+<span style="color:#666">|</span> <span style="color:#007020;font-weight:bold">REPLACE</span>(<span style="color:#4070a0">&#34;Hello World&#34;</span>, <span style="color:#4070a0">&#34;World&#34;</span>, <span style="color:#4070a0">&#34;MySQL&#34;</span>) <span style="color:#666">|</span>
+<span style="color:#666">+------------------------------------------+</span>
+<span style="color:#666">|</span> Hello MySQL                              <span style="color:#666">|</span>
+<span style="color:#666">+------------------------------------------+</span>
+</code></pre></div><h5 id="字符反轉reverse">字符反轉REVERSE</h5>
+<p>select REVERSE(&ldquo;要反轉字串&rdquo;);</p>
+<p>範例:</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-MySQL" data-lang="MySQL"><span style="color:#007020;font-weight:bold">select</span> <span style="color:#06287e">REVERSE</span>(<span style="color:#4070a0">&#34;Hello World&#34;</span>);
+
+<span style="color:#666">+------------------------+</span>
+<span style="color:#666">|</span> <span style="color:#06287e">REVERSE</span>(<span style="color:#4070a0">&#34;Hello World&#34;</span>) <span style="color:#666">|</span>
+<span style="color:#666">+------------------------+</span>
+<span style="color:#666">|</span> dlroW olleH            <span style="color:#666">|</span>
+<span style="color:#666">+------------------------+</span>
+</code></pre></div><h5 id="查看字符串幾個字char_length">查看字符串幾個字CHAR_LENGTH</h5>
+<p>select CHAR_LENGTH(&ldquo;字串&rdquo;);</p>
+<p>範例:</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-MySQL" data-lang="MySQL"><span style="color:#007020;font-weight:bold">select</span> <span style="color:#06287e">CHAR_LENGTH</span>(<span style="color:#4070a0">&#34;Hello World&#34;</span>);
+
+<span style="color:#666">+----------------------------+</span>
+<span style="color:#666">|</span> <span style="color:#06287e">CHAR_LENGTH</span>(<span style="color:#4070a0">&#34;Hello World&#34;</span>) <span style="color:#666">|</span>
+<span style="color:#666">+----------------------------+</span>
+<span style="color:#666">|</span>                         <span style="color:#40a070">11</span> <span style="color:#666">|</span>
+<span style="color:#666">+----------------------------+</span>
+</code></pre></div><h5 id="大小寫轉換lower-and-upper">大小寫轉換LOWER AND UPPER</h5>
+<p>字串變大寫UPPER</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-MySQL" data-lang="MySQL"><span style="color:#007020;font-weight:bold">select</span> <span style="color:#06287e">UPPER</span>(<span style="color:#4070a0">&#34;Hello MySQL&#34;</span>);
+</code></pre></div><p>字串變小寫LOWER</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-MySQL" data-lang="MySQL"><span style="color:#007020;font-weight:bold">select</span> <span style="color:#06287e">LOWER</span>(<span style="color:#4070a0">&#34;Hello MySQL&#34;</span>);
+</code></pre></div><p>大小寫範例:</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-MySQL" data-lang="MySQL"><span style="color:#007020;font-weight:bold">select</span> <span style="color:#06287e">UPPER</span>(first_name) <span style="color:#007020;font-weight:bold">as</span> first_name, <span style="color:#06287e">UPPER</span>(last_name) <span style="color:#007020;font-weight:bold">as</span> last_name <span style="color:#007020;font-weight:bold">from</span> employee;
+
+<span style="color:#666">+------------+-----------+</span>
+<span style="color:#666">|</span> first_name <span style="color:#666">|</span> last_name <span style="color:#666">|</span>
+<span style="color:#666">+------------+-----------+</span>
+<span style="color:#666">|</span> ROBIN      <span style="color:#666">|</span> JACKMAN   <span style="color:#666">|</span>
+<span style="color:#666">|</span> TAYLOR     <span style="color:#666">|</span> EDWARD    <span style="color:#666">|</span>
+<span style="color:#666">|</span> VIVIAN     <span style="color:#666">|</span> DICKENS   <span style="color:#666">|</span>
+<span style="color:#666">|</span> HARRY      <span style="color:#666">|</span> CLIFFORD  <span style="color:#666">|</span>
+<span style="color:#666">|</span> ELIZA      <span style="color:#666">|</span> CLIFFORD  <span style="color:#666">|</span>
+<span style="color:#666">|</span> NANCY      <span style="color:#666">|</span> NEWMAN    <span style="color:#666">|</span>
+<span style="color:#666">|</span> MELINDA    <span style="color:#666">|</span> CLIFFORD  <span style="color:#666">|</span>
+<span style="color:#666">|</span> JACK       <span style="color:#666">|</span> CHAN      <span style="color:#666">|</span>
+<span style="color:#666">|</span> HARLEY     <span style="color:#666">|</span> GILBERT   <span style="color:#666">|</span>
+<span style="color:#666">+------------+-----------+</span>
+</code></pre></div><h3 id="select結果的進一步處理">select結果的進一步處理</h3>
+<h4 id="order-by對結果進行排序">order by對結果進行排序</h4>
+<p>將資料庫資料依據某項要求排序 order by(默認升序) + desc(降序)</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-MySQL" data-lang="MySQL"><span style="color:#007020;font-weight:bold">select</span> <span style="color:#666">*</span> <span style="color:#007020;font-weight:bold">from</span> employee <span style="color:#007020;font-weight:bold">order</span> <span style="color:#007020;font-weight:bold">by</span> salary;
+
+<span style="color:#666">+----+------------+-----------+------------------------+--------+------------+-------+</span>
+<span style="color:#666">|</span> id <span style="color:#666">|</span> first_name <span style="color:#666">|</span> last_name <span style="color:#666">|</span> title                  <span style="color:#666">|</span> salary <span style="color:#666">|</span> hire_date  <span style="color:#666">|</span> notes <span style="color:#666">|</span>
+<span style="color:#666">+----+------------+-----------+------------------------+--------+------------+-------+</span>
+<span style="color:#666">|</span>  <span style="color:#40a070">5</span> <span style="color:#666">|</span> Eliza      <span style="color:#666">|</span> Clifford  <span style="color:#666">|</span> Software Engineer      <span style="color:#666">|</span>   <span style="color:#40a070">4750</span> <span style="color:#666">|</span> <span style="color:#40a070">1998</span><span style="color:#666">-</span><span style="color:#40a070">10</span><span style="color:#666">-</span><span style="color:#40a070">19</span> <span style="color:#666">|</span> <span style="color:#60add5">NULL</span>  <span style="color:#666">|</span>
+<span style="color:#666">|</span>  <span style="color:#40a070">6</span> <span style="color:#666">|</span> Nancy      <span style="color:#666">|</span> Newman    <span style="color:#666">|</span> Software Engineer      <span style="color:#666">|</span>   <span style="color:#40a070">5100</span> <span style="color:#666">|</span> <span style="color:#40a070">2007</span><span style="color:#666">-</span><span style="color:#40a070">01</span><span style="color:#666">-</span><span style="color:#40a070">23</span> <span style="color:#666">|</span> <span style="color:#60add5">NULL</span>  <span style="color:#666">|</span>
+<span style="color:#666">|</span>  <span style="color:#40a070">1</span> <span style="color:#666">|</span> Robin      <span style="color:#666">|</span> Jackman   <span style="color:#666">|</span> Software Engineer      <span style="color:#666">|</span>   <span style="color:#40a070">5500</span> <span style="color:#666">|</span> <span style="color:#40a070">2001</span><span style="color:#666">-</span><span style="color:#40a070">10</span><span style="color:#666">-</span><span style="color:#40a070">12</span> <span style="color:#666">|</span> <span style="color:#60add5">NULL</span>  <span style="color:#666">|</span>
+<span style="color:#666">|</span>  <span style="color:#40a070">3</span> <span style="color:#666">|</span> Vivian     <span style="color:#666">|</span> Dickens   <span style="color:#666">|</span> <span style="color:#007020;font-weight:bold">Database</span> Administrator <span style="color:#666">|</span>   <span style="color:#40a070">6000</span> <span style="color:#666">|</span> <span style="color:#40a070">2012</span><span style="color:#666">-</span><span style="color:#40a070">08</span><span style="color:#666">-</span><span style="color:#40a070">29</span> <span style="color:#666">|</span> <span style="color:#60add5">NULL</span>  <span style="color:#666">|</span>
+<span style="color:#666">|</span>  <span style="color:#40a070">8</span> <span style="color:#666">|</span> Jack       <span style="color:#666">|</span> Chan      <span style="color:#666">|</span> Test Engineer          <span style="color:#666">|</span>   <span style="color:#40a070">6500</span> <span style="color:#666">|</span> <span style="color:#40a070">2018</span><span style="color:#666">-</span><span style="color:#40a070">09</span><span style="color:#666">-</span><span style="color:#40a070">07</span> <span style="color:#666">|</span> <span style="color:#60add5">NULL</span>  <span style="color:#666">|</span>
+<span style="color:#666">|</span>  <span style="color:#40a070">4</span> <span style="color:#666">|</span> Harry      <span style="color:#666">|</span> Clifford  <span style="color:#666">|</span> <span style="color:#007020;font-weight:bold">Database</span> Administrator <span style="color:#666">|</span>   <span style="color:#40a070">6800</span> <span style="color:#666">|</span> <span style="color:#40a070">2015</span><span style="color:#666">-</span><span style="color:#40a070">12</span><span style="color:#666">-</span><span style="color:#40a070">10</span> <span style="color:#666">|</span> <span style="color:#60add5">NULL</span>  <span style="color:#666">|</span>
+<span style="color:#666">|</span>  <span style="color:#40a070">7</span> <span style="color:#666">|</span> Melinda    <span style="color:#666">|</span> Clifford  <span style="color:#666">|</span> Project Manager        <span style="color:#666">|</span>   <span style="color:#40a070">8500</span> <span style="color:#666">|</span> <span style="color:#40a070">2013</span><span style="color:#666">-</span><span style="color:#40a070">10</span><span style="color:#666">-</span><span style="color:#40a070">29</span> <span style="color:#666">|</span> <span style="color:#60add5">NULL</span>  <span style="color:#666">|</span>
+<span style="color:#666">|</span>  <span style="color:#40a070">2</span> <span style="color:#666">|</span> Taylor     <span style="color:#666">|</span> Edward    <span style="color:#666">|</span> Software Architect     <span style="color:#666">|</span>  <span style="color:#40a070">10000</span> <span style="color:#666">|</span> <span style="color:#40a070">2002</span><span style="color:#666">-</span><span style="color:#40a070">09</span><span style="color:#666">-</span><span style="color:#40a070">21</span> <span style="color:#666">|</span> <span style="color:#60add5">NULL</span>  <span style="color:#666">|</span>
+<span style="color:#666">|</span>  <span style="color:#40a070">9</span> <span style="color:#666">|</span> Harley     <span style="color:#666">|</span> Gilbert   <span style="color:#666">|</span> Software Architect     <span style="color:#666">|</span>  <span style="color:#40a070">10000</span> <span style="color:#666">|</span> <span style="color:#40a070">2000</span><span style="color:#666">-</span><span style="color:#40a070">07</span><span style="color:#666">-</span><span style="color:#40a070">17</span> <span style="color:#666">|</span> <span style="color:#60add5">NULL</span>  <span style="color:#666">|</span>
+<span style="color:#666">+----+------------+-----------+------------------------+--------+------------+-------+</span>
+</code></pre></div><p>選擇第三個column進行排序</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-MySQL" data-lang="MySQL"><span style="color:#007020;font-weight:bold">select</span> first_name, last_name , salary <span style="color:#007020;font-weight:bold">from</span> employee <span style="color:#007020;font-weight:bold">order</span> <span style="color:#007020;font-weight:bold">by</span> <span style="color:#40a070">3</span>;
+
+<span style="color:#666">+------------+-----------+--------+</span>
+<span style="color:#666">|</span> first_name <span style="color:#666">|</span> last_name <span style="color:#666">|</span> salary <span style="color:#666">|</span>
+<span style="color:#666">+------------+-----------+--------+</span>
+<span style="color:#666">|</span> Eliza      <span style="color:#666">|</span> Clifford  <span style="color:#666">|</span>   <span style="color:#40a070">4750</span> <span style="color:#666">|</span>
+<span style="color:#666">|</span> Nancy      <span style="color:#666">|</span> Newman    <span style="color:#666">|</span>   <span style="color:#40a070">5100</span> <span style="color:#666">|</span>
+<span style="color:#666">|</span> Robin      <span style="color:#666">|</span> Jackman   <span style="color:#666">|</span>   <span style="color:#40a070">5500</span> <span style="color:#666">|</span>
+<span style="color:#666">|</span> Vivian     <span style="color:#666">|</span> Dickens   <span style="color:#666">|</span>   <span style="color:#40a070">6000</span> <span style="color:#666">|</span>
+<span style="color:#666">|</span> Jack       <span style="color:#666">|</span> Chan      <span style="color:#666">|</span>   <span style="color:#40a070">6500</span> <span style="color:#666">|</span>
+<span style="color:#666">|</span> Harry      <span style="color:#666">|</span> Clifford  <span style="color:#666">|</span>   <span style="color:#40a070">6800</span> <span style="color:#666">|</span>
+<span style="color:#666">|</span> Melinda    <span style="color:#666">|</span> Clifford  <span style="color:#666">|</span>   <span style="color:#40a070">8500</span> <span style="color:#666">|</span>
+<span style="color:#666">|</span> Taylor     <span style="color:#666">|</span> Edward    <span style="color:#666">|</span>  <span style="color:#40a070">10000</span> <span style="color:#666">|</span>
+<span style="color:#666">|</span> Harley     <span style="color:#666">|</span> Gilbert   <span style="color:#666">|</span>  <span style="color:#40a070">10000</span> <span style="color:#666">|</span>
+<span style="color:#666">+------------+-----------+--------+</span>
+</code></pre></div><p>先排二在排一</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-MySQL" data-lang="MySQL"><span style="color:#007020;font-weight:bold">select</span> first_name, last_name , salary <span style="color:#007020;font-weight:bold">from</span> employee <span style="color:#007020;font-weight:bold">order</span> <span style="color:#007020;font-weight:bold">by</span> <span style="color:#40a070">2</span>,<span style="color:#40a070">1</span>;
+
+<span style="color:#666">+------------+-----------+--------+</span>
+<span style="color:#666">|</span> first_name <span style="color:#666">|</span> last_name <span style="color:#666">|</span> salary <span style="color:#666">|</span>
+<span style="color:#666">+------------+-----------+--------+</span>
+<span style="color:#666">|</span> Jack       <span style="color:#666">|</span> Chan      <span style="color:#666">|</span>   <span style="color:#40a070">6500</span> <span style="color:#666">|</span>
+<span style="color:#666">|</span> Eliza      <span style="color:#666">|</span> Clifford  <span style="color:#666">|</span>   <span style="color:#40a070">4750</span> <span style="color:#666">|</span>
+<span style="color:#666">|</span> Harry      <span style="color:#666">|</span> Clifford  <span style="color:#666">|</span>   <span style="color:#40a070">6800</span> <span style="color:#666">|</span>
+<span style="color:#666">|</span> Melinda    <span style="color:#666">|</span> Clifford  <span style="color:#666">|</span>   <span style="color:#40a070">8500</span> <span style="color:#666">|</span>
+<span style="color:#666">|</span> Vivian     <span style="color:#666">|</span> Dickens   <span style="color:#666">|</span>   <span style="color:#40a070">6000</span> <span style="color:#666">|</span>
+<span style="color:#666">|</span> Taylor     <span style="color:#666">|</span> Edward    <span style="color:#666">|</span>  <span style="color:#40a070">10000</span> <span style="color:#666">|</span>
+<span style="color:#666">|</span> Harley     <span style="color:#666">|</span> Gilbert   <span style="color:#666">|</span>  <span style="color:#40a070">10000</span> <span style="color:#666">|</span>
+<span style="color:#666">|</span> Robin      <span style="color:#666">|</span> Jackman   <span style="color:#666">|</span>   <span style="color:#40a070">5500</span> <span style="color:#666">|</span>
+<span style="color:#666">|</span> Nancy      <span style="color:#666">|</span> Newman    <span style="color:#666">|</span>   <span style="color:#40a070">5100</span> <span style="color:#666">|</span>
+<span style="color:#666">+------------+-----------+--------+</span>
+</code></pre></div><h4 id="limit限制返回結果進行排序">LIMIT限制返回結果進行排序</h4>
+<p>限制數據返回 + limit 數量</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-MySQL" data-lang="MySQL"><span style="color:#007020;font-weight:bold">select</span> <span style="color:#666">*</span> <span style="color:#007020;font-weight:bold">from</span> employee <span style="color:#007020;font-weight:bold">limit</span> <span style="color:#40a070">5</span>;
+</code></pre></div><p>限制index 幾到幾</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-MySQL" data-lang="MySQL"><span style="color:#007020;font-weight:bold">select</span> <span style="color:#666">*</span> <span style="color:#007020;font-weight:bold">from</span> employee <span style="color:#007020;font-weight:bold">limit</span> <span style="color:#40a070">2</span>,<span style="color:#40a070">4</span>;
+</code></pre></div><p>限制index 多少到最後一個</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-MySQL" data-lang="MySQL"><span style="color:#007020;font-weight:bold">select</span> <span style="color:#666">*</span> <span style="color:#007020;font-weight:bold">from</span> employee <span style="color:#007020;font-weight:bold">limit</span> <span style="color:#40a070">2</span>,<span style="color:#40a070">18446744073709551615</span>;
+</code></pre></div><p><a href="https://dev.mysql.com/doc/refman/5.7/en/select.html">MySQL limit補充連結</a></p>
+<h4 id="like進行字符串搜索過濾">LIKE進行字符串搜索過濾</h4>
+<p>LIKE模糊字串搜尋 + LIKE &ldquo;字串加%&rdquo; ， %=甚麼都可</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-MySQL" data-lang="MySQL"><span style="color:#007020;font-weight:bold">select</span> <span style="color:#666">*</span> <span style="color:#007020;font-weight:bold">from</span> employee <span style="color:#007020;font-weight:bold">where</span> last_name <span style="color:#007020;font-weight:bold">LIKE</span> <span style="color:#4070a0">&#34;C%&#34;</span>;
+
+<span style="color:#666">+----+------------+-----------+------------------------+--------+------------+-------+</span>
+<span style="color:#666">|</span> id <span style="color:#666">|</span> first_name <span style="color:#666">|</span> last_name <span style="color:#666">|</span> title                  <span style="color:#666">|</span> salary <span style="color:#666">|</span> hire_date  <span style="color:#666">|</span> notes <span style="color:#666">|</span>
+<span style="color:#666">+----+------------+-----------+------------------------+--------+------------+-------+</span>
+<span style="color:#666">|</span>  <span style="color:#40a070">4</span> <span style="color:#666">|</span> Harry      <span style="color:#666">|</span> Clifford  <span style="color:#666">|</span> <span style="color:#007020;font-weight:bold">Database</span> Administrator <span style="color:#666">|</span>   <span style="color:#40a070">6800</span> <span style="color:#666">|</span> <span style="color:#40a070">2015</span><span style="color:#666">-</span><span style="color:#40a070">12</span><span style="color:#666">-</span><span style="color:#40a070">10</span> <span style="color:#666">|</span> <span style="color:#60add5">NULL</span>  <span style="color:#666">|</span>
+<span style="color:#666">|</span>  <span style="color:#40a070">5</span> <span style="color:#666">|</span> Eliza      <span style="color:#666">|</span> Clifford  <span style="color:#666">|</span> Software Engineer      <span style="color:#666">|</span>   <span style="color:#40a070">4750</span> <span style="color:#666">|</span> <span style="color:#40a070">1998</span><span style="color:#666">-</span><span style="color:#40a070">10</span><span style="color:#666">-</span><span style="color:#40a070">19</span> <span style="color:#666">|</span> <span style="color:#60add5">NULL</span>  <span style="color:#666">|</span>
+<span style="color:#666">|</span>  <span style="color:#40a070">7</span> <span style="color:#666">|</span> Melinda    <span style="color:#666">|</span> Clifford  <span style="color:#666">|</span> Project Manager        <span style="color:#666">|</span>   <span style="color:#40a070">8500</span> <span style="color:#666">|</span> <span style="color:#40a070">2013</span><span style="color:#666">-</span><span style="color:#40a070">10</span><span style="color:#666">-</span><span style="color:#40a070">29</span> <span style="color:#666">|</span> <span style="color:#60add5">NULL</span>  <span style="color:#666">|</span>
+<span style="color:#666">|</span>  <span style="color:#40a070">8</span> <span style="color:#666">|</span> Jack       <span style="color:#666">|</span> Chan      <span style="color:#666">|</span> Test Engineer          <span style="color:#666">|</span>   <span style="color:#40a070">6500</span> <span style="color:#666">|</span> <span style="color:#40a070">2018</span><span style="color:#666">-</span><span style="color:#40a070">09</span><span style="color:#666">-</span><span style="color:#40a070">07</span> <span style="color:#666">|</span> <span style="color:#60add5">NULL</span>  <span style="color:#666">|</span>
+<span style="color:#666">+----+------------+-----------+------------------------+--------+------------+-------+</span>
+</code></pre></div><div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-MySQL" data-lang="MySQL"><span style="color:#007020;font-weight:bold">select</span> <span style="color:#666">*</span> <span style="color:#007020;font-weight:bold">from</span> employee <span style="color:#007020;font-weight:bold">where</span> last_name <span style="color:#007020;font-weight:bold">LIKE</span> <span style="color:#4070a0">&#34;%n&#34;</span>;
+
+<span style="color:#666">+----+------------+-----------+-------------------+--------+------------+-------+</span>
+<span style="color:#666">|</span> id <span style="color:#666">|</span> first_name <span style="color:#666">|</span> last_name <span style="color:#666">|</span> title             <span style="color:#666">|</span> salary <span style="color:#666">|</span> hire_date  <span style="color:#666">|</span> notes <span style="color:#666">|</span>
+<span style="color:#666">+----+------------+-----------+-------------------+--------+------------+-------+</span>
+<span style="color:#666">|</span>  <span style="color:#40a070">1</span> <span style="color:#666">|</span> Robin      <span style="color:#666">|</span> Jackman   <span style="color:#666">|</span> Software Engineer <span style="color:#666">|</span>   <span style="color:#40a070">5500</span> <span style="color:#666">|</span> <span style="color:#40a070">2001</span><span style="color:#666">-</span><span style="color:#40a070">10</span><span style="color:#666">-</span><span style="color:#40a070">12</span> <span style="color:#666">|</span> <span style="color:#60add5">NULL</span>  <span style="color:#666">|</span>
+<span style="color:#666">|</span>  <span style="color:#40a070">6</span> <span style="color:#666">|</span> Nancy      <span style="color:#666">|</span> Newman    <span style="color:#666">|</span> Software Engineer <span style="color:#666">|</span>   <span style="color:#40a070">5100</span> <span style="color:#666">|</span> <span style="color:#40a070">2007</span><span style="color:#666">-</span><span style="color:#40a070">01</span><span style="color:#666">-</span><span style="color:#40a070">23</span> <span style="color:#666">|</span> <span style="color:#60add5">NULL</span>  <span style="color:#666">|</span>
+<span style="color:#666">|</span>  <span style="color:#40a070">8</span> <span style="color:#666">|</span> Jack       <span style="color:#666">|</span> Chan      <span style="color:#666">|</span> Test Engineer     <span style="color:#666">|</span>   <span style="color:#40a070">6500</span> <span style="color:#666">|</span> <span style="color:#40a070">2018</span><span style="color:#666">-</span><span style="color:#40a070">09</span><span style="color:#666">-</span><span style="color:#40a070">07</span> <span style="color:#666">|</span> <span style="color:#60add5">NULL</span>  <span style="color:#666">|</span>
+<span style="color:#666">+----+------------+-----------+-------------------+--------+------------+-------+</span>
+</code></pre></div><p>當知道長度為多少可以變成 + LIKE &ldquo;____&quot;;</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-MySQL" data-lang="MySQL"><span style="color:#007020;font-weight:bold">select</span> <span style="color:#666">*</span> <span style="color:#007020;font-weight:bold">from</span> employee <span style="color:#007020;font-weight:bold">where</span> last_name <span style="color:#007020;font-weight:bold">LIKE</span> <span style="color:#4070a0">&#34;____&#34;</span>;
+
+<span style="color:#666">+----+------------+-----------+---------------+--------+------------+-------+</span>
+<span style="color:#666">|</span> id <span style="color:#666">|</span> first_name <span style="color:#666">|</span> last_name <span style="color:#666">|</span> title         <span style="color:#666">|</span> salary <span style="color:#666">|</span> hire_date  <span style="color:#666">|</span> notes <span style="color:#666">|</span>
+<span style="color:#666">+----+------------+-----------+-------------------+--------+------------+---+</span>
+</code></pre></div><p>當要找的字串包含 &ldquo;%&rdquo; , &ldquo;_&ldquo;加上<br>
+select * from 表格名 where first_name LIKE &ldquo;%%__&quot;;</p>
+<h4 id="count對結果進行比較">count對結果進行比較</h4>
+<p>計算資料表有多少筆資料COUNT(* 或其他column)</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-MySQL" data-lang="MySQL"><span style="color:#007020;font-weight:bold">select</span> <span style="color:#06287e">COUNT</span>(<span style="color:#666">*</span>) <span style="color:#007020;font-weight:bold">from</span> employee;
+
+<span style="color:#666">+----------+</span>
+<span style="color:#666">|</span> <span style="color:#06287e">COUNT</span>(<span style="color:#666">*</span>) <span style="color:#666">|</span>
+<span style="color:#666">+----------+</span>
+<span style="color:#666">|</span>        <span style="color:#40a070">9</span> <span style="color:#666">|</span>
+<span style="color:#666">+----------+</span>
+</code></pre></div><h4 id="distinct統計唯一値">distinct統計唯一値</h4>
+<p>計算這個column有幾種 DISTINCT(不同)</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-MySQL" data-lang="MySQL"><span style="color:#007020;font-weight:bold">select</span> <span style="color:#007020;font-weight:bold">distinct</span> title <span style="color:#007020;font-weight:bold">from</span> employee;
+
+<span style="color:#666">+------------------------+</span>
+<span style="color:#666">|</span> title                  <span style="color:#666">|</span>
+<span style="color:#666">+------------------------+</span>
+<span style="color:#666">|</span> Software Engineer      <span style="color:#666">|</span>
+<span style="color:#666">|</span> Software Architect     <span style="color:#666">|</span>
+<span style="color:#666">|</span> <span style="color:#007020;font-weight:bold">Database</span> Administrator <span style="color:#666">|</span>
+<span style="color:#666">|</span> Project Manager        <span style="color:#666">|</span>
+<span style="color:#666">|</span> Test Engineer          <span style="color:#666">|</span>
+<span style="color:#666">+------------------------+</span>
+</code></pre></div><p>利用CONUT計算</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-MySQL" data-lang="MySQL"><span style="color:#007020;font-weight:bold">select</span> <span style="color:#06287e">COUNT</span>(<span style="color:#007020;font-weight:bold">distinct</span> title) <span style="color:#007020;font-weight:bold">from</span> employee;
+
+<span style="color:#666">+-----------------------+</span>
+<span style="color:#666">|</span> <span style="color:#06287e">COUNT</span>(<span style="color:#007020;font-weight:bold">distinct</span> title) <span style="color:#666">|</span>
+<span style="color:#666">+-----------------------+</span>
+<span style="color:#666">|</span>                     <span style="color:#40a070">5</span> <span style="color:#666">|</span>
+<span style="color:#666">+-----------------------+</span>
+</code></pre></div><h4 id="group-by-數據整合">GROUP BY 數據整合</h4>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-MySQL" data-lang="MySQL"><span style="color:#007020;font-weight:bold">select</span> title,<span style="color:#06287e">count</span>(first_name) <span style="color:#007020;font-weight:bold">from</span> employee <span style="color:#007020;font-weight:bold">group</span> <span style="color:#007020;font-weight:bold">by</span> title;
+
+<span style="color:#666">+------------------------+-------------------+</span>
+<span style="color:#666">|</span> title                  <span style="color:#666">|</span> <span style="color:#06287e">count</span>(first_name) <span style="color:#666">|</span>
+<span style="color:#666">+------------------------+-------------------+</span>
+<span style="color:#666">|</span> <span style="color:#007020;font-weight:bold">Database</span> Administrator <span style="color:#666">|</span>                 <span style="color:#40a070">2</span> <span style="color:#666">|</span>
+<span style="color:#666">|</span> Project Manager        <span style="color:#666">|</span>                 <span style="color:#40a070">1</span> <span style="color:#666">|</span>
+<span style="color:#666">|</span> Software Architect     <span style="color:#666">|</span>                 <span style="color:#40a070">2</span> <span style="color:#666">|</span>
+<span style="color:#666">|</span> Software Engineer      <span style="color:#666">|</span>                 <span style="color:#40a070">3</span> <span style="color:#666">|</span>
+<span style="color:#666">|</span> Test Engineer          <span style="color:#666">|</span>                 <span style="color:#40a070">1</span> <span style="color:#666">|</span>
+<span style="color:#666">+------------------------+-------------------+</span>
+</code></pre></div><h4 id="max和min球最大最小值">MAX和MIN球最大最小值</h4>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-MySQL" data-lang="MySQL"><span style="color:#007020;font-weight:bold">select</span> <span style="color:#06287e">max</span>(salary) <span style="color:#007020;font-weight:bold">from</span> employee;
+
+<span style="color:#666">+-------------+</span>
+<span style="color:#666">|</span> <span style="color:#06287e">max</span>(salary) <span style="color:#666">|</span>
+<span style="color:#666">+-------------+</span>
+<span style="color:#666">|</span>       <span style="color:#40a070">10000</span> <span style="color:#666">|</span>
+<span style="color:#666">+-------------+</span>
+</code></pre></div><p>結合group by</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-MySQL" data-lang="MySQL"><span style="color:#007020;font-weight:bold">select</span> title, <span style="color:#06287e">max</span>(salary) <span style="color:#007020;font-weight:bold">from</span> employee <span style="color:#007020;font-weight:bold">group</span> <span style="color:#007020;font-weight:bold">by</span> title;
+
+<span style="color:#666">+------------------------+-------------+</span>
+<span style="color:#666">|</span> title                  <span style="color:#666">|</span> <span style="color:#06287e">max</span>(salary) <span style="color:#666">|</span>
+<span style="color:#666">+------------------------+-------------+</span>
+<span style="color:#666">|</span> <span style="color:#007020;font-weight:bold">Database</span> Administrator <span style="color:#666">|</span>        <span style="color:#40a070">6800</span> <span style="color:#666">|</span>
+<span style="color:#666">|</span> Project Manager        <span style="color:#666">|</span>        <span style="color:#40a070">8500</span> <span style="color:#666">|</span>
+<span style="color:#666">|</span> Software Architect     <span style="color:#666">|</span>       <span style="color:#40a070">10000</span> <span style="color:#666">|</span>
+<span style="color:#666">|</span> Software Engineer      <span style="color:#666">|</span>        <span style="color:#40a070">5500</span> <span style="color:#666">|</span>
+<span style="color:#666">|</span> Test Engineer          <span style="color:#666">|</span>        <span style="color:#40a070">6500</span> <span style="color:#666">|</span>
+<span style="color:#666">+------------------------+-------------+</span>
+</code></pre></div><h4 id="sum和avg求和平均值">SUM和AVG求和平均值</h4>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-MySQL" data-lang="MySQL"><span style="color:#007020;font-weight:bold">select</span> <span style="color:#06287e">sum</span>(salary), <span style="color:#06287e">avg</span>(salary) <span style="color:#007020;font-weight:bold">from</span> employee;
+
+<span style="color:#666">+-------------+-------------------+</span>
+<span style="color:#666">|</span> <span style="color:#06287e">sum</span>(salary) <span style="color:#666">|</span> <span style="color:#06287e">avg</span>(salary)       <span style="color:#666">|</span>
+<span style="color:#666">+-------------+-------------------+</span>
+<span style="color:#666">|</span>       <span style="color:#40a070">63150</span> <span style="color:#666">|</span> <span style="color:#40a070">7016</span>.<span style="color:#40a070">666666666667</span> <span style="color:#666">|</span>
+<span style="color:#666">+-------------+-------------------+</span>
+</code></pre></div><p>使用max, min, sum, avg不可這樣寫
+select sum(salary), title from employee;
+會報錯</p>
+<h4 id="having">HAVING</h4>
+<p>（✗）select title,count(<em>) from employee group by title where title=&quot;Test Engineer;
+(◯) select title,count(</em>) from employee where title=&quot;Test Engineer group by title;</p>
+<p>如果要想在聚合(group by)後過濾，要使用HAVING</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-MySQL" data-lang="MySQL"><span style="color:#007020;font-weight:bold">select</span> title,<span style="color:#06287e">count</span>(<span style="color:#666">*</span>) <span style="color:#007020;font-weight:bold">from</span> employee <span style="color:#007020;font-weight:bold">group</span> <span style="color:#007020;font-weight:bold">by</span> title <span style="color:#007020;font-weight:bold">having</span> title<span style="color:#666">=</span><span style="color:#4070a0">&#34;Test Engineer&#34;</span>;
+
+<span style="color:#666">+---------------+----------+</span>
+<span style="color:#666">|</span> title         <span style="color:#666">|</span> <span style="color:#06287e">count</span>(<span style="color:#666">*</span>) <span style="color:#666">|</span>
+<span style="color:#666">+---------------+----------+</span>
+<span style="color:#666">|</span> Test Engineer <span style="color:#666">|</span>        <span style="color:#40a070">1</span> <span style="color:#666">|</span>
+<span style="color:#666">+---------------+----------+</span>
+</code></pre></div><h3 id="data-type之數值類型">DATA TYPE之數值類型</h3>
+<h4 id="numeric-tyoe">Numeric Tyoe</h4>
+<h5 id="1-整數絕對值-integer-types-exact-value---integerintsmallinttinyintmediumintbigint">1. 整數(絕對值) Integer Types (Exact Value) - INTEGER,INT,SMALLINT,TINYINT,MEDIUMINT,BIGINT</h5>
+<p>如果要使用到 UNSIGNED 要在新增時加入，莫認為Signed
+範例:</p>
+<pre><code>create table test(a TINYINT UNSIGNED , b SMALLINT);
+</code></pre><h5 id="2-定點數小數點後位數固定--fixed-point-typesexact-value---decimalnumeric">2. 定點數(小數點後位數固定)  Fixed-Point Types(Exact Value) - DECIMAL,NUMERIC</h5>
+<p>salary DECIMAL(5,2)第一個參數是總共幾位數，第二個參數是指小數點後有幾位，小數點超過會四捨五入
+範例: -999.99 ~ 999.99</p>
+<h5 id="3-浮點數無法精確表示-floating-point-typesapproximate-value---float4-bytesdouble8-bytes">3. 浮點數(無法精確表示) Floating-Point Types(Approximate Value) - FLOAT(4 bytes),DOUBLE(8 bytes)</h5>
+<p>float(range,小數點後位數)，BIT(M),BIT由0和1組成,M can range from 1 to 64。</p>
+<h5 id="4-二進位數位-bit-value-type---bit">4. 二進位數位 Bit-Value Type - BIT</h5>
+<p>範例:</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-MySQL" data-lang="MySQL"><span style="color:#007020;font-weight:bold">create</span> <span style="color:#007020;font-weight:bold">table</span> <span style="color:#06287e">test6</span>(a <span style="color:#902000">BIT</span>(<span style="color:#40a070">3</span>));
+
+<span style="color:#007020;font-weight:bold">insert</span> <span style="color:#007020;font-weight:bold">into</span> test6 <span style="color:#007020;font-weight:bold">values</span>(<span style="color:#40a070">1</span>);
+
+<span style="color:#007020;font-weight:bold">insert</span> <span style="color:#007020;font-weight:bold">into</span> test6 <span style="color:#007020;font-weight:bold">values</span>(<span style="color:#40a070">2</span>);
+
+<span style="color:#666">--</span><span style="">因為輸出是十進位所以不會顯示</span>
+<span style="color:#007020;font-weight:bold">select</span> <span style="color:#666">*</span> <span style="color:#007020;font-weight:bold">from</span> test6;
+<span style="color:#666">+------+</span>
+<span style="color:#666">|</span> a    <span style="color:#666">|</span>
+<span style="color:#666">+------+</span>
+<span style="color:#666">|</span> <span style=""></span>    <span style="color:#666">|</span>
+<span style="color:#666">|</span> <span style=""></span>    <span style="color:#666">|</span>
+<span style="color:#666">+------+</span>
+
+<span style="color:#666">--</span><span style="">用加</span><span style="color:#40a070">0</span><span style="">的方式出現</span>
+<span style="color:#007020;font-weight:bold">select</span> a<span style="color:#666">+</span><span style="color:#40a070">0</span> <span style="color:#007020;font-weight:bold">from</span> test6;
+<span style="color:#666">+------+</span>
+<span style="color:#666">|</span> a<span style="color:#666">+</span><span style="color:#40a070">0</span>  <span style="color:#666">|</span>
+<span style="color:#666">+------+</span>
+<span style="color:#666">|</span>    <span style="color:#40a070">1</span> <span style="color:#666">|</span>
+<span style="color:#666">|</span>    <span style="color:#40a070">2</span> <span style="color:#666">|</span>
+<span style="color:#666">+------+</span>
+
+
+<span style="color:#666">--</span><span style="">這樣子就可以輸出二進制</span>
+<span style="color:#666">--</span>bin二進制<span style="">，</span>oct八進制<span style="">，</span>hex十六進制<span style="">。</span>
+<span style="color:#007020;font-weight:bold">select</span> <span style="color:#06287e">bin</span>(a<span style="color:#666">+</span><span style="color:#40a070">0</span>) <span style="color:#007020;font-weight:bold">from</span> test6;
+<span style="color:#666">+----------+</span>
+<span style="color:#666">|</span> <span style="color:#06287e">bin</span>(a<span style="color:#666">+</span><span style="color:#40a070">0</span>) <span style="color:#666">|</span>
+<span style="color:#666">+----------+</span>
+<span style="color:#666">|</span> <span style="color:#40a070">1</span>        <span style="color:#666">|</span>
+<span style="color:#666">|</span> <span style="color:#40a070">10</span>       <span style="color:#666">|</span>
+<span style="color:#666">+----------+</span>
+
+</code></pre></div><h3 id="data-and-time-type">Data and Time Type</h3>
+<h5 id="1-date--yyyy-mm-dd">1. DATE : &ldquo;YYYY-MM-DD&rdquo;</h5>
+<h5 id="2-time--hhmmss--1210默認為12小時10分14默認為14秒1210默認為12分10秒">2. TIME : &ldquo;HH:MM:SS&rdquo;  &ldquo;12:10&quot;默認為12小時10分，&ldquo;14&quot;默認為14秒，&ldquo;1210&quot;默認為12分10秒</h5>
+<h5 id="3year---4-digit-string-number-in-the-range-1901-to-2155">3.YEAR  : 4-digit string number in the range 1901 to 2155</h5>
+<h5 id="4-datetime8bytes--yyyy-mm-dd-hhmmss">4. DATETIME(8bytes) : &ldquo;YYYY-MM-DD HH:MM:SS&rdquo;</h5>
+<h5 id="5-timestamp4bytes--range-1907-01-01-000001utc-to-2038-01-19-031407utc-依照時區改變會隨著現在時間變化可用來記錄資料修改時間可更改timezone">5. TIMESTAMP(4bytes) : range &ldquo;1907-01-01 00:00:01&quot;UTC to &ldquo;2038-01-19 03:14:07&quot;UTC 依照時區改變，會隨著現在時間變化，可用來記錄資料修改時間，可更改TIMEZONE。</h5>
+<p>此時間是幾號</p>
+<pre><code>select DAYOFMONYH(參數) from tablename;
+</code></pre><p>此時間是星期幾</p>
+<pre><code>select DAYOFWEEK(參數) from tablename;
+</code></pre><p>此時間是此年第幾天</p>
+<pre><code>select DAYOFYEAR(參數) from tablename;
+</code></pre><p>此時間是幾月</p>
+<pre><code>select MONTHNAME(b) from demo;
+</code></pre><p>現在日期</p>
+<pre><code>select CURDATE();
+</code></pre><p>現在時間</p>
+<pre><code>select CURTIME();
+</code></pre><p>現在日期+時間</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-MySQL" data-lang="MySQL"><span style="color:#007020;font-weight:bold">select</span> <span style="color:#06287e">NOW</span>();
+<span style="color:#666">+---------------------+</span>
+<span style="color:#666">|</span> <span style="color:#06287e">NOW</span>()               <span style="color:#666">|</span>
+<span style="color:#666">+---------------------+</span>
+<span style="color:#666">|</span> <span style="color:#40a070">2020</span><span style="color:#666">-</span><span style="color:#40a070">10</span><span style="color:#666">-</span><span style="color:#40a070">21</span> <span style="color:#40a070">15</span>:<span style="color:#40a070">57</span>:<span style="color:#40a070">02</span> <span style="color:#666">|</span>
+<span style="color:#666">+---------------------+</span>
+</code></pre></div><p><a href="https://dev.mysql.com/doc/refman/5.7/en/date-and-time-functions.html">資料參考</a></p>
+<p>小練習:</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-MySQL" data-lang="MySQL"><span style="color:#007020;font-weight:bold">select</span> <span style="color:#06287e">CONCAT</span>(first_name,<span style="color:#4070a0">&#34; &#34;</span>,last_name,<span style="color:#4070a0">&#34;was hired on&#34;</span>,<span style="color:#06287e">DATE_FORMAT</span>(hire_date,<span style="color:#4070a0">&#34;%D %M %Y&#34;</span>)) <span style="color:#007020;font-weight:bold">as</span> title <span style="color:#007020;font-weight:bold">from</span> employee;
+<span style="color:#666">+-----------------------------------------------+</span>
+<span style="color:#666">|</span> title                                         <span style="color:#666">|</span>
+<span style="color:#666">+-----------------------------------------------+</span>
+<span style="color:#666">|</span> Robin Jackmanwas hired on12th October <span style="color:#40a070">2001</span>    <span style="color:#666">|</span>
+<span style="color:#666">|</span> Taylor Edwardwas hired on21st September <span style="color:#40a070">2002</span>  <span style="color:#666">|</span>
+<span style="color:#666">|</span> Vivian Dickenswas hired on29th August <span style="color:#40a070">2012</span>    <span style="color:#666">|</span>
+<span style="color:#666">|</span> Harry Cliffordwas hired on10th December <span style="color:#40a070">2015</span>  <span style="color:#666">|</span>
+<span style="color:#666">|</span> Eliza Cliffordwas hired on19th October <span style="color:#40a070">1998</span>   <span style="color:#666">|</span>
+<span style="color:#666">|</span> Nancy Newmanwas hired on23rd January <span style="color:#40a070">2007</span>     <span style="color:#666">|</span>
+<span style="color:#666">|</span> Melinda Cliffordwas hired on29th October <span style="color:#40a070">2013</span> <span style="color:#666">|</span>
+<span style="color:#666">|</span> Jack Chanwas hired on7th September <span style="color:#40a070">2018</span>       <span style="color:#666">|</span>
+<span style="color:#666">|</span> Harley Gilbertwas hired on17th July <span style="color:#40a070">2000</span>      <span style="color:#666">|</span>
+<span style="color:#666">+-----------------------------------------------+</span>
+</code></pre></div><h3 id="string-type">String Type</h3>
+<h5 id="1-char-and-varchar">1. CHAR and VARCHAR</h5>
+<p>VAR(可變的)</p>
+<p>CHAR length string(0~255)
+char 的 storage是固定的，bytes是固定的</p>
+<p>VARCHAR variable-length strings(0~65535)
+varchar 的 storage 是可變的，字符也算一個bytes</p>
+<h5 id="2-binary-and-varbinary">2. BINARY and VARBINARY</h5>
+<p><a href="https://dev.mysql.com/doc/refman/5.7/en/binary-varbinary.html">MySQL文檔</a></p>
+<h5 id="3-blob-and-text">3. BLOB and TEXT</h5>
+<p>通常用來存取大文檔，要排序大文檔通常比較費時，可通過</p>
+<pre><code>set max_sort_length = 2000;
+</code></pre><p>更改sql最大文字長度。</p>
+<p><a href="https://dev.mysql.com/doc/refman/5.7/en/storage-requirements.html">MySQL文檔</a></p>
+<h5 id="4-enum">4. ENUM</h5>
+<p>選擇的數據類型</p>
+<p>範例:</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-MySQL" data-lang="MySQL"><span style="color:#007020;font-weight:bold">CREATE</span> <span style="color:#007020;font-weight:bold">TABLE</span> <span style="color:#06287e">shirt</span>(
+size <span style="color:#902000">ENUM</span>(<span style="color:#4070a0">&#34;x-small&#34;</span>,<span style="color:#4070a0">&#34;small&#34;</span>,<span style="color:#4070a0">&#34;medium&#34;</span>,<span style="color:#4070a0">&#34;large&#34;</span>,<span style="color:#4070a0">&#34;x-large&#34;</span>)
+);
+</code></pre></div><p><a href="https://dev.mysql.com/doc/refman/5.7/en/enum.html">補充連結</a></p>
+<p>插入時可直接打索引值，速度比varchar快。</p>
+<h5 id="5-set">5. SET</h5>
+<p>最多八個column(2的8次方)</p>
+<h4 id="修改數據類型使用alter">修改數據類型，使用ALTER</h4>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-MySQL" data-lang="MySQL"><span style="color:#007020;font-weight:bold">create</span> <span style="color:#007020;font-weight:bold">table</span> <span style="color:#007020;font-weight:bold">user</span>(username <span style="color:#902000">VARCHAR</span>(<span style="color:#40a070">10</span>), password <span style="color:#902000">VARCHAR</span>(<span style="color:#40a070">20</span>));
+
+<span style="color:#666">+----------+-------------+------+-----+---------+-------+</span>
+<span style="color:#666">|</span> Field    <span style="color:#666">|</span> Type        <span style="color:#666">|</span> <span style="color:#60add5">Null</span> <span style="color:#666">|</span> <span style="color:#007020;font-weight:bold">Key</span> <span style="color:#666">|</span> <span style="color:#007020;font-weight:bold">Default</span> <span style="color:#666">|</span> Extra <span style="color:#666">|</span>
+<span style="color:#666">+----------+-------------+------+-----+---------+-------+</span>
+<span style="color:#666">|</span> username <span style="color:#666">|</span> <span style="color:#902000">varchar</span>(<span style="color:#40a070">10</span>) <span style="color:#666">|</span> YES  <span style="color:#666">|</span>     <span style="color:#666">|</span> <span style="color:#60add5">NULL</span>    <span style="color:#666">|</span>       <span style="color:#666">|</span>
+<span style="color:#666">|</span> password <span style="color:#666">|</span> <span style="color:#902000">varchar</span>(<span style="color:#40a070">20</span>) <span style="color:#666">|</span> YES  <span style="color:#666">|</span>     <span style="color:#666">|</span> <span style="color:#60add5">NULL</span>    <span style="color:#666">|</span>       <span style="color:#666">|</span>
+<span style="color:#666">+----------+-------------+------+-----+---------+-------+</span>
+
+<span style="color:#007020;font-weight:bold">ALTER</span> <span style="color:#007020;font-weight:bold">table</span> <span style="color:#007020;font-weight:bold">user</span> MODIFY username <span style="color:#902000">VARCHAR</span>(<span style="color:#40a070">15</span>);
+
+<span style="color:#007020;font-weight:bold">desc</span> <span style="color:#007020;font-weight:bold">user</span>;
+
+<span style="color:#666">+----------+-------------+------+-----+---------+-------+</span>
+<span style="color:#666">|</span> Field    <span style="color:#666">|</span> Type        <span style="color:#666">|</span> <span style="color:#60add5">Null</span> <span style="color:#666">|</span> <span style="color:#007020;font-weight:bold">Key</span> <span style="color:#666">|</span> <span style="color:#007020;font-weight:bold">Default</span> <span style="color:#666">|</span> Extra <span style="color:#666">|</span>
+<span style="color:#666">+----------+-------------+------+-----+---------+-------+</span>
+<span style="color:#666">|</span> username <span style="color:#666">|</span> <span style="color:#902000">varchar</span>(<span style="color:#40a070">15</span>) <span style="color:#666">|</span> YES  <span style="color:#666">|</span>     <span style="color:#666">|</span> <span style="color:#60add5">NULL</span>    <span style="color:#666">|</span>       <span style="color:#666">|</span>
+<span style="color:#666">|</span> password <span style="color:#666">|</span> <span style="color:#902000">varchar</span>(<span style="color:#40a070">20</span>) <span style="color:#666">|</span> YES  <span style="color:#666">|</span>     <span style="color:#666">|</span> <span style="color:#60add5">NULL</span>    <span style="color:#666">|</span>       <span style="color:#666">|</span>
+<span style="color:#666">+----------+-------------+------+-----+---------+-------+</span>
+
+<span style="">成功更改。</span>
+
+</code></pre></div><h3 id="sql邏輯操作符">SQL邏輯操作符</h3>
+<h4 id="equal-和-not-equal等於不等於">Equal 和 NOT Equal等於不等於</h4>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-MySQL" data-lang="MySQL"><span style="color:#666">--</span>Equal範例
+
+<span style="color:#007020;font-weight:bold">select</span> <span style="color:#666">*</span> <span style="color:#007020;font-weight:bold">from</span> employee <span style="color:#007020;font-weight:bold">where</span> salary <span style="color:#666">=</span> <span style="color:#40a070">8000</span>;
+
+<span style="color:#666">--</span><span style="color:#007020;font-weight:bold">NOT</span> Equal範例
+
+<span style="color:#007020;font-weight:bold">select</span> <span style="color:#666">*</span> <span style="color:#007020;font-weight:bold">from</span> employee <span style="color:#007020;font-weight:bold">where</span> salary <span style="color:#666">!=</span> <span style="color:#40a070">8000</span>;
+
+<span style="color:#007020;font-weight:bold">select</span> <span style="color:#666">*</span> <span style="color:#007020;font-weight:bold">from</span> employee <span style="color:#007020;font-weight:bold">where</span> salary <span style="color:#007020;font-weight:bold">NOT</span> <span style="color:#40a070">8000</span>;
+
+</code></pre></div><h4 id="like和not-like">LIKE和NOT LIKE</h4>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-MySQL" data-lang="MySQL"><span style="color:#666">--</span>LIKE範例
+
+<span style="color:#666">--</span>LIKE就是模糊搜尋
+
+<span style="color:#007020;font-weight:bold">select</span> <span style="color:#666">*</span> <span style="color:#007020;font-weight:bold">from</span> employee <span style="color:#007020;font-weight:bold">where</span> first_name <span style="color:#007020;font-weight:bold">like</span> <span style="color:#4070a0">&#34;H%&#34;</span>;
+
+<span style="color:#666">--</span><span style="color:#007020;font-weight:bold">NOT</span> LIKE範例
+
+<span style="color:#007020;font-weight:bold">select</span> <span style="color:#666">*</span> <span style="color:#007020;font-weight:bold">from</span> employee <span style="color:#007020;font-weight:bold">where</span> first_name <span style="color:#007020;font-weight:bold">NOT</span> <span style="color:#007020;font-weight:bold">like</span> <span style="color:#4070a0">&#34;H%&#34;</span>;
+
+<span style="color:#666">--</span><span style="">嚴格搜尋大小寫</span>BINARY<span style="">，也可以在創建時加入</span>BINARY
+
+<span style="color:#007020;font-weight:bold">select</span> <span style="color:#666">*</span> <span style="color:#007020;font-weight:bold">from</span> employee <span style="color:#007020;font-weight:bold">where</span> first_name <span style="color:#007020;font-weight:bold">like</span> <span style="color:#007020;font-weight:bold">BINARY</span> <span style="color:#4070a0">&#34;H%&#34;</span>;
+</code></pre></div><h4 id="greate-than-和-less-than大於小於">Greate Than 和 Less Than大於小於</h4>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-MySQL" data-lang="MySQL"><span style="color:#666">--</span><span style="color:#4070a0">&#34; &gt; &#34;</span><span style="">可用運算符號替換</span>
+
+<span style="color:#007020;font-weight:bold">select</span> <span style="color:#666">*</span> <span style="color:#007020;font-weight:bold">from</span> employee <span style="color:#007020;font-weight:bold">where</span> salary <span style="color:#666">&gt;</span> <span style="color:#40a070">6000</span>; 
+</code></pre></div><h4 id="and-和-or">AND 和 OR</h4>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-MySQL" data-lang="MySQL"><span style="color:#666">--</span>AND範例<span style="">，條件同時符合</span>
+<span style="color:#007020;font-weight:bold">select</span> <span style="color:#666">*</span> <span style="color:#007020;font-weight:bold">from</span> employee <span style="color:#007020;font-weight:bold">where</span> salary<span style="color:#666">&gt;</span><span style="color:#40a070">6000</span> <span style="color:#007020;font-weight:bold">and</span> first_name <span style="color:#007020;font-weight:bold">LIKE</span><span style="color:#4070a0">&#34;H%&#34;</span>;
+
+<span style="color:#666">--</span>OR範例<span style="">，條件其一符合或都符合選項</span>
+<span style="color:#007020;font-weight:bold">select</span> <span style="color:#666">*</span> <span style="color:#007020;font-weight:bold">from</span> employee <span style="color:#007020;font-weight:bold">where</span> salary<span style="color:#666">&gt;</span><span style="color:#40a070">6000</span> <span style="color:#007020;font-weight:bold">or</span> first_name <span style="color:#007020;font-weight:bold">LIKE</span><span style="color:#4070a0">&#34;H%&#34;</span>;
+</code></pre></div><h4 id="between">BETWEEN</h4>
+<p>尋找一個range之間</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-MySQL" data-lang="MySQL"><span style="color:#666">--</span><span style="">尋找薪水在</span><span style="color:#40a070">6000</span><span style="">到</span><span style="color:#40a070">8000</span><span style="">之間</span>
+<span style="color:#007020;font-weight:bold">select</span> <span style="color:#666">*</span> <span style="color:#007020;font-weight:bold">from</span> employee <span style="color:#007020;font-weight:bold">where</span> betweeen <span style="color:#40a070">6000</span> <span style="color:#007020;font-weight:bold">and</span> <span style="color:#40a070">8000</span>
+
+</code></pre></div><h4 id="in和-not-in">IN和 NOT IN</h4>
+<p>比較精確地找尋</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-MySQL" data-lang="MySQL"><span style="color:#007020;font-weight:bold">select</span> <span style="color:#666">*</span> <span style="color:#007020;font-weight:bold">from</span> employee <span style="color:#007020;font-weight:bold">where</span> salary <span style="color:#007020;font-weight:bold">in</span> (<span style="color:#40a070">5000</span>,<span style="color:#40a070">6000</span>,<span style="color:#40a070">7000</span>,<span style="color:#40a070">8000</span>);
+</code></pre></div><h4 id="case-statement">CASE Statement</h4>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-MySQL" data-lang="MySQL">
+<span style="color:#007020;font-weight:bold">select</span> <span style="color:#666">*</span>,
+    <span style="color:#007020;font-weight:bold">case</span>
+          <span style="color:#007020;font-weight:bold">when</span> salary <span style="color:#666">&gt;=</span><span style="color:#40a070">7000</span> <span style="color:#007020;font-weight:bold">then</span> <span style="color:#4070a0">&#34;high&#34;</span>
+          <span style="color:#007020;font-weight:bold">else</span> <span style="color:#4070a0">&#34;low&#34;</span>
+    end <span style="color:#007020;font-weight:bold">as</span> tag
+<span style="color:#007020;font-weight:bold">from</span> employee <span style="color:#007020;font-weight:bold">order</span> <span style="color:#007020;font-weight:bold">by</span> <span style="color:#007020;font-weight:bold">desc</span>;
+</code></pre></div><h3 id="mysql內建函數">MySQL內建函數</h3>
+<h4 id="1-字符函數">1. 字符函數</h4>
+<p>字串拼接:CONCAT()，CONCAT_WS。</p>
+<p>字串大小寫:UPPER()，LOWER()。</p>
+<p>從左右邊數來:LEFT()，RIGHT()。</p>
+<p>字串長度:LENGTH()。</p>
+<p>去除特定字符:LTRIM()，RTRIM()，TRIM()</p>
+<p>字串替換:REPLACE()</p>
+<p>獲取特定字串:SUBSTRING(特定字串,起,尾,)</p>
+<h4 id="2-數值函數">2. 數值函數</h4>
+<p>無條件進位和捨去:CEIL()，FIOOR()</p>
+<p>除數跟餘數:DIV()，MOD()</p>
+<p>平方:POW()</p>
+<p>四捨五入:ROUND()</p>
+<h4 id="3-日期時間函數">3. 日期時間函數</h4>
+<p>當前時間:NOE()，CURDATE()，CURTIMEE()</p>
+<p>格式化時間:DATE_FORNAT()</p>
+<p>日期增加減少:DASTE_ADD()</p>
+<p>時間差:DATEDIFF(第一個時間,第二個時間)</p>
+<h4 id="4-訊息函數">4. 訊息函數</h4>
+<p>獲取當前進程ID:CONNECTION_ID()</p>
+<p>當前DATABASE名稱:DATABASE()</p>
+<p>最後一次生成的ID:LAST_INSERT_ID()</p>
+<p>當前用戶:USER()</p>
+<p>當前版本:VERSION()</p>
+<h4 id="5-聚合函數">5. 聚合函數</h4>
+<p>平均值 AVG()</p>
+<p>計数 COUNT()</p>
+<p>最大值 MAX()</p>
+<p>最小值 MIN()</p>
+<p>求和 SUM()</p>
+<h4 id="6-加密函數">6. 加密函數</h4>
+<p>更改密碼:PASSWORD()</p>
+<p>存取密碼如果資料密要加密時用:MD5()</p>
+<h3 id="relationship之one-to-many一對多">RELATIONSHIP之ONE TO MANY(一對多)</h3>
+<p>先新增兩個table</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-MySQL" data-lang="MySQL"><span style="color:#007020;font-weight:bold">CREATE</span> <span style="color:#007020;font-weight:bold">TABLE</span> <span style="color:#06287e">customers</span>(
+    id <span style="color:#902000">INT</span> <span style="color:#007020">AUTO_INCREMENT</span> <span style="color:#007020;font-weight:bold">PRIMARY</span> <span style="color:#007020;font-weight:bold">KEY</span>,
+    first_name <span style="color:#902000">VARCHAR</span>(<span style="color:#40a070">100</span>),
+    last_name <span style="color:#902000">VARCHAR</span>(<span style="color:#40a070">100</span>),
+    email <span style="color:#902000">VARCHAR</span>(<span style="color:#40a070">100</span>) 
+);
+
+<span style="color:#007020;font-weight:bold">INSERT</span> <span style="color:#007020;font-weight:bold">INTO</span> <span style="color:#06287e">customers</span>(first_name, last_name, email) <span style="color:#007020;font-weight:bold">VALUES</span>
+    (<span style="color:#4070a0">&#39;Robin&#39;</span>, <span style="color:#4070a0">&#39;Jackman&#39;</span>, <span style="color:#4070a0">&#39;roj@gmail.com&#39;</span>),
+    (<span style="color:#4070a0">&#39;Taylor&#39;</span>, <span style="color:#4070a0">&#39;Edward&#39;</span>, <span style="color:#4070a0">&#39;taed@gmail.com&#39;</span>),
+    (<span style="color:#4070a0">&#39;Vivian&#39;</span>, <span style="color:#4070a0">&#39;Dickens&#39;</span>, <span style="color:#4070a0">&#39;vidi@gmail.com&#39;</span>),
+    (<span style="color:#4070a0">&#39;Harley&#39;</span>, <span style="color:#4070a0">&#39;Gilbert&#39;</span>, <span style="color:#4070a0">&#39;hgi@gmail.com&#39;</span>);
+
+<span style="color:#007020;font-weight:bold">CREATE</span> <span style="color:#007020;font-weight:bold">TABLE</span> <span style="color:#06287e">orders</span>(
+    id <span style="color:#902000">INT</span> <span style="color:#007020">AUTO_INCREMENT</span> <span style="color:#007020;font-weight:bold">PRIMARY</span> <span style="color:#007020;font-weight:bold">KEY</span>,
+    order_date <span style="color:#902000">DATE</span>,
+    amount <span style="color:#902000">DECIMAL</span>(<span style="color:#40a070">8</span>,<span style="color:#40a070">2</span>),
+    customer_id <span style="color:#902000">INT</span>
+);
+
+<span style="color:#007020;font-weight:bold">INSERT</span> <span style="color:#007020;font-weight:bold">INTO</span> <span style="color:#06287e">orders</span>(order_date, amount, customer_id) <span style="color:#007020;font-weight:bold">VALUES</span>
+    (<span style="color:#4070a0">&#39;2001-10-12&#39;</span>, <span style="color:#40a070">99</span>.<span style="color:#40a070">12</span>, <span style="color:#40a070">1</span>),
+    (<span style="color:#4070a0">&#39;2001-09-21&#39;</span>, <span style="color:#40a070">110</span>.<span style="color:#40a070">99</span>, <span style="color:#40a070">2</span>),
+    (<span style="color:#4070a0">&#39;2001-10-13&#39;</span>, <span style="color:#40a070">12</span>.<span style="color:#40a070">19</span>, <span style="color:#40a070">1</span>),
+    (<span style="color:#4070a0">&#39;2001-11-29&#39;</span>, <span style="color:#40a070">88</span>.<span style="color:#40a070">09</span>, <span style="color:#40a070">3</span>),
+    (<span style="color:#4070a0">&#39;2001-11-11&#39;</span>, <span style="color:#40a070">205</span>.<span style="color:#40a070">01</span>, <span style="color:#40a070">4</span>);
+</code></pre></div><p>使用id連結兩個table</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-MySQL" data-lang="MySQL"><span style="color:#007020;font-weight:bold">select</span> <span style="color:#666">*</span> <span style="color:#007020;font-weight:bold">from</span> orders <span style="color:#007020;font-weight:bold">where</span> customer_id <span style="color:#666">=</span> (<span style="color:#007020;font-weight:bold">select</span> id <span style="color:#007020;font-weight:bold">from</span> customers <span style="color:#007020;font-weight:bold">where</span> email<span style="color:#666">=</span><span style="color:#4070a0">&#34;roj@gmail.com&#34;</span>);
+
+<span style="color:#666">+----+------------+--------+-------------+</span>
+<span style="color:#666">|</span> id <span style="color:#666">|</span> order_date <span style="color:#666">|</span> amount <span style="color:#666">|</span> customer_id <span style="color:#666">|</span>
+<span style="color:#666">+----+------------+--------+-------------+</span>
+<span style="color:#666">|</span>  <span style="color:#40a070">1</span> <span style="color:#666">|</span> <span style="color:#40a070">2001</span><span style="color:#666">-</span><span style="color:#40a070">10</span><span style="color:#666">-</span><span style="color:#40a070">12</span> <span style="color:#666">|</span>  <span style="color:#40a070">99</span>.<span style="color:#40a070">12</span> <span style="color:#666">|</span>           <span style="color:#40a070">1</span> <span style="color:#666">|</span>
+<span style="color:#666">|</span>  <span style="color:#40a070">3</span> <span style="color:#666">|</span> <span style="color:#40a070">2001</span><span style="color:#666">-</span><span style="color:#40a070">10</span><span style="color:#666">-</span><span style="color:#40a070">13</span> <span style="color:#666">|</span>  <span style="color:#40a070">12</span>.<span style="color:#40a070">19</span> <span style="color:#666">|</span>           <span style="color:#40a070">1</span> <span style="color:#666">|</span>
+<span style="color:#666">+----+------------+--------+-------------+</span>
+</code></pre></div><h4 id="使用foreign-key約束關聯">使用Foreign Key約束關聯</h4>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-MySQL" data-lang="MySQL"><span style="color:#007020;font-weight:bold">CREATE</span> <span style="color:#007020;font-weight:bold">TABLE</span> <span style="color:#06287e">customers</span>(
+    id <span style="color:#902000">INT</span> <span style="color:#007020">AUTO_INCREMENT</span> <span style="color:#007020;font-weight:bold">PRIMARY</span> <span style="color:#007020;font-weight:bold">KEY</span>,
+    first_name <span style="color:#902000">VARCHAR</span>(<span style="color:#40a070">100</span>),
+    last_name <span style="color:#902000">VARCHAR</span>(<span style="color:#40a070">100</span>),
+    email <span style="color:#902000">VARCHAR</span>(<span style="color:#40a070">100</span>) 
+);
+
+<span style="color:#007020;font-weight:bold">INSERT</span> <span style="color:#007020;font-weight:bold">INTO</span> <span style="color:#06287e">customers</span>(first_name, last_name, email) <span style="color:#007020;font-weight:bold">VALUES</span>
+    (<span style="color:#4070a0">&#39;Robin&#39;</span>, <span style="color:#4070a0">&#39;Jackman&#39;</span>, <span style="color:#4070a0">&#39;roj@gmail.com&#39;</span>),
+    (<span style="color:#4070a0">&#39;Taylor&#39;</span>, <span style="color:#4070a0">&#39;Edward&#39;</span>, <span style="color:#4070a0">&#39;taed@gmail.com&#39;</span>),
+    (<span style="color:#4070a0">&#39;Vivian&#39;</span>, <span style="color:#4070a0">&#39;Dickens&#39;</span>, <span style="color:#4070a0">&#39;vidi@gmail.com&#39;</span>),
+    (<span style="color:#4070a0">&#39;Harley&#39;</span>, <span style="color:#4070a0">&#39;Gilbert&#39;</span>, <span style="color:#4070a0">&#39;hgi@gmail.com&#39;</span>);
+
+<span style="color:#007020;font-weight:bold">CREATE</span> <span style="color:#007020;font-weight:bold">TABLE</span> <span style="color:#06287e">orders</span>(
+    id <span style="color:#902000">INT</span> <span style="color:#007020">AUTO_INCREMENT</span> <span style="color:#007020;font-weight:bold">PRIMARY</span> <span style="color:#007020;font-weight:bold">KEY</span>,
+    order_date <span style="color:#902000">DATE</span>,
+    amount <span style="color:#902000">DECIMAL</span>(<span style="color:#40a070">8</span>,<span style="color:#40a070">2</span>),
+    customer_id <span style="color:#902000">INT</span>,
+    <span style="color:#007020;font-weight:bold">FOREIGN</span> <span style="color:#007020;font-weight:bold">KEY</span> (customer_id) <span style="color:#007020;font-weight:bold">REFERENCES</span> <span style="color:#06287e">customers</span>(id)
+);
+
+<span style="color:#007020;font-weight:bold">INSERT</span> <span style="color:#007020;font-weight:bold">INTO</span> <span style="color:#06287e">orders</span>(order_date, amount, customer_id) <span style="color:#007020;font-weight:bold">VALUES</span>
+    (<span style="color:#4070a0">&#39;2001-10-12&#39;</span>, <span style="color:#40a070">99</span>.<span style="color:#40a070">12</span>, <span style="color:#40a070">1</span>),
+    (<span style="color:#4070a0">&#39;2001-09-21&#39;</span>, <span style="color:#40a070">110</span>.<span style="color:#40a070">99</span>, <span style="color:#40a070">2</span>),
+    (<span style="color:#4070a0">&#39;2001-10-13&#39;</span>, <span style="color:#40a070">12</span>.<span style="color:#40a070">19</span>, <span style="color:#40a070">1</span>),
+    (<span style="color:#4070a0">&#39;2001-11-29&#39;</span>, <span style="color:#40a070">88</span>.<span style="color:#40a070">09</span>, <span style="color:#40a070">3</span>),
+    (<span style="color:#4070a0">&#39;2001-11-11&#39;</span>, <span style="color:#40a070">205</span>.<span style="color:#40a070">01</span>, <span style="color:#40a070">4</span>);
+</code></pre></div><h4 id="inner-join-結合兩張table">Inner Join 結合兩張table</h4>
+<p>取table重複部分</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-MySQL" data-lang="MySQL"><span style="color:#007020;font-weight:bold">select</span> <span style="color:#666">*</span> <span style="color:#007020;font-weight:bold">from</span> customers <span style="color:#007020;font-weight:bold">inner</span> <span style="color:#007020;font-weight:bold">join</span> orders <span style="color:#007020;font-weight:bold">where</span> customers.id<span style="color:#666">=</span>orders.customer_id;
+
+<span style="color:#666">+----+------------+-----------+----------------+----+------------+--------+-------------+</span>
+<span style="color:#666">|</span> id <span style="color:#666">|</span> first_name <span style="color:#666">|</span> last_name <span style="color:#666">|</span> email          <span style="color:#666">|</span> id <span style="color:#666">|</span> order_date <span style="color:#666">|</span> amount <span style="color:#666">|</span> customer_id <span style="color:#666">|</span>
+<span style="color:#666">+----+------------+-----------+----------------+----+------------+--------+-------------+</span>
+<span style="color:#666">|</span>  <span style="color:#40a070">1</span> <span style="color:#666">|</span> Robin      <span style="color:#666">|</span> Jackman   <span style="color:#666">|</span> roj<span style="color:#666">@</span>gmail.com  <span style="color:#666">|</span>  <span style="color:#40a070">1</span> <span style="color:#666">|</span> <span style="color:#40a070">2001</span><span style="color:#666">-</span><span style="color:#40a070">10</span><span style="color:#666">-</span><span style="color:#40a070">12</span> <span style="color:#666">|</span>  <span style="color:#40a070">99</span>.<span style="color:#40a070">12</span> <span style="color:#666">|</span>           <span style="color:#40a070">1</span> <span style="color:#666">|</span>
+<span style="color:#666">|</span>  <span style="color:#40a070">1</span> <span style="color:#666">|</span> Robin      <span style="color:#666">|</span> Jackman   <span style="color:#666">|</span> roj<span style="color:#666">@</span>gmail.com  <span style="color:#666">|</span>  <span style="color:#40a070">3</span> <span style="color:#666">|</span> <span style="color:#40a070">2001</span><span style="color:#666">-</span><span style="color:#40a070">10</span><span style="color:#666">-</span><span style="color:#40a070">13</span> <span style="color:#666">|</span>  <span style="color:#40a070">12</span>.<span style="color:#40a070">19</span> <span style="color:#666">|</span>           <span style="color:#40a070">1</span> <span style="color:#666">|</span>
+<span style="color:#666">|</span>  <span style="color:#40a070">2</span> <span style="color:#666">|</span> Taylor     <span style="color:#666">|</span> Edward    <span style="color:#666">|</span> taed<span style="color:#666">@</span>gmail.com <span style="color:#666">|</span>  <span style="color:#40a070">2</span> <span style="color:#666">|</span> <span style="color:#40a070">2001</span><span style="color:#666">-</span><span style="color:#40a070">09</span><span style="color:#666">-</span><span style="color:#40a070">21</span> <span style="color:#666">|</span> <span style="color:#40a070">110</span>.<span style="color:#40a070">99</span> <span style="color:#666">|</span>           <span style="color:#40a070">2</span> <span style="color:#666">|</span>
+<span style="color:#666">|</span>  <span style="color:#40a070">3</span> <span style="color:#666">|</span> Vivian     <span style="color:#666">|</span> Dickens   <span style="color:#666">|</span> vidi<span style="color:#666">@</span>gmail.com <span style="color:#666">|</span>  <span style="color:#40a070">4</span> <span style="color:#666">|</span> <span style="color:#40a070">2001</span><span style="color:#666">-</span><span style="color:#40a070">11</span><span style="color:#666">-</span><span style="color:#40a070">29</span> <span style="color:#666">|</span>  <span style="color:#40a070">88</span>.<span style="color:#40a070">09</span> <span style="color:#666">|</span>           <span style="color:#40a070">3</span> <span style="color:#666">|</span>
+<span style="color:#666">|</span>  <span style="color:#40a070">4</span> <span style="color:#666">|</span> Harley     <span style="color:#666">|</span> Gilbert   <span style="color:#666">|</span> hgi<span style="color:#666">@</span>gmail.com  <span style="color:#666">|</span>  <span style="color:#40a070">5</span> <span style="color:#666">|</span> <span style="color:#40a070">2001</span><span style="color:#666">-</span><span style="color:#40a070">11</span><span style="color:#666">-</span><span style="color:#40a070">11</span> <span style="color:#666">|</span> <span style="color:#40a070">205</span>.<span style="color:#40a070">01</span> <span style="color:#666">|</span>           <span style="color:#40a070">4</span> <span style="color:#666">|</span>
+<span style="color:#666">+----+------------+-----------+----------------+----+------------+--------+-------------+</span>
+</code></pre></div><h4 id="ieft-join">ieft join</h4>
+<p>過濾條件式寫在ON後面，代表是先針對連結前的指定資料表進行過濾</p>
+<p>過濾條件寫在WHERE後面，代表是對連結後取得的資料集合再進行過濾</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-MySQL" data-lang="MySQL"><span style="color:#666">--</span><span style="">取得自己以及重複部分</span>
+<span style="color:#007020;font-weight:bold">select</span> <span style="color:#666">*</span> <span style="color:#007020;font-weight:bold">from</span> customers <span style="color:#007020;font-weight:bold">left</span> <span style="color:#007020;font-weight:bold">join</span> orders <span style="color:#007020;font-weight:bold">on</span> customers.id<span style="color:#666">=</span>orders.customer_id;
+
+<span style="color:#666">--</span><span style="">如果總和為</span><span style="color:#60add5">null</span><span style="">換成</span><span style="color:#40a070">0</span>
+<span style="color:#007020;font-weight:bold">SELECT</span> first_name, last_name,
+<span style="color:#007020;font-weight:bold">case</span>
+    <span style="color:#007020;font-weight:bold">when</span> <span style="color:#06287e">SUM</span>(amount) <span style="color:#007020;font-weight:bold">is</span> <span style="color:#60add5">NULL</span> <span style="color:#007020;font-weight:bold">then</span> <span style="color:#40a070">0</span>
+    <span style="color:#007020;font-weight:bold">else</span> <span style="color:#06287e">SUM</span>(amount)
+end <span style="color:#007020;font-weight:bold">as</span> total_amount
+<span style="color:#007020;font-weight:bold">from</span> customers <span style="color:#007020;font-weight:bold">left</span> <span style="color:#007020;font-weight:bold">join</span> orders <span style="color:#007020;font-weight:bold">on</span> customers.id<span style="color:#666">=</span>orders.customer_id <span style="color:#007020;font-weight:bold">group</span> <span style="color:#007020;font-weight:bold">by</span> customers.id;
+
+<span style="color:#666">--</span><span style="">第二種</span><span style="color:#60add5">null</span><span style="">換成</span><span style="color:#40a070">0</span><span style="">寫法</span>
+<span style="color:#007020;font-weight:bold">SELECT</span> first_name, last_name, <span style="color:#06287e">IFNULL</span>(<span style="color:#06287e">SUM</span>(amount), <span style="color:#40a070">0</span>)
+<span style="color:#007020;font-weight:bold">from</span> customers <span style="color:#007020;font-weight:bold">left</span> <span style="color:#007020;font-weight:bold">join</span> orders <span style="color:#007020;font-weight:bold">on</span> customers.id<span style="color:#666">=</span>orders.customer_id <span style="color:#007020;font-weight:bold">group</span> <span style="color:#007020;font-weight:bold">by</span> customers.id;
+</code></pre></div><h4 id="rigth-join">rigth join</h4>
+<p>left join 的相反邊</p>
+<h4 id="on-delete">ON DELETE</h4>
+<p>刪除被FOREIGN KEY約束的資料</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-MySQL" data-lang="MySQL"><span style="color:#666">--</span><span style="">刪除使用者資料，會連帶買的商品一起刪除</span>
+<span style="color:#666">--</span><span style="">建立資料表同時使用</span>foreign <span style="color:#007020;font-weight:bold">key</span> <span style="">和</span>on <span style="color:#007020;font-weight:bold">delete</span>
+
+<span style="color:#007020;font-weight:bold">CREATE</span> <span style="color:#007020;font-weight:bold">TABLE</span> <span style="color:#06287e">customers</span>(
+    id <span style="color:#902000">INT</span> <span style="color:#007020">AUTO_INCREMENT</span> <span style="color:#007020;font-weight:bold">PRIMARY</span> <span style="color:#007020;font-weight:bold">KEY</span>,
+    first_name <span style="color:#902000">VARCHAR</span>(<span style="color:#40a070">100</span>),
+    last_name <span style="color:#902000">VARCHAR</span>(<span style="color:#40a070">100</span>),
+    email <span style="color:#902000">VARCHAR</span>(<span style="color:#40a070">100</span>) 
+);
+
+<span style="color:#007020;font-weight:bold">INSERT</span> <span style="color:#007020;font-weight:bold">INTO</span> <span style="color:#06287e">customers</span>(first_name, last_name, email) <span style="color:#007020;font-weight:bold">VALUES</span>
+    (<span style="color:#4070a0">&#39;Robin&#39;</span>, <span style="color:#4070a0">&#39;Jackman&#39;</span>, <span style="color:#4070a0">&#39;roj@gmail.com&#39;</span>),
+    (<span style="color:#4070a0">&#39;Taylor&#39;</span>, <span style="color:#4070a0">&#39;Edward&#39;</span>, <span style="color:#4070a0">&#39;taed@gmail.com&#39;</span>),
+    (<span style="color:#4070a0">&#39;Vivian&#39;</span>, <span style="color:#4070a0">&#39;Dickens&#39;</span>, <span style="color:#4070a0">&#39;vidi@gmail.com&#39;</span>),
+    (<span style="color:#4070a0">&#39;Harley&#39;</span>, <span style="color:#4070a0">&#39;Gilbert&#39;</span>, <span style="color:#4070a0">&#39;hgi@gmail.com&#39;</span>);
+
+<span style="color:#007020;font-weight:bold">CREATE</span> <span style="color:#007020;font-weight:bold">TABLE</span> <span style="color:#06287e">orders</span>(
+    id <span style="color:#902000">INT</span> <span style="color:#007020">AUTO_INCREMENT</span> <span style="color:#007020;font-weight:bold">PRIMARY</span> <span style="color:#007020;font-weight:bold">KEY</span>,
+    order_date <span style="color:#902000">DATE</span>,
+    amount <span style="color:#902000">DECIMAL</span>(<span style="color:#40a070">8</span>,<span style="color:#40a070">2</span>),
+    customer_id <span style="color:#902000">INT</span>,
+    <span style="color:#007020;font-weight:bold">FOREIGN</span> <span style="color:#007020;font-weight:bold">KEY</span>(customer_id)
+        <span style="color:#007020;font-weight:bold">REFERENCES</span> <span style="color:#06287e">customers</span>(id)
+        <span style="color:#007020;font-weight:bold">ON</span> <span style="color:#007020;font-weight:bold">DELETE</span> <span style="color:#007020;font-weight:bold">CASCADE</span>
+);
+
+<span style="color:#007020;font-weight:bold">INSERT</span> <span style="color:#007020;font-weight:bold">INTO</span> <span style="color:#06287e">orders</span>(order_date, amount, customer_id) <span style="color:#007020;font-weight:bold">VALUES</span>
+    (<span style="color:#4070a0">&#39;2001-10-12&#39;</span>, <span style="color:#40a070">99</span>.<span style="color:#40a070">12</span>, <span style="color:#40a070">1</span>),
+    (<span style="color:#4070a0">&#39;2001-09-21&#39;</span>, <span style="color:#40a070">110</span>.<span style="color:#40a070">99</span>, <span style="color:#40a070">2</span>),
+    (<span style="color:#4070a0">&#39;2001-10-13&#39;</span>, <span style="color:#40a070">12</span>.<span style="color:#40a070">19</span>, <span style="color:#40a070">1</span>),
+    (<span style="color:#4070a0">&#39;2001-11-29&#39;</span>, <span style="color:#40a070">88</span>.<span style="color:#40a070">09</span>, <span style="color:#40a070">3</span>),
+    (<span style="color:#4070a0">&#39;2001-11-11&#39;</span>, <span style="color:#40a070">205</span>.<span style="color:#40a070">01</span>, <span style="color:#40a070">4</span>);
+</code></pre></div><h5 id="補充">補充</h5>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-MySQL" data-lang="MySQL"><span style="color:#666">--</span><span style="">兩種方法取小數點後精度</span>
+
+<span style="color:#007020;font-weight:bold">CONVERT</span>(<span style="color:#06287e">AVG</span>(imdb_score), <span style="color:#902000">DECIMAL</span>(<span style="color:#40a070">2</span>,<span style="color:#40a070">1</span>))
+
+<span style="color:#666">--</span>ROUND方法去取精度
+
+ <span style="color:#007020;font-weight:bold">select</span> <span style="color:#06287e">ROUND</span>(<span style="color:#40a070">7</span>.<span style="color:#40a070">83232</span>);
+<span style="color:#666">+----------------+</span>
+<span style="color:#666">|</span> <span style="color:#06287e">ROUND</span>(<span style="color:#40a070">7</span>.<span style="color:#40a070">83232</span>) <span style="color:#666">|</span>
+<span style="color:#666">+----------------+</span>
+<span style="color:#666">|</span>              <span style="color:#40a070">8</span> <span style="color:#666">|</span>
+<span style="color:#666">+----------------+</span>
+<span style="color:#40a070">1</span> row <span style="color:#007020;font-weight:bold">in</span> <span style="color:#902000">set</span> (<span style="color:#40a070">0</span>.<span style="color:#40a070">00</span> sec)
+ 
+mysql<span style="color:#666">&gt;</span> <span style="color:#007020;font-weight:bold">select</span> <span style="color:#06287e">ROUND</span>(<span style="color:#40a070">7</span>.<span style="color:#40a070">83232</span>,<span style="color:#40a070">1</span>);
+<span style="color:#666">+------------------+</span>
+<span style="color:#666">|</span> <span style="color:#06287e">ROUND</span>(<span style="color:#40a070">7</span>.<span style="color:#40a070">83232</span>,<span style="color:#40a070">1</span>) <span style="color:#666">|</span>
+<span style="color:#666">+------------------+</span>
+<span style="color:#666">|</span>              <span style="color:#40a070">7</span>.<span style="color:#40a070">8</span> <span style="color:#666">|</span>
+<span style="color:#666">+------------------+</span>
+<span style="color:#40a070">1</span> row <span style="color:#007020;font-weight:bold">in</span> <span style="color:#902000">set</span> (<span style="color:#40a070">0</span>.<span style="color:#40a070">00</span> sec)
+ 
+mysql<span style="color:#666">&gt;</span> <span style="color:#007020;font-weight:bold">select</span> <span style="color:#06287e">ROUND</span>(<span style="color:#40a070">7</span>.<span style="color:#40a070">57232</span>,<span style="color:#40a070">1</span>);
+<span style="color:#666">+------------------+</span>
+<span style="color:#666">|</span> <span style="color:#06287e">ROUND</span>(<span style="color:#40a070">7</span>.<span style="color:#40a070">57232</span>,<span style="color:#40a070">1</span>) <span style="color:#666">|</span>
+<span style="color:#666">+------------------+</span>
+<span style="color:#666">|</span>              <span style="color:#40a070">7</span>.<span style="color:#40a070">6</span> <span style="color:#666">|</span>
+<span style="color:#666">+------------------+</span>
+<span style="color:#40a070">1</span> row <span style="color:#007020;font-weight:bold">in</span> <span style="color:#902000">set</span> (<span style="color:#40a070">0</span>.<span style="color:#40a070">00</span> sec)
+</code></pre></div><h3 id="relationship之many-to-many多對多">RELATIONSHIP之MANY to MANY(多對多)</h3>
+<!-- raw HTML omitted -->
+
+        </div>
+
+        
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "joe94113" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center mb-5">
+        <a href="https://joe94113.github.io"><img src="https://joe94113.github.io/images/joelogo.png" alt="Joe&#39;s Blog"></a>
+      </div>
+      <div class="col-lg-3 col-sm-6 mb-5">
+        <h6 class="mb-4">Contact Me</h6>
+        <ul class="list-unstyled">
+          <li class="mb-3"><a class="text-dark" href="tel:0970818779"><i
+                class="ti-mobile mr-3 text-primary"></i>0970818779</a></li>
+          <li class="mb-3"><i class="ti-location-pin mr-3 text-primary"></i>Tainan, Taiwan</li>
+          <li class="mb-3"><a class="text-dark" href="mailto:joe94113@email.com"><i
+                class="ti-email mr-3 text-primary"></i>joe94113@email.com</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-sm-6 mb-5">
+        <h6 class="mb-4">Social Contacts</h6>
+        <ul class="list-unstyled">
+          
+          <li class="mb-3"><a class="text-dark" href="https://www.facebook.com/Blizzardsumme/">facebook</a></li>
+          
+          <li class="mb-3"><a class="text-dark" href="https://www.instagram.com/guan___zhi/?hl=zh-tw">instagram</a></li>
+          
+          <li class="mb-3"><a class="text-dark" href="https://github.com/joe94113">github</a></li>
+          
+        </ul>
+      </div>
+      <div class="col-lg-3 col-sm-6 mb-5">
+        <h6 class="mb-4">Categories</h6>
+        <ul class="list-unstyled">
+          <li class="mb-3"><a class="text-dark"
+              href="/categories/html-css">Html css</a>
+          </li>
+          <li class="mb-3"><a class="text-dark"
+              href="/categories/mysql">Mysql</a>
+          </li>
+          <li class="mb-3"><a class="text-dark"
+              href="/categories/python">Python</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-sm-6 mb-5">
+        <h6 class="mb-4">Quick Links</h6>
+        <ul class="list-unstyled">
+          
+          <li class="mb-3"><a class="text-dark" href="https://joe94113.github.io/about">About</a></li>
+          
+        </ul>
+      </div>
+      <div class="col-12 border-top py-4 text-center">
+        | copyright © 2020 <a href="https://themefisher.com">Themefisher</a> All Rights Reserved |
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  var indexURL = "https://joe94113.github.io/index.json"
+</script>
+
+<!-- JS Plugins -->
+
+<script src="https://joe94113.github.io/plugins/jQuery/jquery.min.js"></script>
+
+<script src="https://joe94113.github.io/plugins/bootstrap/bootstrap.min.js"></script>
+
+<script src="https://joe94113.github.io/plugins/slick/slick.min.js"></script>
+
+<script src="https://joe94113.github.io/plugins/venobox/venobox.min.js"></script>
+
+<script src="https://joe94113.github.io/plugins/search/fuse.min.js"></script>
+
+<script src="https://joe94113.github.io/plugins/search/mark.js"></script>
+
+<script src="https://joe94113.github.io/plugins/search/search.js"></script>
+
+<!-- Main Script -->
+
+<script src="https://joe94113.github.io/js/script.min.js"></script>
+<!-- google analitycs -->
+<script>
+  (function (i, s, o, g, r, a, m) {
+    i['GoogleAnalyticsObject'] = r;
+    i[r] = i[r] || function () {
+      (i[r].q = i[r].q || []).push(arguments)
+    }, i[r].l = 1 * new Date();
+    a = s.createElement(o),
+      m = s.getElementsByTagName(o)[0];
+    a.async = 1;
+    a.src = g;
+    m.parentNode.insertBefore(a, m)
+  })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+  ga('create', 'UA-177446378-1', 'auto');
+  ga('send', 'pageview');
+</script></body>
+</html>

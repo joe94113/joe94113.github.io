@@ -6,10 +6,21 @@
     <description>Recent content in Blogs on Joe&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
-    <lastBuildDate>Tue, 08 Sep 2020 10:07:47 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 24 Oct 2020 10:07:47 +0800</lastBuildDate>
     
 	<atom:link href="https://joe94113.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>MySQL入門筆記</title>
+      <link>https://joe94113.github.io/blog/mysql/</link>
+      <pubDate>Sat, 24 Oct 2020 10:07:47 +0800</pubDate>
+      
+      <guid>https://joe94113.github.io/blog/mysql/</guid>
+      <description>MySQ語法 drop database &amp;#34;database名稱&amp;#34;; 創建database
+create database &amp;#34;database名稱&amp;#34;; 使用這個database
+use &amp;#34;database名稱&amp;#34;; 基本的CRUD 導入數據</description>
+    </item>
     
     <item>
       <title>HTML CSS作品</title>
@@ -81,15 +92,6 @@
       <pubDate>Sun, 07 Oct 2018 11:39:22 +0200</pubDate>
       
       <guid>https://joe94113.github.io/blog/fifth/</guid>
-      <description>This is another post Lorem ipsum dolor sit amet, consectetur adipiscing elit.</description>
-    </item>
-    
-    <item>
-      <title>Fourth</title>
-      <link>https://joe94113.github.io/blog/fourth/</link>
-      <pubDate>Sun, 07 Oct 2018 11:39:16 +0200</pubDate>
-      
-      <guid>https://joe94113.github.io/blog/fourth/</guid>
       <description>This is another post Lorem ipsum dolor sit amet, consectetur adipiscing elit.</description>
     </item>
     
