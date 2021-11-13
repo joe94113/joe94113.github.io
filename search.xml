@@ -295,33 +295,6 @@
     
     
     <entry>
-      <title>Laravel起步走</title>
-      <link href="/2021/09/10/Laravel_start/"/>
-      <url>/2021/09/10/Laravel_start/</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Laravel-起步走"><a href="#Laravel-起步走" class="headerlink" title="Laravel 起步走"></a>Laravel 起步走</h1><p>Laravel 是一個 MVC 架構的 PHP 框架，分別是 model(資料處理)，controller(控制器)，view(呈現畫面)，</p><p>Laravel 還有提供了驗證(authentication)、路由(routing)、sessions、快取(caching) 等開發過程中經常用到的工具或功能。是一個強大的網頁開發框架。</p><p>那要怎麼使用 laravel 呢?</p><h3 id="1-安裝-composer"><a href="#1-安裝-composer" class="headerlink" title="1. 安裝 composer"></a>1. 安裝 composer</h3><p>首先先下載 composer<a href="https://getcomposer.org/download/">官方載點</a><br>我是 window 開發用戶<br><img src="https://i.imgur.com/25RWxuX.jpg" alt=""><br>安裝後選擇本機 php 位置安裝，安裝完畢後可以在命令提示字元(簡稱 cmd)確認是否安裝完成<br>輸入:<code>composer -v</code><br><img src="https://i.imgur.com/r7BBnRM.jpg" alt=""><br>看到這畫面代表成功囉</p><h3 id="2-下載-laravel"><a href="#2-下載-laravel" class="headerlink" title="2. 下載 laravel"></a>2. 下載 laravel</h3><p>cmd 輸入:<code>composer global require laravel/installer</code></p><h3 id="3-新增-laravel-專案"><a href="#3-新增-laravel-專案" class="headerlink" title="3. 新增 laravel 專案"></a>3. 新增 laravel 專案</h3><p>cmd 輸入: <code>laravel new &quot;專案名稱&quot;</code><br><img src="https://i.imgur.com/b8yq4v6.jpg" alt=""></p><h3 id="4-開啟-laravel"><a href="#4-開啟-laravel" class="headerlink" title="4. 開啟 laravel"></a>4. 開啟 laravel</h3><p>首先先進入 laravel 專案<br>cmd 輸入: <code>cd &quot;專案名稱&quot;</code><br>cmd 輸入: <code>php artisan serve</code><br>網址輸入: <a href="http://127.0.0.1:8000/">http://127.0.0.1:8000/</a><br>就可以看到預設的 laravel 畫面囉<br><img src="https://i.imgur.com/c4AmTOo.jpg" alt=""></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> Laravel </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Backend </tag>
-            
-            <tag> Laravel </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Linux遇到資料夾權限問題</title>
       <link href="/2021/09/10/Linux_fix_authority/"/>
       <url>/2021/09/10/Linux_fix_authority/</url>
@@ -341,6 +314,33 @@
             <tag> OS </tag>
             
             <tag> Linux </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Laravel起步走</title>
+      <link href="/2021/09/10/Laravel_start/"/>
+      <url>/2021/09/10/Laravel_start/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Laravel-起步走"><a href="#Laravel-起步走" class="headerlink" title="Laravel 起步走"></a>Laravel 起步走</h1><p>Laravel 是一個 MVC 架構的 PHP 框架，分別是 model(資料處理)，controller(控制器)，view(呈現畫面)，</p><p>Laravel 還有提供了驗證(authentication)、路由(routing)、sessions、快取(caching) 等開發過程中經常用到的工具或功能。是一個強大的網頁開發框架。</p><p>那要怎麼使用 laravel 呢?</p><h3 id="1-安裝-composer"><a href="#1-安裝-composer" class="headerlink" title="1. 安裝 composer"></a>1. 安裝 composer</h3><p>首先先下載 composer<a href="https://getcomposer.org/download/">官方載點</a><br>我是 window 開發用戶<br><img src="https://i.imgur.com/25RWxuX.jpg" alt=""><br>安裝後選擇本機 php 位置安裝，安裝完畢後可以在命令提示字元(簡稱 cmd)確認是否安裝完成<br>輸入:<code>composer -v</code><br><img src="https://i.imgur.com/r7BBnRM.jpg" alt=""><br>看到這畫面代表成功囉</p><h3 id="2-下載-laravel"><a href="#2-下載-laravel" class="headerlink" title="2. 下載 laravel"></a>2. 下載 laravel</h3><p>cmd 輸入:<code>composer global require laravel/installer</code></p><h3 id="3-新增-laravel-專案"><a href="#3-新增-laravel-專案" class="headerlink" title="3. 新增 laravel 專案"></a>3. 新增 laravel 專案</h3><p>cmd 輸入: <code>laravel new &quot;專案名稱&quot;</code><br><img src="https://i.imgur.com/b8yq4v6.jpg" alt=""></p><h3 id="4-開啟-laravel"><a href="#4-開啟-laravel" class="headerlink" title="4. 開啟 laravel"></a>4. 開啟 laravel</h3><p>首先先進入 laravel 專案<br>cmd 輸入: <code>cd &quot;專案名稱&quot;</code><br>cmd 輸入: <code>php artisan serve</code><br>網址輸入: <a href="http://127.0.0.1:8000/">http://127.0.0.1:8000/</a><br>就可以看到預設的 laravel 畫面囉<br><img src="https://i.imgur.com/c4AmTOo.jpg" alt=""></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Laravel </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Backend </tag>
+            
+            <tag> Laravel </tag>
             
         </tags>
       
