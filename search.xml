@@ -295,33 +295,6 @@
     
     
     <entry>
-      <title>Linux遇到資料夾權限問題</title>
-      <link href="/2021/09/10/Linux_fix_authority/"/>
-      <url>/2021/09/10/Linux_fix_authority/</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Linux-遇到資料夾權限問題"><a href="#Linux-遇到資料夾權限問題" class="headerlink" title="Linux 遇到資料夾權限問題"></a>Linux 遇到資料夾權限問題</h1><p>問題:<br><code>laravel - The stream or file &quot;/storage/logs/laravel.log&quot; could not be opened in append mode: failed to open stream: Permission denied</code></p><p>解法:<br><code>sudo chown apache:apache -R dir</code></p><p><code>sudo chmod u+w,g+w -R dir</code></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> Linux </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> OS </tag>
-            
-            <tag> Linux </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Laravel起步走</title>
       <link href="/2021/09/10/Laravel_start/"/>
       <url>/2021/09/10/Laravel_start/</url>
@@ -341,6 +314,33 @@
             <tag> Backend </tag>
             
             <tag> Laravel </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Linux遇到資料夾權限問題</title>
+      <link href="/2021/09/10/Linux_fix_authority/"/>
+      <url>/2021/09/10/Linux_fix_authority/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Linux-遇到資料夾權限問題"><a href="#Linux-遇到資料夾權限問題" class="headerlink" title="Linux 遇到資料夾權限問題"></a>Linux 遇到資料夾權限問題</h1><p>問題:<br><code>laravel - The stream or file &quot;/storage/logs/laravel.log&quot; could not be opened in append mode: failed to open stream: Permission denied</code></p><p>解法:<br><code>sudo chown apache:apache -R dir</code></p><p><code>sudo chmod u+w,g+w -R dir</code></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> OS </tag>
+            
+            <tag> Linux </tag>
             
         </tags>
       
