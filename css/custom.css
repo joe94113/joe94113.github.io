@@ -5,7 +5,7 @@ h3::before,
 h4::before,
 h5::before,
 h6::before {
-  -webkit-animation: ccc 1s linear infinite;
+  -webkit-animation: ccc 1.6s linear infinite;
   animation: ccc 1.6s linear infinite;
 }
 @-webkit-keyframes ccc {
