@@ -187,6 +187,33 @@
     
     
     <entry>
+      <title>Laravel how to post values from a multiple select</title>
+      <link href="/2021/10/13/laravel_post_MultipleSelect_values/"/>
+      <url>/2021/10/13/laravel_post_MultipleSelect_values/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Laravel-how-to-post-values-from-a-multiple-select"><a href="#Laravel-how-to-post-values-from-a-multiple-select" class="headerlink" title="Laravel how to post values from a multiple select"></a>Laravel how to post values from a multiple select</h1><p>首先，記得在你的 select tag 的 name 後面加上括號[]，這樣子在複選後，傳到後端去的時候才會取得到複選的所有值。</p><p>使用 dd() 函式印出，就可以看到陣列裡面包含選住的值</p><p>First , remember to add parentheses [] after the name of your select tag, so that after the select, all the checked values will be obtained when it is passed to the backend.</p><p>Use the dd() function to print out, you can see that the array contains the selected value.</p><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">id</span>=<span class="string">&quot;form&quot;</span> <span class="attr">action</span>=<span class="string">&quot;&quot;</span> <span class="attr">method</span>=<span class="string">&quot;post&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">&quot;number&quot;</span> <span class="attr">name</span>=<span class="string">&quot;number[]&quot;</span> <span class="attr">multiple</span>=<span class="string">&quot;multiple&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;1&quot;</span>&gt;</span>1<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;2&quot;</span>&gt;</span>2<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;3&quot;</span>&gt;</span>3<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;4&quot;</span>&gt;</span>4<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">value</span>=<span class="string">&quot;submit&quot;</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Laravel </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Backend </tag>
+            
+            <tag> Laravel </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>How to use Chosen JQuery plugin on Laravel</title>
       <link href="/2021/10/13/laravel_use_chosen/"/>
       <url>/2021/10/13/laravel_use_chosen/</url>
@@ -208,33 +235,6 @@
             <tag> Laravel </tag>
             
             <tag> JQuery </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Laravel how to post values from a multiple select</title>
-      <link href="/2021/10/13/laravel_post_MultipleSelect_values/"/>
-      <url>/2021/10/13/laravel_post_MultipleSelect_values/</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Laravel-how-to-post-values-from-a-multiple-select"><a href="#Laravel-how-to-post-values-from-a-multiple-select" class="headerlink" title="Laravel how to post values from a multiple select"></a>Laravel how to post values from a multiple select</h1><p>首先，記得在你的 select tag 的 name 後面加上括號[]，這樣子在複選後，傳到後端去的時候才會取得到複選的所有值。</p><p>使用 dd() 函式印出，就可以看到陣列裡面包含選住的值</p><p>First , remember to add parentheses [] after the name of your select tag, so that after the select, all the checked values will be obtained when it is passed to the backend.</p><p>Use the dd() function to print out, you can see that the array contains the selected value.</p><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">id</span>=<span class="string">&quot;form&quot;</span> <span class="attr">action</span>=<span class="string">&quot;&quot;</span> <span class="attr">method</span>=<span class="string">&quot;post&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">&quot;number&quot;</span> <span class="attr">name</span>=<span class="string">&quot;number[]&quot;</span> <span class="attr">multiple</span>=<span class="string">&quot;multiple&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;1&quot;</span>&gt;</span>1<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;2&quot;</span>&gt;</span>2<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;3&quot;</span>&gt;</span>3<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;4&quot;</span>&gt;</span>4<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">value</span>=<span class="string">&quot;submit&quot;</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>]]></content>
-      
-      
-      <categories>
-          
-          <category> Laravel </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Backend </tag>
-            
-            <tag> Laravel </tag>
             
         </tags>
       
