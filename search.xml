@@ -187,33 +187,6 @@
     
     
     <entry>
-      <title>Laravel how to post values from a multiple select</title>
-      <link href="/2021/10/13/laravel_post_MultipleSelect_values/"/>
-      <url>/2021/10/13/laravel_post_MultipleSelect_values/</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Laravel-how-to-post-values-from-a-multiple-select"><a href="#Laravel-how-to-post-values-from-a-multiple-select" class="headerlink" title="Laravel how to post values from a multiple select"></a>Laravel how to post values from a multiple select</h1><p>首先，記得在你的 select tag 的 name 後面加上括號[]，這樣子在複選後，傳到後端去的時候才會取得到複選的所有值。</p><p>使用 dd() 函式印出，就可以看到陣列裡面包含選住的值</p><p>First , remember to add parentheses [] after the name of your select tag, so that after the select, all the checked values will be obtained when it is passed to the backend.</p><p>Use the dd() function to print out, you can see that the array contains the selected value.</p><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">id</span>=<span class="string">&quot;form&quot;</span> <span class="attr">action</span>=<span class="string">&quot;&quot;</span> <span class="attr">method</span>=<span class="string">&quot;post&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">&quot;number&quot;</span> <span class="attr">name</span>=<span class="string">&quot;number[]&quot;</span> <span class="attr">multiple</span>=<span class="string">&quot;multiple&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;1&quot;</span>&gt;</span>1<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;2&quot;</span>&gt;</span>2<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;3&quot;</span>&gt;</span>3<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;4&quot;</span>&gt;</span>4<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">value</span>=<span class="string">&quot;submit&quot;</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>]]></content>
-      
-      
-      <categories>
-          
-          <category> Laravel </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Backend </tag>
-            
-            <tag> Laravel </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>How to use Chosen JQuery plugin on Laravel</title>
       <link href="/2021/10/13/laravel_use_chosen/"/>
       <url>/2021/10/13/laravel_use_chosen/</url>
@@ -235,6 +208,33 @@
             <tag> Laravel </tag>
             
             <tag> JQuery </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Laravel how to post values from a multiple select</title>
+      <link href="/2021/10/13/laravel_post_MultipleSelect_values/"/>
+      <url>/2021/10/13/laravel_post_MultipleSelect_values/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Laravel-how-to-post-values-from-a-multiple-select"><a href="#Laravel-how-to-post-values-from-a-multiple-select" class="headerlink" title="Laravel how to post values from a multiple select"></a>Laravel how to post values from a multiple select</h1><p>首先，記得在你的 select tag 的 name 後面加上括號[]，這樣子在複選後，傳到後端去的時候才會取得到複選的所有值。</p><p>使用 dd() 函式印出，就可以看到陣列裡面包含選住的值</p><p>First , remember to add parentheses [] after the name of your select tag, so that after the select, all the checked values will be obtained when it is passed to the backend.</p><p>Use the dd() function to print out, you can see that the array contains the selected value.</p><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">id</span>=<span class="string">&quot;form&quot;</span> <span class="attr">action</span>=<span class="string">&quot;&quot;</span> <span class="attr">method</span>=<span class="string">&quot;post&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">&quot;number&quot;</span> <span class="attr">name</span>=<span class="string">&quot;number[]&quot;</span> <span class="attr">multiple</span>=<span class="string">&quot;multiple&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;1&quot;</span>&gt;</span>1<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;2&quot;</span>&gt;</span>2<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;3&quot;</span>&gt;</span>3<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;4&quot;</span>&gt;</span>4<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">value</span>=<span class="string">&quot;submit&quot;</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Laravel </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Backend </tag>
+            
+            <tag> Laravel </tag>
             
         </tags>
       
@@ -607,7 +607,7 @@
       <link href="/2020/09/08/linebot-post/"/>
       <url>/2020/09/08/linebot-post/</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="LineBot-小柴幫你查"><a href="#LineBot-小柴幫你查" class="headerlink" title="LineBot : 小柴幫你查"></a>LineBot : 小柴幫你查</h1><h2 id="加入好友"><a href="#加入好友" class="headerlink" title="加入好友"></a><a href="https://lin.ee/ykVmdHk">加入好友</a></h2><p><img src="https://i.imgur.com/h2vcaHJ.png" alt="Imgur"></p><h2 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h2><h3 id="1-普通聊天對話"><a href="#1-普通聊天對話" class="headerlink" title="1. 普通聊天對話"></a>1. 普通聊天對話</h3><div class="img-wrap"><div class="img-bg"><img class="img" src="https://i.imgur.com/PiFpmSk.jpg" style="width:400px;"/></div></div><h3 id="2-按-傳送位置訊息，跑出附近餐廳"><a href="#2-按-傳送位置訊息，跑出附近餐廳" class="headerlink" title="2. 按 + 傳送位置訊息，跑出附近餐廳"></a>2. 按 + 傳送位置訊息，跑出附近餐廳</h3><div class="img-wrap"><div class="img-bg"><img class="img" src="https://i.imgur.com/UFeujUl.jpg" style="width:400px;"/></div></div><h3 id="3-YAHOO-最新電影"><a href="#3-YAHOO-最新電影" class="headerlink" title="3. YAHOO 最新電影"></a>3. YAHOO 最新電影</h3><div class="img-wrap"><div class="img-bg"><img class="img" src="https://i.imgur.com/RHXj0Rx.jpg" style="width:400px;"/></div></div><h3 id="4-KKBOX-隨機單曲"><a href="#4-KKBOX-隨機單曲" class="headerlink" title="4. KKBOX 隨機單曲"></a>4. KKBOX 隨機單曲</h3><div class="img-wrap"><div class="img-bg"><img class="img" src="https://i.imgur.com/RZRJduW.jpg" style="width:400px;"/></div></div><h3 id="5-抽美女或。。。"><a href="#5-抽美女或。。。" class="headerlink" title="5. 抽美女或。。。"></a>5. 抽美女或。。。</h3><div class="img-wrap"><div class="img-bg"><img class="img" src="https://i.imgur.com/WXuORIs.jpg" style="width:400px;"/></div></div><h3 id="6-聯合報即時新聞"><a href="#6-聯合報即時新聞" class="headerlink" title="6. 聯合報即時新聞"></a>6. 聯合報即時新聞</h3><div class="img-wrap"><div class="img-bg"><img class="img" src="https://i.imgur.com/qgTS2dh.jpg" style="width:400px;"/></div></div><h3 id="7-DCARD-西斯版"><a href="#7-DCARD-西斯版" class="headerlink" title="7. DCARD 西斯版"></a>7. DCARD 西斯版</h3><div class="img-wrap"><div class="img-bg"><img class="img" src="https://i.imgur.com/kvX1ZGP.jpg" style="width:400px;"/></div></div><div class="tag link"><a class="link-card" title="代碼位置" href="https://github.com/joe94113/Python_LineBot"><div class="left"><img src="/images/icons/github.png"/></div><div class="right"><p class="text">代碼位置</p><p class="url">https://github.com/joe94113/Python_LineBot</p></div></a></div>]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="LineBot-小柴幫你查"><a href="#LineBot-小柴幫你查" class="headerlink" title="LineBot : 小柴幫你查"></a>LineBot : 小柴幫你查</h1><h2 id="加入好友"><a href="#加入好友" class="headerlink" title="加入好友"></a><a href="https://lin.ee/ykVmdHk">加入好友</a></h2><p><img src="https://i.imgur.com/h2vcaHJ.png" alt="Imgur"></p><h2 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h2><h3 id="1-普通聊天對話"><a href="#1-普通聊天對話" class="headerlink" title="1. 普通聊天對話"></a>1. 普通聊天對話</h3><div class="img-wrap"><div class="img-bg"><img class="img" src="https://i.imgur.com/PiFpmSk.jpg" style="width:400px;"/></div></div><h3 id="2-按-傳送位置訊息，跑出附近餐廳"><a href="#2-按-傳送位置訊息，跑出附近餐廳" class="headerlink" title="2. 按 + 傳送位置訊息，跑出附近餐廳"></a>2. 按 + 傳送位置訊息，跑出附近餐廳</h3><div class="img-wrap"><div class="img-bg"><img class="img" src="https://i.imgur.com/UFeujUl.jpg" style="width:400px;"/></div></div><h3 id="3-YAHOO-最新電影"><a href="#3-YAHOO-最新電影" class="headerlink" title="3. YAHOO 最新電影"></a>3. YAHOO 最新電影</h3><div class="img-wrap"><div class="img-bg"><img class="img" src="https://i.imgur.com/RHXj0Rx.jpg" style="width:400px;"/></div></div><h3 id="4-KKBOX-隨機單曲"><a href="#4-KKBOX-隨機單曲" class="headerlink" title="4. KKBOX 隨機單曲"></a>4. KKBOX 隨機單曲</h3><div class="img-wrap"><div class="img-bg"><img class="img" src="https://i.imgur.com/RZRJduW.jpg" style="width:400px;"/></div></div><h3 id="5-抽美女或。。。"><a href="#5-抽美女或。。。" class="headerlink" title="5. 抽美女或。。。"></a>5. 抽美女或。。。</h3><div class="img-wrap"><div class="img-bg"><img class="img" src="https://i.imgur.com/WXuORIs.jpg" style="width:400px;"/></div></div><h3 id="6-聯合報即時新聞"><a href="#6-聯合報即時新聞" class="headerlink" title="6. 聯合報即時新聞"></a>6. 聯合報即時新聞</h3><div class="img-wrap"><div class="img-bg"><img class="img" src="https://i.imgur.com/qgTS2dh.jpg" style="width:400px;"/></div></div><h3 id="7-DCARD-西斯版"><a href="#7-DCARD-西斯版" class="headerlink" title="7. DCARD 西斯版"></a>7. DCARD 西斯版</h3><div class="img-wrap"><div class="img-bg"><img class="img" src="https://i.imgur.com/kvX1ZGP.jpg" style="width:400px;"/></div></div><div class="tag link"><a class="link-card" title="代碼位置" href="https://github.com/joe94113/Python_LineBot"><div class="left"><img src="https://i.imgur.com/mkn3r71.jpg"/></div><div class="right"><p class="text">代碼位置</p><p class="url">https://github.com/joe94113/Python_LineBot</p></div></a></div>]]></content>
       
       
       <categories>
