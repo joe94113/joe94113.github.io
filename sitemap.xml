@@ -301,7 +301,7 @@
 
   <url>
     <loc>http://example.com/</loc>
-    <lastmod>2021-11-18</lastmod>
+    <lastmod>2021-11-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -309,98 +309,98 @@
   
   <url>
     <loc>http://example.com/tags/Frontend/</loc>
-    <lastmod>2021-11-18</lastmod>
+    <lastmod>2021-11-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://example.com/tags/Backend/</loc>
-    <lastmod>2021-11-18</lastmod>
+    <lastmod>2021-11-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://example.com/tags/Laravel/</loc>
-    <lastmod>2021-11-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://example.com/tags/AJAX/</loc>
-    <lastmod>2021-11-18</lastmod>
+    <lastmod>2021-11-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://example.com/tags/OS/</loc>
-    <lastmod>2021-11-18</lastmod>
+    <lastmod>2021-11-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://example.com/tags/Linux/</loc>
-    <lastmod>2021-11-18</lastmod>
+    <lastmod>2021-11-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/tags/AJAX/</loc>
+    <lastmod>2021-11-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://example.com/tags/SQL/</loc>
-    <lastmod>2021-11-18</lastmod>
+    <lastmod>2021-11-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://example.com/tags/JQuery/</loc>
-    <lastmod>2021-11-18</lastmod>
+    <lastmod>2021-11-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://example.com/tags/Bot/</loc>
-    <lastmod>2021-11-18</lastmod>
+    <lastmod>2021-11-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://example.com/tags/python/</loc>
-    <lastmod>2021-11-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://example.com/tags/Python/</loc>
-    <lastmod>2021-11-18</lastmod>
+    <lastmod>2021-11-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://example.com/tags/vscode/</loc>
-    <lastmod>2021-11-18</lastmod>
+    <lastmod>2021-11-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/tags/Python/</loc>
+    <lastmod>2021-11-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://example.com/tags/MySQL/</loc>
-    <lastmod>2021-11-18</lastmod>
+    <lastmod>2021-11-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://example.com/tags/PHP/</loc>
-    <lastmod>2021-11-18</lastmod>
+    <lastmod>2021-11-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -409,49 +409,49 @@
   
   <url>
     <loc>http://example.com/categories/Javascript/</loc>
-    <lastmod>2021-11-18</lastmod>
+    <lastmod>2021-11-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://example.com/categories/Laravel/</loc>
-    <lastmod>2021-11-18</lastmod>
+    <lastmod>2021-11-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://example.com/categories/Linux/</loc>
-    <lastmod>2021-11-18</lastmod>
+    <lastmod>2021-11-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://example.com/categories/MySQL/</loc>
-    <lastmod>2021-11-18</lastmod>
+    <lastmod>2021-11-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://example.com/categories/HTML-CSS/</loc>
-    <lastmod>2021-11-18</lastmod>
+    <lastmod>2021-11-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://example.com/categories/python/</loc>
-    <lastmod>2021-11-18</lastmod>
+    <lastmod>2021-11-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://example.com/categories/PHP/</loc>
-    <lastmod>2021-11-18</lastmod>
+    <lastmod>2021-11-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
