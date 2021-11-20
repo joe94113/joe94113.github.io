@@ -329,6 +329,13 @@
   </url>
   
   <url>
+    <loc>http://example.com/tags/AJAX/</loc>
+    <lastmod>2021-11-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>http://example.com/tags/OS/</loc>
     <lastmod>2021-11-20</lastmod>
     <changefreq>weekly</changefreq>
@@ -337,13 +344,6 @@
   
   <url>
     <loc>http://example.com/tags/Linux/</loc>
-    <lastmod>2021-11-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://example.com/tags/AJAX/</loc>
     <lastmod>2021-11-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -378,14 +378,14 @@
   </url>
   
   <url>
-    <loc>http://example.com/tags/vscode/</loc>
+    <loc>http://example.com/tags/Python/</loc>
     <lastmod>2021-11-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://example.com/tags/Python/</loc>
+    <loc>http://example.com/tags/vscode/</loc>
     <lastmod>2021-11-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
