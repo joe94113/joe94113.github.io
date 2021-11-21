@@ -374,6 +374,31 @@
     
     
     <entry>
+      <title>解決Laravel 讀取不到.env檔案中的參數</title>
+      <link href="/2021/09/10/laravel_can_not_read.env/"/>
+      <url>/2021/09/10/laravel_can_not_read.env/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="解決-Laravel-讀取不到-env-檔案中的參數"><a href="#解決-Laravel-讀取不到-env-檔案中的參數" class="headerlink" title="解決 Laravel 讀取不到.env 檔案中的參數"></a>解決 Laravel 讀取不到.env 檔案中的參數</h1><p>CMD Run</p><figure class="highlight php"><table><tr><td class="code"><pre><span class="line">composer dump-autoload</span><br><span class="line">php artisan cache:clear</span><br><span class="line">php artisan config:clear</span><br><span class="line">php artisan view:clear</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Laravel </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Backend </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>laravel排程下載外部Url檔案，及更新進資料庫資料</title>
       <link href="/2021/09/10/laravel_auto_download/"/>
       <url>/2021/09/10/laravel_auto_download/</url>
@@ -443,31 +468,6 @@
             <tag> Backend </tag>
             
             <tag> Laravel </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>解決Laravel 讀取不到.env檔案中的參數</title>
-      <link href="/2021/09/10/laravel_can_not_read.env/"/>
-      <url>/2021/09/10/laravel_can_not_read.env/</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="解決-Laravel-讀取不到-env-檔案中的參數"><a href="#解決-Laravel-讀取不到-env-檔案中的參數" class="headerlink" title="解決 Laravel 讀取不到.env 檔案中的參數"></a>解決 Laravel 讀取不到.env 檔案中的參數</h1><p>CMD Run</p><figure class="highlight php"><table><tr><td class="code"><pre><span class="line">composer dump-autoload</span><br><span class="line">php artisan cache:clear</span><br><span class="line">php artisan config:clear</span><br><span class="line">php artisan view:clear</span><br></pre></td></tr></table></figure>]]></content>
-      
-      
-      <categories>
-          
-          <category> Laravel </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Backend </tag>
             
         </tags>
       
