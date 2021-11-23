@@ -3481,30 +3481,33 @@ span.categoryBar-list-count::after {
   right: -100%;
 }
 li.categoryBar-list-item:nth-child(1) {
-  background: url('https://cdn.jsdelivr.net/npm/akilar-candyassets/image/cover1.webp');
+  background: url('https://imgur.com/twBXy0A.jpg');
 }
 li.categoryBar-list-item:nth-child(2) {
-  background: url('https://cdn.jsdelivr.net/npm/akilar-candyassets/image/cover2.webp');
+  background: url('https://imgur.com/fr2FSDB.jpg');
 }
 li.categoryBar-list-item:nth-child(3) {
-  background: url('https://cdn.jsdelivr.net/npm/akilar-candyassets/image/cover3.webp');
+  background: url('https://imgur.com/JIND3DH.jpg');
 }
 li.categoryBar-list-item:nth-child(4) {
-  background: url('https://cdn.jsdelivr.net/npm/akilar-candyassets/image/cover4.webp');
+  background: url('https://imgur.com/HsvcZqh.jpg');
 }
 li.categoryBar-list-item:nth-child(5) {
-  background: url('https://cdn.jsdelivr.net/npm/akilar-candyassets/image/cover5.webp');
+  background: url('https://imgur.com/wipjHNa.jpg');
 }
 li.categoryBar-list-item:nth-child(6) {
-  background: url('https://cdn.jsdelivr.net/npm/akilar-candyassets/image/cover6.webp');
+  background: url('https://imgur.com/g0yyvQS.jpg');
 }
 li.categoryBar-list-item:nth-child(7) {
-  background: #abcdef;
+  background: url('https://imgur.com/4Y9Hvyf.jpg');
 }
 li.categoryBar-list-item:nth-child(8) {
-  background: rgba(45,67,89,0.7);
+  background: #abcdef;
 }
 li.categoryBar-list-item:nth-child(9) {
+  background: rgba(45,67,89,0.7);
+}
+li.categoryBar-list-item:nth-child(10) {
   background: -webkit-linear-gradient(rgba(0, 0, 0, 0.4) 25%, rgba(200,16 , 16, 0) 100%);
   background: -moz-linear-gradient(rgba(0, 0, 0, 0.4) 25%, rgba(200,16 , 16, 0) 100%);
   background: -o-linear-gradient(rgba(0, 0, 0, 0.4) 25%, rgba(200,16 , 16, 0) 100%);
@@ -3524,10 +3527,13 @@ li.categoryBar-list-item:nth-child(4)>span::after {
   content: 'Ubuntu指南' !important;
 }
 li.categoryBar-list-item:nth-child(5)>span::after {
-  content: '個人日記' !important;
+  content: '資料庫' !important;
 }
 li.categoryBar-list-item:nth-child(6)>span::after {
-  content: '诗词歌赋' !important;
+  content: '最好語言?' !important;
+}
+li.categoryBar-list-item:nth-child(7)>span::after {
+  content: '人生苦短' !important;
 }
 li.categoryBar-list-item {
   width: 32.3% !important;
