@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>axios_basic</title>
+      <link href="/2021/12/02/axios-basic/"/>
+      <url>/2021/12/02/axios-basic/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="axios-基本語法"><a href="#axios-基本語法" class="headerlink" title="axios 基本語法"></a>axios 基本語法</h1><h2 id="簡介"><a href="#簡介" class="headerlink" title="簡介"></a>簡介</h2><p>axios 是一種 HTTP 的請求工具，也是 Vue 的作者尤雨溪推薦使用，比起 ajax 更為輕量，跟 fetch 一樣使用 promise 物件，卻不限至瀏覽器，只需要短短幾行程式碼即可，寫法更加直覺，以下為官方表明特點。</p><ol><li>從瀏覽器發出 XMLHttpRequests</li><li>可以從 node.js 發出 http 請求</li><li>支持 Promise API</li><li>攔截請求和響應</li><li>轉換請求和響應數據</li><li>取消請求</li><li>JSON 數據的自動轉換</li><li>客戶端支持防止 XSRF</li></ol><h2 id="安裝"><a href="#安裝" class="headerlink" title="安裝"></a>安裝</h2><p>介紹常見的安裝方式，其他請查閱文檔</p><h3 id="使用-NPM"><a href="#使用-NPM" class="headerlink" title="使用 NPM"></a>使用 NPM</h3><p><code>$ npm install axios</code></p><h3 id="引入-CDN"><a href="#引入-CDN" class="headerlink" title="引入 CDN"></a>引入 CDN</h3><p><code>&lt;script src=&quot;https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js&quot;&gt;&lt;/script&gt;</code></p><h2 id="axios-基本用法"><a href="#axios-基本用法" class="headerlink" title="axios 基本用法"></a>axios 基本用法</h2><h3 id="axios-get-方法"><a href="#axios-get-方法" class="headerlink" title="axios get 方法"></a>axios get 方法</h3><p>沒有參數時 get 請求</p><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">axios.get(<span class="string">&#x27;https://example.com&#x27;</span>) <span class="comment">// 放入要發出get請求網址</span></span><br><span class="line">  .then(<span class="function"><span class="keyword">function</span> (<span class="params">response</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 當請求成功時</span></span><br><span class="line">    <span class="built_in">console</span>.log(response);</span><br><span class="line">  &#125;)</span><br><span class="line">  .catch(<span class="function"><span class="keyword">function</span> (<span class="params">error</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 請求失敗時</span></span><br><span class="line">    <span class="built_in">console</span>.log(error);</span><br><span class="line">  &#125;)</span><br><span class="line">  .then(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 總是執行</span></span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure><p>有參數</p><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">axios.get(<span class="string">&#x27;https://example.com&#x27;</span>, &#123;</span><br><span class="line">    <span class="attr">params</span>: &#123;</span><br><span class="line">      <span class="attr">ID</span>: <span class="number">123</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;) <span class="comment">// 幫你組合成https://example.com?ID=123</span></span><br><span class="line">  .then(<span class="function"><span class="keyword">function</span> (<span class="params">response</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 當請求成功時</span></span><br><span class="line">    <span class="built_in">console</span>.log(response);</span><br><span class="line">  &#125;)</span><br><span class="line">  .catch(<span class="function"><span class="keyword">function</span> (<span class="params">error</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 請求失敗時</span></span><br><span class="line">    <span class="built_in">console</span>.log(error);</span><br><span class="line">  &#125;)</span><br><span class="line">  .then(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 總是執行</span></span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure><h3 id="axios-post-方法"><a href="#axios-post-方法" class="headerlink" title="axios post 方法"></a>axios post 方法</h3><p>使用 post 請求，傳送 name 和 eamil 資料</p><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">axios.post(<span class="string">&#x27;/signup&#x27;</span>, &#123;</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&#x27;Joe&#x27;</span>,</span><br><span class="line">    <span class="attr">email</span>: <span class="string">&#x27;joe94113@gmail.com&#x27;</span></span><br><span class="line">  &#125;)</span><br><span class="line">  .then(<span class="function"><span class="keyword">function</span> (<span class="params">response</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(response);</span><br><span class="line">  &#125;)</span><br><span class="line">  .catch(<span class="function"><span class="keyword">function</span> (<span class="params">error</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(error);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><p>當然除了 get，post 之外還有其他 HTTP 請求可以使用，使用方式也是大同小異，就是路由以及 HTTP method 的改變而已。</p><h2 id="使用六角註冊登入-API-axios-範例程式碼"><a href="#使用六角註冊登入-API-axios-範例程式碼" class="headerlink" title="使用六角註冊登入 API axios 範例程式碼"></a>使用六角註冊登入 API axios 範例程式碼</h2><iframe height="300" style="width: 100%;" scrolling="no" title="CodePen Home Hexschool AJAX POST 小節作業" src="https://codepen.io/joe94113/embed/YzrPjEQ?default-tab=html%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">  See the Pen <a href="https://codepen.io/joe94113/pen/YzrPjEQ">  CodePen Home Hexschool AJAX POST 小節作業</a> by 王冠智 (<a href="https://codepen.io/joe94113">@joe94113</a>)  on <a href="https://codepen.io">CodePen</a>.</iframe>]]></content>
+      
+      
+      <categories>
+          
+          <category> Javascript </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Frontend </tag>
+            
+            <tag> axios </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Bootstrap_Modal傳遞資料</title>
       <link href="/2021/12/01/Bootstrap-Modal%E5%82%B3%E9%81%9E%E8%B3%87%E6%96%99/"/>
       <url>/2021/12/01/Bootstrap-Modal%E5%82%B3%E9%81%9E%E8%B3%87%E6%96%99/</url>
