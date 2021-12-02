@@ -298,6 +298,13 @@
 
   
   <url>
+    <loc>https://joe94113.github.io/tags/Frontend/</loc>
+    <lastmod>2021-12-02</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://joe94113.github.io/tags/Bootstrap/</loc>
     <lastmod>2021-12-02</lastmod>
     <changefreq>daily</changefreq>
@@ -306,13 +313,6 @@
   
   <url>
     <loc>https://joe94113.github.io/tags/JQuery/</loc>
-    <lastmod>2021-12-02</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://joe94113.github.io/tags/Frontend/</loc>
     <lastmod>2021-12-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -375,20 +375,6 @@
   </url>
   
   <url>
-    <loc>https://joe94113.github.io/tags/Bot/</loc>
-    <lastmod>2021-12-02</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://joe94113.github.io/tags/python/</loc>
-    <lastmod>2021-12-02</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://joe94113.github.io/tags/PHP/</loc>
     <lastmod>2021-12-02</lastmod>
     <changefreq>daily</changefreq>
@@ -397,6 +383,20 @@
   
   <url>
     <loc>https://joe94113.github.io/tags/Python/</loc>
+    <lastmod>2021-12-02</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://joe94113.github.io/tags/Bot/</loc>
+    <lastmod>2021-12-02</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://joe94113.github.io/tags/python/</loc>
     <lastmod>2021-12-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -440,14 +440,14 @@
 
   
   <url>
-    <loc>https://joe94113.github.io/categories/Bootstrap/</loc>
+    <loc>https://joe94113.github.io/categories/Javascript/</loc>
     <lastmod>2021-12-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://joe94113.github.io/categories/Javascript/</loc>
+    <loc>https://joe94113.github.io/categories/Bootstrap/</loc>
     <lastmod>2021-12-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -482,14 +482,14 @@
   </url>
   
   <url>
-    <loc>https://joe94113.github.io/categories/python/</loc>
+    <loc>https://joe94113.github.io/categories/PHP/</loc>
     <lastmod>2021-12-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://joe94113.github.io/categories/PHP/</loc>
+    <loc>https://joe94113.github.io/categories/python/</loc>
     <lastmod>2021-12-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
