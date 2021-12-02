@@ -312,14 +312,14 @@
   </url>
   
   <url>
-    <loc>https://joe94113.github.io/tags/Backend/</loc>
+    <loc>https://joe94113.github.io/tags/Frontend/</loc>
     <lastmod>2021-12-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://joe94113.github.io/tags/Frontend/</loc>
+    <loc>https://joe94113.github.io/tags/Backend/</loc>
     <lastmod>2021-12-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -447,14 +447,14 @@
   </url>
   
   <url>
-    <loc>https://joe94113.github.io/categories/Laravel/</loc>
+    <loc>https://joe94113.github.io/categories/Javascript/</loc>
     <lastmod>2021-12-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://joe94113.github.io/categories/Javascript/</loc>
+    <loc>https://joe94113.github.io/categories/Laravel/</loc>
     <lastmod>2021-12-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
