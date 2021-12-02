@@ -4,6 +4,58 @@
   
     
     <entry>
+      <title>win10更換預設瀏覽器</title>
+      <link href="/2021/12/02/win10%E6%9B%B4%E6%8F%9B%E9%A0%90%E8%A8%AD%E7%80%8F%E8%A6%BD%E5%99%A8/"/>
+      <url>/2021/12/02/win10%E6%9B%B4%E6%8F%9B%E9%A0%90%E8%A8%AD%E7%80%8F%E8%A6%BD%E5%99%A8/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="win10-更換預設瀏覽器"><a href="#win10-更換預設瀏覽器" class="headerlink" title="win10 更換預設瀏覽器"></a>win10 更換預設瀏覽器</h1><p>在電腦上按一下 「開始」 功能表。按一下「設定」圖示，選擇應用程式。</p><p><img src="https://i.imgur.com/torT5L6.jpg" alt=""></p><p>點選「預設應用程式」。</p><p><img src="https://i.imgur.com/hmvNkFd.jpg" alt=""></p><p>依序按一下 「應用程式」 下一步 「預設應用程式」即可選擇。</p><p><img src="https://i.imgur.com/qeZSC7w.jpg" alt=""></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Windows </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Windows </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Laravel哈希數據ID</title>
+      <link href="/2021/12/02/Laravel%E5%93%88%E5%B8%8C%E6%95%B8%E6%93%9AID/"/>
+      <url>/2021/12/02/Laravel%E5%93%88%E5%B8%8C%E6%95%B8%E6%93%9AID/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Laravel-哈希數據-ID"><a href="#Laravel-哈希數據-ID" class="headerlink" title="Laravel 哈希數據 ID"></a>Laravel 哈希數據 ID</h1><h2 id="為甚麼需要-hash-ID"><a href="#為甚麼需要-hash-ID" class="headerlink" title="為甚麼需要 hash ID"></a>為甚麼需要 hash ID</h2><p>在專案中，我們數據的 ID 通常是自行增加的，如使用 Url get 的參數是商品 ID 會造成以下問題</p><ol><li>數據的 ID 是公開的，不希望對外暴露有規則索引</li><li>防止爬蟲侵擾</li><li>容易根據 ID 猜測數專案中的商品數量</li><li>隨著數據的增長，ID 會越來越大，無法統一長度</li></ol><p>這時後就可以靠 hash id 來加密解決問題，還有很多種解決方案，例如使用 UUID，使用自己的邏輯創建新的 id 欄位，今天來介紹一個簡單的解決方案是基於<a href="https://github.com/vinkla/hashids">hashids/hashids</a>項目<a href="https://github.com/vinkla/laravel-hashids">vinkla/hashids</a></p><h2 id="安裝"><a href="#安裝" class="headerlink" title="安裝"></a>安裝</h2><p><code>composer require vinkla/hashids</code></p><p>我是使用 laravel7 在安裝過程中報錯，<br>有遇到此問題的小夥伴可以安裝看看版本 8.0.0 試試</p><p><code>composer require vinkla/hashids ^8.0.0</code></p><p>Laravel Hashids 需要連接配置。首先，您需要發布所有供應商資產<br><code>php artisan vendor:publish --provider=&quot;Vinkla\Hashids\HashidsServiceProvider&quot;</code></p><h2 id="調整配置"><a href="#調整配置" class="headerlink" title="調整配置"></a>調整配置</h2><p>到 config &gt; hashids.php 調整參數</p><p>可以調整 salt，就是給要轉換的數字加上變量，讓轉換過的字符串不易被破解，除非他得知你的 salt，也可以透過調整 length 指定字符串的最小長度。</p><p>vinkla/hashids 是透過對數字進行編碼形成字符串，當然也可以對編碼過的字符串進行解碼，達成加密數據 ID 的效果</p><figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="string">&#x27;connections&#x27;</span> =&gt; [</span><br><span class="line"></span><br><span class="line">    <span class="string">&#x27;main&#x27;</span> =&gt; [</span><br><span class="line">        <span class="string">&#x27;salt&#x27;</span> =&gt; <span class="string">&#x27;example&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;length&#x27;</span> =&gt; <span class="string">&#x27;6&#x27;</span>,</span><br><span class="line">    ],</span><br><span class="line"></span><br><span class="line">    <span class="string">&#x27;alternative&#x27;</span> =&gt; [</span><br><span class="line">        <span class="string">&#x27;salt&#x27;</span> =&gt; <span class="string">&#x27;your-salt-string&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;length&#x27;</span> =&gt; <span class="string">&#x27;your-length-integer&#x27;</span>,</span><br><span class="line">    ],</span><br><span class="line"></span><br><span class="line">],</span><br></pre></td></tr></table></figure><h2 id="基本範例"><a href="#基本範例" class="headerlink" title="基本範例"></a>基本範例</h2><p>可以使用<code>php artisan tinker</code>在 shell 中嘗試</p><p>In shell</p><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; Hashids::encode(1);</span></span><br><span class="line">=&gt; &quot;E6R3Qg&quot;</span><br><span class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; Hashids::decode(<span class="string">&quot;E6R3Qg&quot;</span>);</span></span><br><span class="line">=&gt; [</span><br><span class="line">     1,</span><br><span class="line">   ]</span><br></pre></td></tr></table></figure><p>In controller</p><figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="title">Vinkla</span>\<span class="title">Hashids</span>\<span class="title">Facades</span>\<span class="title">Hashids</span>;</span><br><span class="line"></span><br><span class="line">Hashids::encode(<span class="number">1</span>); <span class="comment">// 生成E6R3Qg</span></span><br><span class="line"></span><br><span class="line">Hashids::decode(<span class="string">&#x27;E6R3Qg&#x27;</span>); <span class="comment">// 解碼後得到數組 [1]</span></span><br></pre></td></tr></table></figure><h2 id="使用情境"><a href="#使用情境" class="headerlink" title="使用情境"></a>使用情境</h2><p>我是使用在 model，增加一個 hashid 的欄位，假如 model 名為 Store，就可以使用<code>Store::find(1)-&gt;hashid</code>取得 ID 是 1 的 store hashid</p><figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="keyword">protected</span> <span class="variable">$appends</span> = <span class="keyword">array</span>(<span class="string">&#x27;hashid&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getHashidAttribute</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> Hashids::encode(<span class="keyword">$this</span>-&gt;id);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Laravel </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Backend </tag>
+            
+            <tag> Laravel </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Axios basic</title>
       <link href="/2021/12/02/axios-basic/"/>
       <url>/2021/12/02/axios-basic/</url>

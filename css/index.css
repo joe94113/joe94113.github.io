@@ -3502,12 +3502,21 @@ li.categoryBar-list-item:nth-child(7) {
   background: url('https://imgur.com/4Y9Hvyf.jpg');
 }
 li.categoryBar-list-item:nth-child(8) {
-  background: #abcdef;
+  background: url('https://imgur.com/29Cdu64.jpg');
 }
 li.categoryBar-list-item:nth-child(9) {
-  background: rgba(45,67,89,0.7);
+  background: url('https://imgur.com/BpV6EX5.jpg');
 }
 li.categoryBar-list-item:nth-child(10) {
+  background: url('https://imgur.com/lGi6luO.jpg');
+}
+li.categoryBar-list-item:nth-child(11) {
+  background: #abcdef;
+}
+li.categoryBar-list-item:nth-child(12) {
+  background: rgba(45,67,89,0.7);
+}
+li.categoryBar-list-item:nth-child(13) {
   background: -webkit-linear-gradient(rgba(0, 0, 0, 0.4) 25%, rgba(200,16 , 16, 0) 100%);
   background: -moz-linear-gradient(rgba(0, 0, 0, 0.4) 25%, rgba(200,16 , 16, 0) 100%);
   background: -o-linear-gradient(rgba(0, 0, 0, 0.4) 25%, rgba(200,16 , 16, 0) 100%);
@@ -3515,24 +3524,33 @@ li.categoryBar-list-item:nth-child(10) {
   background: linear-gradient(rgba(0, 0, 0, 0.4) 25%, rgba(200,16 , 16, 0) 100%);
 }
 li.categoryBar-list-item:nth-child(1)>span::after {
-  content: '網頁基礎' !important;
+  content: '前端開發工具' !important;
 }
 li.categoryBar-list-item:nth-child(2)>span::after {
-  content: '網頁動起來' !important;
+  content: '網頁基礎' !important;
 }
 li.categoryBar-list-item:nth-child(3)>span::after {
-  content: '後端辛酸' !important;
+  content: '網頁動起來' !important;
 }
 li.categoryBar-list-item:nth-child(4)>span::after {
-  content: 'Ubuntu指南' !important;
+  content: '後端辛酸' !important;
 }
 li.categoryBar-list-item:nth-child(5)>span::after {
-  content: '資料庫' !important;
+  content: 'Ubuntu指南' !important;
 }
 li.categoryBar-list-item:nth-child(6)>span::after {
-  content: '最好語言?' !important;
+  content: '資料庫' !important;
 }
 li.categoryBar-list-item:nth-child(7)>span::after {
+  content: '最好語言?' !important;
+}
+li.categoryBar-list-item:nth-child(8)>span::after {
+  content: '尤雨溪yyds' !important;
+}
+li.categoryBar-list-item:nth-child(9)>span::after {
+  content: 'Win' !important;
+}
+li.categoryBar-list-item:nth-child(10)>span::after {
   content: '人生苦短' !important;
 }
 li.categoryBar-list-item {
