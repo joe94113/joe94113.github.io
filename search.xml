@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>jQuery 監聽 enter 事件</title>
+      <link href="/2021/12/19/jQuery-listens-for-enter-key/"/>
+      <url>/2021/12/19/jQuery-listens-for-enter-key/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="jQuery-監聽-enter-事件"><a href="#jQuery-監聽-enter-事件" class="headerlink" title="jQuery 監聽 enter 事件"></a>jQuery 監聽 enter 事件</h1><h2 id="監聽-input-觸發搜尋"><a href="#監聽-input-觸發搜尋" class="headerlink" title="監聽 input 觸發搜尋"></a>監聽 input 觸發搜尋</h2><p>假如有一個 input tag</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;input id=&quot;search&quot; name=&quot;search&quot; /&gt;</span><br></pre></td></tr></table></figure><p>可以監聽如有使用者在這輸入框按下 Enter 觸發</p><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">$(<span class="string">&#x27;#search&#x27;</span>).pressEnter(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 按下enter想做的事情寫在這</span></span><br><span class="line">    alert(<span class="string">&quot;enter&quot;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><h2 id="全局監聽"><a href="#全局監聽" class="headerlink" title="全局監聽"></a>全局監聽</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">$(<span class="built_in">document</span>).keydown(<span class="function"><span class="keyword">function</span> (<span class="params">event</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (event.keyCode == <span class="number">13</span>) &#123;</span><br><span class="line">        <span class="comment">// 按下enter想做的事情寫在這</span></span><br><span class="line">        alert(<span class="string">&quot;enter&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><h2 id="監聽其他按鍵"><a href="#監聽其他按鍵" class="headerlink" title="監聽其他按鍵"></a>監聽其他按鍵</h2><p>想取得其他按鍵的 KeyCodes 可以參考以下網站</p><div class="tag link"><a class="link-card" title="JavaScript Event KeyCodes" href="https://keycode.info/"><div class="left"><img src="https://imgur.com/99bXWYP.jpg"/></div><div class="right"><p class="text">JavaScript Event KeyCodes</p><p class="url">https://keycode.info/</p></div></a></div><p>效果如下圖</p><div class="img-wrap"><div class="img-bg"><img class="img" src="https://i.imgur.com/qfokhBD.jpg" style="width:400px;"/></div></div>]]></content>
+      
+      
+      <categories>
+          
+          <category> Javascript </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Frontend </tag>
+            
+            <tag> JQuery </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>JavaScript 數值型別特性</title>
       <link href="/2021/12/18/javascript-numerical-characteristics/"/>
       <url>/2021/12/18/javascript-numerical-characteristics/</url>
