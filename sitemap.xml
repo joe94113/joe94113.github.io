@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://joe94113.github.io/2021/12/21/Laravel-change-Connection-for-Notifications-table/</loc>
+    <loc>https://joe94113.github.io/2021/12/18/javascript-numerical-characteristics/</loc>
     
     <lastmod>2021-12-21</lastmod>
     
@@ -10,6 +10,13 @@
   
   <url>
     <loc>https://joe94113.github.io/2021/10/14/laravel_storeAdd_notification_to_user/</loc>
+    
+    <lastmod>2021-12-21</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://joe94113.github.io/2021/12/21/Laravel-change-Connection-for-Notifications-table/</loc>
     
     <lastmod>2021-12-21</lastmod>
     
@@ -26,13 +33,6 @@
     <loc>https://joe94113.github.io/2021/12/19/jQuery-listens-for-enter-key/</loc>
     
     <lastmod>2021-12-19</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://joe94113.github.io/2021/12/18/javascript-numerical-characteristics/</loc>
-    
-    <lastmod>2021-12-18</lastmod>
     
   </url>
   
