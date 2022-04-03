@@ -85,6 +85,33 @@
     
     
     <entry>
+      <title>v-on修飾符筆記</title>
+      <link href="/2022/04/03/v-on-modifiers/"/>
+      <url>/2022/04/03/v-on-modifiers/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="v-on修飾符筆記"><a href="#v-on修飾符筆記" class="headerlink" title="v-on修飾符筆記"></a><code>v-on</code>修飾符筆記</h1><p>修飾符是用點表示的指令後綴</p><h2 id="事件修飾符"><a href="#事件修飾符" class="headerlink" title="事件修飾符"></a>事件修飾符</h2><p>用法:</p><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> @<span class="attr">click.stop</span>=<span class="string">&quot;doThis&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">form</span> @<span class="attr">submit.prevent</span>=<span class="string">&quot;onSubmit&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure><div class="table-container"><table><thead><tr><th>修飾符</th><th>說明</th></tr></thead><tbody><tr><td>.stop</td><td>調用 event.stopPropagation()，阻止冒泡</td></tr><tr><td>.prevent</td><td>調用 event.preventDefault()，阻止瀏覽器預設行為</td></tr><tr><td>.self</td><td>只當事件是從偵聽器綁定的元素本身觸發時才觸發回調</td></tr><tr><td>.capture</td><td>添加事件偵聽器時使用 capture 模式，打破由內而外事件傳遞，先行執行</td></tr><tr><td>.once</td><td>只觸發一次回調</td></tr><tr><td>.passive</td><td>無視 prevent 功能，不要與 prevent 一起使用</td></tr></tbody></table></div><h2 id="key-修飾符"><a href="#key-修飾符" class="headerlink" title="key 修飾符"></a>key 修飾符</h2><p>監聽使用者輸入按鍵觸發事件。</p><p>範例:</p><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- only call `vm.submit()` when the `key` is `Enter` --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> @<span class="attr">keyup.enter</span>=<span class="string">&quot;submit&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> @<span class="attr">keyup.page-down</span>=<span class="string">&quot;onPageDown&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure><div class="table-container"><table><thead><tr><th>修飾符</th><th>說明</th></tr></thead><tbody><tr><td>.enter</td><td>點擊 enter 鍵</td></tr><tr><td>.tab</td><td>點擊 tab 鍵</td></tr><tr><td>.delete</td><td>點擊 delete 鍵</td></tr><tr><td>.space</td><td>點擊 space 鍵</td></tr><tr><td>.up</td><td>點擊 up 鍵</td></tr><tr><td>.down</td><td>點擊 down 鍵</td></tr><tr><td>.left</td><td>點擊 left 鍵</td></tr><tr><td>.right</td><td>點擊 right 鍵</td></tr></tbody></table></div><h3 id="系統修改鍵"><a href="#系統修改鍵" class="headerlink" title="系統修改鍵"></a>系統修改鍵</h3><p>系統修改鍵與常規鍵不同，當與<code>keyup</code>事件一起使用時，先釋放系統修改鍵不會觸發事件，必須按著系統修改鍵式法常規鍵，才會觸發事件。</p><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- Alt + Enter --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> @<span class="attr">keyup.alt.enter</span>=<span class="string">&quot;clear&quot;</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- Ctrl + Click --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> @<span class="attr">click.ctrl</span>=<span class="string">&quot;doSomething&quot;</span>&gt;</span>Do something<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure><div class="table-container"><table><thead><tr><th>修飾符</th><th>說明</th></tr></thead><tbody><tr><td>.ctrl</td><td>點擊 ctrl 鍵</td></tr><tr><td>.alt</td><td>點擊 alt 鍵</td></tr><tr><td>.shift</td><td>點擊 shift 鍵</td></tr><tr><td>.meta</td><td>點擊 meta 鍵</td></tr></tbody></table></div><h3 id="exact-修飾符"><a href="#exact-修飾符" class="headerlink" title=".exact 修飾符"></a>.exact 修飾符</h3><p><code>.exact</code>修飾符可以控制觸發事件所需系統修改器的精確組合</p><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 同時按下ctrl家紹其他系統鍵也可以觸發 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> @<span class="attr">click.ctrl</span>=<span class="string">&quot;onClick&quot;</span>&gt;</span>A<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 只有點選ctrl(沒有按其他系統修改鍵)才會觸發 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> @<span class="attr">click.ctrl.exact</span>=<span class="string">&quot;onCtrlClick&quot;</span>&gt;</span>A<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 在沒有按下其他系統修改鍵時觸發 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> @<span class="attr">click.exact</span>=<span class="string">&quot;onClick&quot;</span>&gt;</span>A<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></figure><h2 id="鼠標按鈕修飾符"><a href="#鼠標按鈕修飾符" class="headerlink" title="鼠標按鈕修飾符"></a>鼠標按鈕修飾符</h2><p>滑鼠點擊觸發事件</p><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 點擊滑鼠右鍵 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> @<span class="attr">click.right</span>=<span class="string">&quot;onClick&quot;</span>&gt;</span>A<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></figure><div class="table-container"><table><thead><tr><th>修飾符</th><th>說明</th></tr></thead><tbody><tr><td>.left</td><td>只當點擊鼠標左鍵時觸發</td></tr><tr><td>.right</td><td>只當點擊鼠標右鍵時觸發</td></tr><tr><td>.middle</td><td>只當點擊鼠標中鍵時觸發</td></tr></tbody></table></div>]]></content>
+      
+      
+      <categories>
+          
+          <category> Javascript </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Frontend </tag>
+            
+            <tag> Vue </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>JS ESModule</title>
       <link href="/2022/03/20/js-ESModule/"/>
       <url>/2022/03/20/js-ESModule/</url>
