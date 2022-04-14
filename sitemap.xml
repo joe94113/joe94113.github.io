@@ -2,14 +2,21 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://joe94113.github.io/2022/01/04/laravel-scout-search-example/</loc>
+    <loc>https://joe94113.github.io/2022/04/14/laravel-tinymce/</loc>
     
     <lastmod>2022-04-14</lastmod>
     
   </url>
   
   <url>
-    <loc>https://joe94113.github.io/2022/04/14/laravel-tinymce/</loc>
+    <loc>https://joe94113.github.io/2022/04/14/vue-props-emits/</loc>
+    
+    <lastmod>2022-04-14</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://joe94113.github.io/2022/01/04/laravel-scout-search-example/</loc>
     
     <lastmod>2022-04-14</lastmod>
     
@@ -24,13 +31,6 @@
   
   <url>
     <loc>https://joe94113.github.io/2021/10/27/Laravel_Seeder/</loc>
-    
-    <lastmod>2022-04-14</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://joe94113.github.io/2022/04/14/vue-props-emits/</loc>
     
     <lastmod>2022-04-14</lastmod>
     
