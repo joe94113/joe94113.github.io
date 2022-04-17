@@ -51,7 +51,7 @@
             
             <tag> Laravel </tag>
             
-            <tag> Tinymce </tag>
+            <tag> TinyMCE </tag>
             
         </tags>
       
@@ -1200,7 +1200,7 @@
       <link href="/2021/11/30/fix-laravel-postman-419/"/>
       <url>/2021/11/30/fix-laravel-postman-419/</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Laravel-解決使用-postman-post-時-419-頁面逾時"><a href="#Laravel-解決使用-postman-post-時-419-頁面逾時" class="headerlink" title="Laravel 解決使用 postman post 時 419 頁面逾時"></a>Laravel 解決使用 postman post 時 419 頁面逾時</h1><p>狀況如下圖，這是因為沒有帶入 CSRF Token</p><p><img src="https://i.imgur.com/2HJr8Sa.jpg" alt=""></p><p>讓我們來解決這問題，首先先創建一個路由，取得 CSRF Token</p><figure class="highlight php"><table><tr><td class="code"><pre><span class="line">Route::get(<span class="string">&#x27;/token&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> csrf_token();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><p><img src="https://i.imgur.com/H4sTnJB.jpg" alt=""></p><p>取得 CSRF Token 將他帶入 header<br><img src="https://i.imgur.com/700uEmv.jpg" alt=""></p><p>之後再嘗試 POST 一次問題就解決啦</p>]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Laravel-解決使用-postman-post-時-419-頁面逾時"><a href="#Laravel-解決使用-postman-post-時-419-頁面逾時" class="headerlink" title="Laravel 解決使用 postman post 時 419 頁面逾時"></a>Laravel 解決使用 postman post 時 419 頁面逾時</h1><h2 id="1-將路由加入-VerifyCsrfToken-php"><a href="#1-將路由加入-VerifyCsrfToken-php" class="headerlink" title="1. 將路由加入 VerifyCsrfToken.php"></a>1. 將路由加入 VerifyCsrfToken.php</h2><figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="keyword">protected</span> <span class="variable">$except</span> = [</span><br><span class="line">    <span class="comment">// 把不要使用 csrf 的 路由 放在這裡</span></span><br><span class="line">    <span class="string">&#x27;/your/route/&#x27;</span>,</span><br><span class="line">];</span><br></pre></td></tr></table></figure><h2 id="2-路由放在api-php"><a href="#2-路由放在api-php" class="headerlink" title="2. 路由放在api.php"></a>2. 路由放在<code>api.php</code></h2><p><code>api</code>的路由不會經過<code>csrf</code>驗證</p><h2 id="3-帶入-CSRF-Token"><a href="#3-帶入-CSRF-Token" class="headerlink" title="3. 帶入 CSRF Token"></a>3. 帶入 CSRF Token</h2><p>也可以帶入 CSRF Token</p><p><img src="https://i.imgur.com/2HJr8Sa.jpg" alt=""></p><p>取得 CSRF Token</p><figure class="highlight php"><table><tr><td class="code"><pre><span class="line">Route::get(<span class="string">&#x27;/token&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> csrf_token();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><p><img src="https://i.imgur.com/H4sTnJB.jpg" alt=""></p><p>取得 CSRF Token 將他帶入 header<br><img src="https://i.imgur.com/700uEmv.jpg" alt=""></p><p>再嘗試 POST 一次問題就解決啦</p>]]></content>
       
       
       <categories>
