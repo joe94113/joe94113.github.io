@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>Laravel admin 級聯選擇編輯時預設無資料</title>
+      <link href="/2022/05/30/fix-laravel-admin-multiple-select-problem/"/>
+      <url>/2022/05/30/fix-laravel-admin-multiple-select-problem/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Laravel-admin-級聯選擇編輯時預設無資料"><a href="#Laravel-admin-級聯選擇編輯時預設無資料" class="headerlink" title="Laravel admin 級聯選擇編輯時預設無資料"></a>Laravel admin 級聯選擇編輯時預設無資料</h1><h2 id="問題"><a href="#問題" class="headerlink" title="問題:"></a>問題:</h2><p>在創建新資料時級聯選擇是正常的，但在編輯時級聯的選擇資料不會載入。</p><h2 id="自定義方法擴展"><a href="#自定義方法擴展" class="headerlink" title="自定義方法擴展"></a>自定義方法擴展</h2><p>擴展<code>\Encore\Admin\Form\Field\Select</code>類，新增一個檔案<code>App\Admin\Extensions\Select.php</code>繼承原先<code>Select</code>類，並新增一個函式用來<code>trigger</code>所選選項。</p><figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">App</span>\<span class="title">Admin</span>\<span class="title">Extensions</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Encore</span>\<span class="title">Admin</span>\<span class="title">Admin</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Select</span> <span class="keyword">extends</span> \<span class="title">Encore</span>\<span class="title">Admin</span>\<span class="title">Form</span>\<span class="title">Field</span>\<span class="title">Select</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">loadCascading</span>(<span class="params"></span>): <span class="title">void</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable">$script</span>   = <span class="string">&lt;&lt;&lt;JS</span></span><br><span class="line"><span class="string">            if ($(&#x27;<span class="subst">&#123;$this-&gt;getElementClassSelector()&#125;</span>&#x27;).val() !== &#x27;&#x27;)&#123;</span></span><br><span class="line"><span class="string">                $(&#x27;<span class="subst">&#123;$this-&gt;getElementClassSelector()&#125;</span>&#x27;).trigger(&#x27;change&#x27;);</span></span><br><span class="line"><span class="string">            &#125;</span></span><br><span class="line"><span class="string">            JS</span>;</span><br><span class="line">        Admin::script(<span class="variable">$script</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>之後再到<code>app\Admin\bootstrap.php</code>複寫或是新增功能</p><p>複寫<code>$form-&gt;select()</code>:</p><p><code>Encore\Admin\Form::extend(&#39;select&#39;, \App\Admin\Extensions\Select::class);</code></p><p>新增:</p><p><code>Encore\Admin\Form::extend(&#39;self_select&#39;, \App\Admin\Extensions\Select::class);</code></p><p>調用希望在編輯時自動加載級聯</p><figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="variable">$form</span>-&gt;select(...)</span><br><span class="line">    -&gt;options(...)</span><br><span class="line">    -&gt;load(...)</span><br><span class="line">    -&gt;loadCascading();</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Laravel </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Backend </tag>
+            
+            <tag> Laravel </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Vue composition api 定義資料</title>
       <link href="/2022/05/24/vue-composition-api-ref-reactive/"/>
       <url>/2022/05/24/vue-composition-api-ref-reactive/</url>
