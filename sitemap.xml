@@ -627,13 +627,6 @@
   </url>
   
   <url>
-    <loc>https://joe94113.github.io/tags/Jquery/</loc>
-    <lastmod>2022-06-18</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://joe94113.github.io/tags/Backend/</loc>
     <lastmod>2022-06-18</lastmod>
     <changefreq>daily</changefreq>
@@ -656,6 +649,13 @@
   
   <url>
     <loc>https://joe94113.github.io/tags/FCM/</loc>
+    <lastmod>2022-06-18</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://joe94113.github.io/tags/Jquery/</loc>
     <lastmod>2022-06-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -690,13 +690,6 @@
   </url>
   
   <url>
-    <loc>https://joe94113.github.io/tags/SQL/</loc>
-    <lastmod>2022-06-18</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://joe94113.github.io/tags/axios/</loc>
     <lastmod>2022-06-18</lastmod>
     <changefreq>daily</changefreq>
@@ -704,7 +697,7 @@
   </url>
   
   <url>
-    <loc>https://joe94113.github.io/tags/Javascript/</loc>
+    <loc>https://joe94113.github.io/tags/SQL/</loc>
     <lastmod>2022-06-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -712,6 +705,13 @@
   
   <url>
     <loc>https://joe94113.github.io/tags/Postman/</loc>
+    <lastmod>2022-06-18</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://joe94113.github.io/tags/Javascript/</loc>
     <lastmod>2022-06-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -860,14 +860,14 @@
   </url>
   
   <url>
-    <loc>https://joe94113.github.io/categories/MySQL/</loc>
+    <loc>https://joe94113.github.io/categories/Linux/</loc>
     <lastmod>2022-06-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://joe94113.github.io/categories/Linux/</loc>
+    <loc>https://joe94113.github.io/categories/MySQL/</loc>
     <lastmod>2022-06-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
