@@ -676,20 +676,6 @@
   </url>
   
   <url>
-    <loc>https://joe94113.github.io/tags/SQL/</loc>
-    <lastmod>2022-06-18</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://joe94113.github.io/tags/axios/</loc>
-    <lastmod>2022-06-18</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://joe94113.github.io/tags/OS/</loc>
     <lastmod>2022-06-18</lastmod>
     <changefreq>daily</changefreq>
@@ -704,7 +690,14 @@
   </url>
   
   <url>
-    <loc>https://joe94113.github.io/tags/Postman/</loc>
+    <loc>https://joe94113.github.io/tags/SQL/</loc>
+    <lastmod>2022-06-18</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://joe94113.github.io/tags/axios/</loc>
     <lastmod>2022-06-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -712,6 +705,13 @@
   
   <url>
     <loc>https://joe94113.github.io/tags/Javascript/</loc>
+    <lastmod>2022-06-18</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://joe94113.github.io/tags/Postman/</loc>
     <lastmod>2022-06-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -732,6 +732,13 @@
   </url>
   
   <url>
+    <loc>https://joe94113.github.io/tags/%E7%A8%8B%E5%BC%8F%E6%A6%82%E5%BF%B5/</loc>
+    <lastmod>2022-06-18</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://joe94113.github.io/tags/sortable/</loc>
     <lastmod>2022-06-18</lastmod>
     <changefreq>daily</changefreq>
@@ -740,13 +747,6 @@
   
   <url>
     <loc>https://joe94113.github.io/tags/Geocoding-api/</loc>
-    <lastmod>2022-06-18</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://joe94113.github.io/tags/%E7%A8%8B%E5%BC%8F%E6%A6%82%E5%BF%B5/</loc>
     <lastmod>2022-06-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -788,14 +788,14 @@
   </url>
   
   <url>
-    <loc>https://joe94113.github.io/tags/Localization/</loc>
+    <loc>https://joe94113.github.io/tags/Python/</loc>
     <lastmod>2022-06-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://joe94113.github.io/tags/Python/</loc>
+    <loc>https://joe94113.github.io/tags/Localization/</loc>
     <lastmod>2022-06-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -816,6 +816,13 @@
   </url>
   
   <url>
+    <loc>https://joe94113.github.io/tags/TinyMCE/</loc>
+    <lastmod>2022-06-18</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://joe94113.github.io/tags/MySQL/</loc>
     <lastmod>2022-06-18</lastmod>
     <changefreq>daily</changefreq>
@@ -824,13 +831,6 @@
   
   <url>
     <loc>https://joe94113.github.io/tags/echarts/</loc>
-    <lastmod>2022-06-18</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://joe94113.github.io/tags/TinyMCE/</loc>
     <lastmod>2022-06-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
