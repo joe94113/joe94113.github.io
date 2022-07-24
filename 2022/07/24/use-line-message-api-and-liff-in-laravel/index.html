@@ -1,0 +1,748 @@
+<!DOCTYPE html><html lang="zh-TW" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>紀錄在Laravel中使用Line message api以及LIFF | Joeの小屋</title><meta name="keywords" content="Backend,Laravel"><meta name="author" content="Joe"><meta name="copyright" content="Joe"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="紀錄在Laravel中使用Line message api以及LIFFmessage api建立message api首先先到LINE Developers建立一個message api  點選新增  新增message api webhook url程式:成功建立頻道後，先下載line-bot-sdk-php composer require linecorp&#x2F;line-bot-sdk 在.en">
+<meta property="og:type" content="article">
+<meta property="og:title" content="紀錄在Laravel中使用Line message api以及LIFF">
+<meta property="og:url" content="https://joe94113.github.io/2022/07/24/use-line-message-api-and-liff-in-laravel/index.html">
+<meta property="og:site_name" content="Joeの小屋">
+<meta property="og:description" content="紀錄在Laravel中使用Line message api以及LIFFmessage api建立message api首先先到LINE Developers建立一個message api  點選新增  新增message api webhook url程式:成功建立頻道後，先下載line-bot-sdk-php composer require linecorp&#x2F;line-bot-sdk 在.en">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://imgur.com/yaJXYhU.jpg">
+<meta property="article:published_time" content="2022-07-24T06:24:05.000Z">
+<meta property="article:modified_time" content="2022-07-24T06:44:46.553Z">
+<meta property="article:author" content="Joe">
+<meta property="article:tag" content="Backend">
+<meta property="article:tag" content="Laravel">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://imgur.com/yaJXYhU.jpg">
+<meta property="fb:app_id" content="140817571582634"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://joe94113.github.io/2022/07/24/use-line-message-api-and-liff-in-laravel/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="google-site-verification" content="-7-rSDQgi9r0SZgJLXNAs58udKxQrWHwhZKhovoppV8"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-177446378-1"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-177446378-1');
+</script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查詢的內容：${query}"}},
+  translate: {"defaultEncoding":1,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: {"limitDay":100,"position":"top","messagePrev":"It has been","messageNext":"days since the last update, the content of the article may be outdated."},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":200},
+  copy: {
+    success: '複製成功',
+    error: '複製錯誤',
+    noSupport: '瀏覽器不支援'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '剛剛',
+    min: '分鐘前',
+    hour: '小時前',
+    day: '天前',
+    month: '個月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: Joe","link":"連結: ","source":"來源: Joeの小屋","info":"著作權歸作者所有。商業轉載請聯絡作者獲得授權，非商業轉載請註明出處。"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切換為繁體","cht_to_chs":"你已切換為簡體","day_to_night":"你已切換為深色模式","night_to_day":"你已切換為淺色模式","bgLight":"#49b1f5","bgDark":"#121212","position":"top-left"},
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '紀錄在Laravel中使用Line message api以及LIFF',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-07-24 14:44:46'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    document.addEventListener('pjax:complete', detectApple)})(window)</script><link rel="stylesheet" href="/css/custom.css"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/css/main.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-butterfly-clock/lib/clock.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.1.6/css/swiper.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-butterfly-swiper/lib/swiperstyle.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-filter-gitcalendar/lib/gitcalendar.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/l-lin/font-awesome-animation/dist/font-awesome-animation.min.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-butterfly-tag-plugins-plus@latest/lib/tag_plugins.min.css" media="defer" onload="this.media='all'"><script async src="https://cdn.jsdelivr.net/npm/hexo-butterfly-tag-plugins-plus@latest/lib/carousel-touch.min.js"></script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">載入中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/images/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">78</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">標籤</div><div class="length-num">33</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分類</div><div class="length-num">10</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首頁</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://ylui-joe94113.vercel.app"><i class="fa-fw fas fa-desktop"></i><span> 桌面</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-newspaper"></i><span> 找文章</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 時間軸</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 標籤</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分類</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/artitalk/"><i class="fa-fw fas fa-umbrella-beach"></i><span> 碎碎念</span></a></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fas fa-comments"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 清單</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音樂</span></a></li><li><a class="site-page child" href="/games/"><i class="fa-fw fas fa-gamepad"></i><span> 遊戲</span></a></li><li><a class="site-page child" href="/books/"><i class="fa-fw fas fa-book"></i><span> 書籍</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 電影</span></a></li><li><a class="site-page child" href="/air-conditioner/"><i class="fa-fw fas fa-fan"></i><span> 空調房</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-user-friends"></i><span> 友鏈</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友鏈</span></a></li><li><a class="site-page child" href="/fcircle/"><i class="fa-fw fas fa-thumbs-up"></i><span> 友鏈朋友圈</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-user-circle"></i><span> 關於</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 關於我</span></a></li><li><a class="site-page child" href="/timeline/"><i class="fa-fw far fa-calendar-alt"></i><span> 時間線</span></a></li><li><a class="site-page child" href="/aboutBlog/"><i class="fa-fw fas fa-rss"></i><span> 關於本站</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://joe94113.instatus.com/"><i class="fa-fw fas fa-signal"></i><span> 本站狀態</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://hugo-blog-gamma.vercel.app/"><i class="fa-fw fab fa-pied-piper-alt"></i><span> 舊站</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://imgur.com/yaJXYhU.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Joeの小屋</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜尋</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首頁</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://ylui-joe94113.vercel.app"><i class="fa-fw fas fa-desktop"></i><span> 桌面</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-newspaper"></i><span> 找文章</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 時間軸</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 標籤</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分類</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/artitalk/"><i class="fa-fw fas fa-umbrella-beach"></i><span> 碎碎念</span></a></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fas fa-comments"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 清單</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音樂</span></a></li><li><a class="site-page child" href="/games/"><i class="fa-fw fas fa-gamepad"></i><span> 遊戲</span></a></li><li><a class="site-page child" href="/books/"><i class="fa-fw fas fa-book"></i><span> 書籍</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 電影</span></a></li><li><a class="site-page child" href="/air-conditioner/"><i class="fa-fw fas fa-fan"></i><span> 空調房</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-user-friends"></i><span> 友鏈</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友鏈</span></a></li><li><a class="site-page child" href="/fcircle/"><i class="fa-fw fas fa-thumbs-up"></i><span> 友鏈朋友圈</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-user-circle"></i><span> 關於</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 關於我</span></a></li><li><a class="site-page child" href="/timeline/"><i class="fa-fw far fa-calendar-alt"></i><span> 時間線</span></a></li><li><a class="site-page child" href="/aboutBlog/"><i class="fa-fw fas fa-rss"></i><span> 關於本站</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://joe94113.instatus.com/"><i class="fa-fw fas fa-signal"></i><span> 本站狀態</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://hugo-blog-gamma.vercel.app/"><i class="fa-fw fab fa-pied-piper-alt"></i><span> 舊站</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">紀錄在Laravel中使用Line message api以及LIFF</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">發表於</span><time class="post-meta-date-created" datetime="2022-07-24T06:24:05.000Z" title="發表於 2022-07-24 14:24:05">2022-07-24</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新於</span><time class="post-meta-date-updated" datetime="2022-07-24T06:44:46.553Z" title="更新於 2022-07-24 14:44:46">2022-07-24</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Laravel/">Laravel</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字數總計:</span><span class="word-count">5.4k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">閱讀時長:</span><span>23分鐘</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="紀錄在Laravel中使用Line message api以及LIFF"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">閱讀量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="紀錄在Laravel中使用Line-message-api以及LIFF"><a href="#紀錄在Laravel中使用Line-message-api以及LIFF" class="headerlink" title="紀錄在Laravel中使用Line message api以及LIFF"></a>紀錄在Laravel中使用Line message api以及LIFF</h1><h2 id="message-api"><a href="#message-api" class="headerlink" title="message api"></a>message api</h2><h3 id="建立message-api"><a href="#建立message-api" class="headerlink" title="建立message api"></a>建立message api</h3><p>首先先到<a target="_blank" rel="noopener" href="https://developers.line.biz/en/">LINE Developers</a>建立一個<code>message api</code></p>
+<p><img src="https://i.imgur.com/TyPxklM.jpg" alt=""></p>
+<p>點選新增</p>
+<p><img src="https://i.imgur.com/lfJ5WF4.jpg" alt=""></p>
+<h3 id="新增message-api-webhook-url程式"><a href="#新增message-api-webhook-url程式" class="headerlink" title="新增message api webhook url程式:"></a>新增<code>message api webhook url</code>程式:</h3><p>成功建立頻道後，先下載<a target="_blank" rel="noopener" href="https://github.com/line/line-bot-sdk-php">line-bot-sdk-php</a></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">composer require linecorp/line-bot-sdk</span><br></pre></td></tr></table></figure>
+<p>在<code>.env</code>檔案中新增，並將頻道資訊填入</p>
+<p>在<code>Basic settings</code>找到<code>Channel secret</code><br><img src="https://i.imgur.com/tep87di.jpg" alt=""></p>
+<p>在<code>Messaging API</code>找到<code>Channel access token</code><br><img src="https://i.imgur.com/GXcEvDm.jpg" alt=""></p>
+<p>填入<br><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">LINE_BOT_CHANNEL_ACCESS_TOKEN=</span><br><span class="line">LINE_BOT_CHANNEL_SECRET=</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">callback</span>(<span class="params">Request <span class="variable">$request</span></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="variable">$httpClient</span> = <span class="keyword">new</span> \LINE\LINEBot\HTTPClient\CurlHTTPClient(env(<span class="string">&#x27;LINE_BOT_CHANNEL_ACCESS_TOKEN&#x27;</span>));</span><br><span class="line">    <span class="variable">$bot</span> = <span class="keyword">new</span> \LINE\LINEBot(<span class="variable">$httpClient</span>, [<span class="string">&#x27;channelSecret&#x27;</span> =&gt; env(<span class="string">&#x27;LINE_BOT_CHANNEL_SECRET&#x27;</span>)]);</span><br><span class="line">    <span class="variable">$response</span> = <span class="variable">$bot</span>-&gt;getMessageContent(<span class="string">&#x27;&lt;messageId&gt;&#x27;</span>);</span><br><span class="line">    <span class="keyword">if</span> (<span class="variable">$response</span>-&gt;isSucceeded()) &#123;</span><br><span class="line">        <span class="variable">$tempfile</span> = tmpfile();</span><br><span class="line">        fwrite(<span class="variable">$tempfile</span>, <span class="variable">$response</span>-&gt;getRawBody());</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        error_log(<span class="variable">$response</span>-&gt;getHTTPStatus() . <span class="string">&#x27; &#x27;</span> . <span class="variable">$response</span>-&gt;getRawBody());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>新增完成後點擊<code>Messaging API</code>將webhook url網址填入並測試</p>
+<p><img src="https://i.imgur.com/mZmNU4M.jpg" alt=""></p>
+<p>點擊Verify</p>
+<p><img src="https://i.imgur.com/Ei1whib.jpg" alt=""></p>
+<h3 id="回聲蟲"><a href="#回聲蟲" class="headerlink" title="回聲蟲"></a>回聲蟲</h3><p>將程式做修改，取得使用者輸入的文字並回傳</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">callback</span>(<span class="params">Request <span class="variable">$request</span></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="variable">$httpClient</span> = <span class="keyword">new</span> \LINE\LINEBot\HTTPClient\CurlHTTPClient(env(<span class="string">&#x27;LINE_BOT_CHANNEL_ACCESS_TOKEN&#x27;</span>));</span><br><span class="line">    <span class="variable">$bot</span> = <span class="keyword">new</span> \LINE\LINEBot(<span class="variable">$httpClient</span>, [<span class="string">&#x27;channelSecret&#x27;</span> =&gt; env(<span class="string">&#x27;LINE_BOT_CHANNEL_SECRET&#x27;</span>)]);</span><br><span class="line">    <span class="variable">$reply_token</span> = <span class="variable">$request</span>-&gt;events[<span class="number">0</span>][<span class="string">&#x27;replyToken&#x27;</span>] ?? <span class="string">&#x27;&#x27;</span>; <span class="comment">// 回傳給誰</span></span><br><span class="line">    <span class="variable">$message</span> = <span class="variable">$request</span>-&gt;events[<span class="number">0</span>][<span class="string">&#x27;message&#x27;</span>][<span class="string">&#x27;text&#x27;</span>] ?? <span class="string">&#x27;您的訊息無法辨識&#x27;</span>; <span class="comment">// 使用者輸入文字</span></span><br><span class="line">    <span class="variable">$textMessageBuilder</span> = <span class="keyword">new</span> \LINE\LINEBot\MessageBuilder\TextMessageBuilder(<span class="variable">$message</span>); <span class="comment">// 建立訊息</span></span><br><span class="line">    <span class="variable">$response</span> = <span class="variable">$bot</span>-&gt;replyMessage(<span class="variable">$reply_token</span>, <span class="variable">$textMessageBuilder</span>); <span class="comment">// 回傳</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>效果如下</p>
+<p><img src="https://i.imgur.com/a99ULf0.jpg" alt=""></p>
+<h3 id="訊息類型"><a href="#訊息類型" class="headerlink" title="訊息類型"></a>訊息類型</h3><p>這邊舉幾個例子</p>
+<h4 id="多頁訊息"><a href="#多頁訊息" class="headerlink" title="多頁訊息"></a>多頁訊息</h4><figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="title">LINE</span>\<span class="title">LINEBot</span>\<span class="title">TemplateActionBuilder</span>\<span class="title">UriTemplateActionBuilder</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">LINE</span>\<span class="title">LINEBot</span>\<span class="title">MessageBuilder</span>\<span class="title">TemplateBuilder</span>\<span class="title">CarouselColumnTemplateBuilder</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">LINE</span>\<span class="title">LINEBot</span>\<span class="title">MessageBuilder</span>\<span class="title">TemplateBuilder</span>\<span class="title">CarouselTemplateBuilder</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">callback</span>(<span class="params">Request <span class="variable">$request</span></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="variable">$i</span> = <span class="number">0</span>; <span class="variable">$i</span> &lt; <span class="number">5</span>; <span class="variable">$i</span>++) &#123;</span><br><span class="line">        <span class="variable">$actions</span> = <span class="keyword">array</span>(</span><br><span class="line">            <span class="keyword">new</span> UriTemplateActionBuilder(<span class="string">&quot;查看&quot;</span>, <span class="string">&quot;https://linecorp.com&quot;</span>),</span><br><span class="line">        );</span><br><span class="line">        <span class="variable">$column</span> = <span class="keyword">new</span> CarouselColumnTemplateBuilder(<span class="string">&#x27;test&#x27;</span>, <span class="string">&#x27;test&#x27;</span>, <span class="string">&quot;https://imgur.com/Lh3gOFn.jpg&quot;</span>, <span class="variable">$actions</span>);</span><br><span class="line">        <span class="variable">$columns</span>[] = <span class="variable">$column</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="variable">$carousel</span> = <span class="keyword">new</span> CarouselTemplateBuilder(<span class="variable">$columns</span>);</span><br><span class="line">    <span class="variable">$textMessageBuilder</span> = <span class="keyword">new</span> TemplateMessageBuilder(<span class="string">&quot;請在手機中查看此訊息&quot;</span>, <span class="variable">$carousel</span>);</span><br><span class="line">    <span class="variable">$response</span> = <span class="variable">$bot</span>-&gt;replyMessage(<span class="variable">$reply_token</span>, <span class="variable">$textMessageBuilder</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/eunDbnd.gif" alt=""></p>
+<h4 id="彈性訊息Flex-Message"><a href="#彈性訊息Flex-Message" class="headerlink" title="彈性訊息Flex Message"></a>彈性訊息<code>Flex Message</code></h4><p>是具有可自定義佈局的消息，可以到<a target="_blank" rel="noopener" href="https://developers.line.biz/flex-simulator/">彈性消息模擬器</a>測試訊息，組成自己喜愛的版型，在電腦版中也會顯示哦。</p>
+<p>今日用他的範例來操作，做出相同的訊息</p>
+<p><img src="https://i.imgur.com/oPM2sux.jpg" alt=""></p>
+<h5 id="程式碼"><a href="#程式碼" class="headerlink" title="程式碼"></a>程式碼</h5><figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="title">LINE</span>\<span class="title">LINEBot</span>\<span class="title">MessageBuilder</span>\<span class="title">FlexMessageBuilder</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">LINE</span>\<span class="title">LINEBot</span>\<span class="title">MessageBuilder</span>\<span class="title">Flex</span>\<span class="title">ContainerBuilder</span>\<span class="title">CarouselContainerBuilder</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">LINE</span>\<span class="title">LINEBot</span>\<span class="title">MessageBuilder</span>\<span class="title">Flex</span>\<span class="title">ContainerBuilder</span>\<span class="title">BubbleContainerBuilder</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">LINE</span>\<span class="title">LINEBot</span>\<span class="title">MessageBuilder</span>\<span class="title">Flex</span>\<span class="title">ComponentBuilder</span>\<span class="title">BoxComponentBuilder</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">LINE</span>\<span class="title">LINEBot</span>\<span class="title">MessageBuilder</span>\<span class="title">Flex</span>\<span class="title">ComponentBuilder</span>\<span class="title">FillerComponentBuilder</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">LINE</span>\<span class="title">LINEBot</span>\<span class="title">MessageBuilder</span>\<span class="title">Flex</span>\<span class="title">ComponentBuilder</span>\<span class="title">ImageComponentBuilder</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">LINE</span>\<span class="title">LINEBot</span>\<span class="title">MessageBuilder</span>\<span class="title">Flex</span>\<span class="title">ComponentBuilder</span>\<span class="title">TextComponentBuilder</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">LINE</span>\<span class="title">LINEBot</span>\<span class="title">MessageBuilder</span>\<span class="title">Flex</span>\<span class="title">ComponentBuilder</span>\<span class="title">ButtonComponentBuilder</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">LINE</span>\<span class="title">LINEBot</span>\<span class="title">MessageBuilder</span>\<span class="title">Flex</span>\<span class="title">ComponentBuilder</span>\<span class="title">IconComponentBuilder</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">callback</span>(<span class="params">Request <span class="variable">$request</span></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="variable">$imageComponent</span> = <span class="keyword">new</span> ImageComponentBuilder(<span class="string">&quot;https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png&quot;</span>);</span><br><span class="line">    <span class="variable">$imageComponent</span>-&gt;setSize(<span class="string">&#x27;full&#x27;</span>)</span><br><span class="line">        -&gt;setAspectMode(<span class="string">&#x27;cover&#x27;</span>)</span><br><span class="line">        -&gt;setAspectRatio(<span class="string">&#x27;20:13&#x27;</span>)</span><br><span class="line">        -&gt;setGravity(<span class="string">&#x27;top&#x27;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="variable">$titleText</span> = <span class="keyword">new</span> TextComponentBuilder(<span class="string">&quot;Brown Cafe&quot;</span>);</span><br><span class="line">    <span class="variable">$titleText</span>-&gt;setSize(<span class="string">&#x27;xl&#x27;</span>)</span><br><span class="line">        -&gt;setWeight(<span class="string">&#x27;bold&#x27;</span>);</span><br><span class="line">    <span class="variable">$titleTextBox</span> = <span class="keyword">new</span> BoxComponentBuilder(<span class="string">&#x27;vertical&#x27;</span>, [<span class="variable">$titleText</span>]);</span><br><span class="line"></span><br><span class="line">    <span class="variable">$starIcon</span> = <span class="keyword">new</span> IconComponentBuilder(<span class="string">&quot;https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png&quot;</span>);</span><br><span class="line">    <span class="variable">$starIcon</span>-&gt;setSize(<span class="string">&#x27;sm&#x27;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="variable">$nonStarIcon</span> = <span class="keyword">new</span> IconComponentBuilder(<span class="string">&quot;https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gray_star_28.png&quot;</span>);</span><br><span class="line">    <span class="variable">$nonStarIcon</span>-&gt;setSize(<span class="string">&#x27;sm&#x27;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="variable">$rateText</span> = <span class="keyword">new</span> TextComponentBuilder(<span class="string">&quot;4.0&quot;</span>);</span><br><span class="line">    <span class="variable">$rateText</span>-&gt;setSize(<span class="string">&#x27;sm&#x27;</span>)</span><br><span class="line">        -&gt;setMargin(<span class="string">&#x27;md&#x27;</span>)</span><br><span class="line">        -&gt;setColor(<span class="string">&#x27;#999999&#x27;</span>)</span><br><span class="line">        -&gt;setFlex(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">    <span class="variable">$rateTextBox</span> = <span class="keyword">new</span> BoxComponentBuilder(</span><br><span class="line">        <span class="string">&#x27;baseline&#x27;</span>,</span><br><span class="line">        [</span><br><span class="line">            <span class="variable">$starIcon</span>,</span><br><span class="line">            <span class="variable">$starIcon</span>,</span><br><span class="line">            <span class="variable">$starIcon</span>,</span><br><span class="line">            <span class="variable">$starIcon</span>,</span><br><span class="line">            <span class="variable">$nonStarIcon</span>,</span><br><span class="line">            <span class="variable">$rateText</span>,</span><br><span class="line">        ]</span><br><span class="line">    );</span><br><span class="line"></span><br><span class="line">    <span class="variable">$placeText</span> = <span class="keyword">new</span> TextComponentBuilder(<span class="string">&quot;Place&quot;</span>);</span><br><span class="line">    <span class="variable">$placeText</span>-&gt;setSize(<span class="string">&#x27;sm&#x27;</span>)</span><br><span class="line">        -&gt;setFlex(<span class="number">1</span>)</span><br><span class="line">        -&gt;setColor(<span class="string">&quot;#aaaaaa&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="variable">$placeNameText</span> = <span class="keyword">new</span> TextComponentBuilder(<span class="string">&quot;Miraina Tower, 4-1-6 Shinjuku, Tokyo&quot;</span>);</span><br><span class="line">    <span class="variable">$placeNameText</span>-&gt;setSize(<span class="string">&#x27;sm&#x27;</span>)</span><br><span class="line">        -&gt;setFlex(<span class="number">5</span>)</span><br><span class="line">        -&gt;setColor(<span class="string">&quot;#666666&quot;</span>)</span><br><span class="line">        -&gt;setWrap(<span class="literal">true</span>);</span><br><span class="line"></span><br><span class="line">    <span class="variable">$placeDetailTextBox</span> = <span class="keyword">new</span> BoxComponentBuilder(</span><br><span class="line">        <span class="string">&#x27;baseline&#x27;</span>,</span><br><span class="line">        [</span><br><span class="line">            <span class="variable">$placeText</span>,</span><br><span class="line">            <span class="variable">$placeNameText</span>,</span><br><span class="line">        ]</span><br><span class="line">    );</span><br><span class="line"></span><br><span class="line">    <span class="variable">$timeText</span> = <span class="keyword">new</span> TextComponentBuilder(<span class="string">&quot;Time&quot;</span>);</span><br><span class="line">    <span class="variable">$timeText</span>-&gt;setSize(<span class="string">&#x27;sm&#x27;</span>)</span><br><span class="line">        -&gt;setFlex(<span class="number">1</span>)</span><br><span class="line">        -&gt;setColor(<span class="string">&quot;#aaaaaa&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="variable">$timeDetailText</span> = <span class="keyword">new</span> TextComponentBuilder(<span class="string">&quot;10:00 - 23:00&quot;</span>);</span><br><span class="line">    <span class="variable">$timeDetailText</span>-&gt;setSize(<span class="string">&#x27;sm&#x27;</span>)</span><br><span class="line">        -&gt;setFlex(<span class="number">5</span>)</span><br><span class="line">        -&gt;setColor(<span class="string">&quot;#666666&quot;</span>)</span><br><span class="line">        -&gt;setWrap(<span class="literal">true</span>);</span><br><span class="line"></span><br><span class="line">    <span class="variable">$timeDetailTextBox</span> = <span class="keyword">new</span> BoxComponentBuilder(</span><br><span class="line">        <span class="string">&#x27;baseline&#x27;</span>,</span><br><span class="line">        [</span><br><span class="line">            <span class="variable">$timeText</span>,</span><br><span class="line">            <span class="variable">$timeDetailText</span>,</span><br><span class="line">        ]</span><br><span class="line">    );</span><br><span class="line"></span><br><span class="line">    <span class="variable">$contentBox</span> = <span class="keyword">new</span> BoxComponentBuilder(</span><br><span class="line">        <span class="string">&#x27;vertical&#x27;</span>,</span><br><span class="line">        [</span><br><span class="line">            <span class="variable">$rateTextBox</span>,</span><br><span class="line">            <span class="variable">$placeDetailTextBox</span>,</span><br><span class="line">            <span class="variable">$timeDetailTextBox</span>,</span><br><span class="line">        ]</span><br><span class="line">    );</span><br><span class="line">    <span class="variable">$contentBox</span>-&gt;setSpacing(<span class="string">&#x27;sm&#x27;</span>)</span><br><span class="line">        -&gt;setMargin(<span class="string">&#x27;lg&#x27;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="variable">$bodyBox</span> = <span class="keyword">new</span> BoxComponentBuilder(</span><br><span class="line">        <span class="string">&#x27;vertical&#x27;</span>,</span><br><span class="line">        [</span><br><span class="line">            <span class="variable">$titleText</span>,</span><br><span class="line">            <span class="variable">$contentBox</span>,</span><br><span class="line">        ]</span><br><span class="line">    );</span><br><span class="line"></span><br><span class="line">    <span class="variable">$callButton</span> = <span class="keyword">new</span> ButtonComponentBuilder(</span><br><span class="line">        <span class="keyword">new</span> UriTemplateActionBuilder(<span class="string">&#x27;CALL&#x27;</span>, <span class="string">&quot;https://linecorp.com&quot;</span>)</span><br><span class="line">    );</span><br><span class="line">    <span class="variable">$callButton</span>-&gt;setHeight(<span class="string">&#x27;sm&#x27;</span>)-&gt;setStyle(<span class="string">&#x27;link&#x27;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="variable">$websiteButton</span> = <span class="keyword">new</span> ButtonComponentBuilder(</span><br><span class="line">        <span class="keyword">new</span> UriTemplateActionBuilder(<span class="string">&#x27;WEBSITE&#x27;</span>, <span class="string">&quot;https://linecorp.com&quot;</span>)</span><br><span class="line">    );</span><br><span class="line">    <span class="variable">$websiteButton</span>-&gt;setHeight(<span class="string">&#x27;sm&#x27;</span>)-&gt;setStyle(<span class="string">&#x27;link&#x27;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="variable">$footerBox</span> = <span class="keyword">new</span> BoxComponentBuilder(</span><br><span class="line">        <span class="string">&#x27;vertical&#x27;</span>,</span><br><span class="line">        [</span><br><span class="line">            <span class="variable">$callButton</span>,</span><br><span class="line">            <span class="variable">$websiteButton</span>,</span><br><span class="line">        ]</span><br><span class="line">    );</span><br><span class="line"></span><br><span class="line">    <span class="variable">$bubbleContainerBuilder</span> = <span class="keyword">new</span> BubbleContainerBuilder(</span><br><span class="line">        <span class="literal">null</span>,</span><br><span class="line">        <span class="literal">null</span>,</span><br><span class="line">        <span class="variable">$imageComponent</span>,</span><br><span class="line">        <span class="variable">$bodyBox</span>,</span><br><span class="line">        <span class="variable">$footerBox</span>,</span><br><span class="line">        <span class="literal">null</span>,</span><br><span class="line">        <span class="literal">null</span></span><br><span class="line">    );</span><br><span class="line"></span><br><span class="line">    <span class="variable">$flexMessageBuilder</span> = <span class="keyword">new</span> FlexMessageBuilder(</span><br><span class="line">        <span class="string">&#x27;FLEX MESSAGE SIMULATOR&#x27;</span>,</span><br><span class="line">        <span class="variable">$bubbleContainerBuilder</span></span><br><span class="line">    );</span><br><span class="line"></span><br><span class="line">    <span class="variable">$response</span> = <span class="variable">$bot</span>-&gt;replyMessage(<span class="variable">$reply_token</span>, <span class="variable">$flexMessageBuilder</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="成果"><a href="#成果" class="headerlink" title="成果"></a>成果</h4><p><img src="https://i.imgur.com/zFa6eDG.jpg" alt=""></p>
+<h3 id="鏈接用戶帳戶"><a href="#鏈接用戶帳戶" class="headerlink" title="鏈接用戶帳戶"></a>鏈接用戶帳戶</h3><p>利用帳戶鏈接功能(<code>Linking user accounts</code>)功能，能將<code>Line</code>用戶與原先提供者（企業和開發者）的服務用戶帳戶連接，這將允許提供商利用他們獲得的用戶數據並使用 <code>LINE</code> 官方帳號來提供更好的服務。</p>
+<p>例如，可以通過將購物網站上的用戶帳戶與 LINE 用戶帳戶關聯來提供這些服務：</p>
+<ul>
+<li>當用戶從購物網站購買產品時，從 LINE 官方帳號發送消息。</li>
+<li>當用戶向 LINE 官方帳號發送消息時，接受和處理訂單。</li>
+<li>帳戶也可以通過 LINE 登錄鏈接，但也需要 LINE 登錄渠道。即使僅使用消息傳遞 API，也可以實現帳戶鏈接功能。</li>
+</ul>
+<p>帳號連接順序如下:</p>
+<p><img src="https://i.imgur.com/2befqCD.png" alt=""></p>
+<p>(圖片來自: <a target="_blank" rel="noopener" href="https://developers.line.biz/en/docs/messaging-api/linking-accounts/">LINE Developer Document: Link user account</a> )</p>
+<p>User:</p>
+<ul>
+<li>LINE 的用戶。</li>
+</ul>
+<p>Provider’s bot server:</p>
+<ul>
+<li>商業服務的 LINE 聊天機器人伺服器。</li>
+</ul>
+<p>Provider’s web server:</p>
+<ul>
+<li>商業服務的網站伺服器，如果是購物網站就是該購物網站的後台伺服器。</li>
+</ul>
+<p>LINE Platform:</p>
+<ul>
+<li>這個就是指 LINE 平台的資料處理系統。</li>
+</ul>
+<p>順序分別為:</p>
+<ol>
+<li>機器人服務器調用從 LINE 用戶 ID 發出鏈接令牌的 API。</li>
+<li>LINE 平台將鏈接令牌返回給機器人服務器。</li>
+<li>bot 服務器調用 Messaging API 將鏈接 URL 發送給用戶。</li>
+<li>LINE 平台向用戶發送鏈接 URL。</li>
+<li>用戶訪問鏈接 URL。</li>
+<li>Web 服務器顯示登錄屏幕。</li>
+<li>用戶輸入他們的憑據。</li>
+<li>Web 服務器從提供者的服務中獲取用戶 ID，並使用它來生成隨機數（使用一次的數字）。</li>
+<li>Web 服務器將用戶重定向到帳戶鏈接端點。</li>
+<li>用戶訪問帳戶鏈接端點。</li>
+<li>LINE 平台通過 webhook 向機器人服務器發送一個事件（包括 LINE 用戶 ID 和 nonce）。</li>
+<li>bot 服務器使用 nonce 獲取提供者服務的用戶 ID。</li>
+</ol>
+<h4 id="實作綁定流程"><a href="#實作綁定流程" class="headerlink" title="實作綁定流程"></a>實作綁定流程</h4><h5 id="1-取得鏈接令牌"><a href="#1-取得鏈接令牌" class="headerlink" title="1. 取得鏈接令牌"></a>1. 取得鏈接令牌</h5><p><code>/bot/user/&#123;userId&#125;/linkToken</code>向端點發送 <code>HTTP POST</code> 請求，並為您嘗試鏈接的用戶發出鏈接令牌。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">curl -X POST https://api.line.me/v2/bot/user/&#123;userId&#125;/linkToken \</span><br><span class="line">-H &#x27;Authorization: Bearer &#123;channel access token&#125;&#x27;</span><br></pre></td></tr></table></figure>
+<p>如果請求成功，200將返回狀態碼和鏈接令牌。鏈接令牌有效期為 10 分鐘，並且只能使用一次。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;linkToken&quot;: &quot;NMZTNuVrPTqlr2IF8Bnymkb7rXfYv5EY&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="2-將用戶重定向到鏈接-URL"><a href="#2-將用戶重定向到鏈接-URL" class="headerlink" title="2. 將用戶重定向到鏈接 URL"></a>2. 將用戶重定向到鏈接 URL</h5><p>取得<code>user id</code>以及鏈接令牌向用戶發送重導向連結訊息</p>
+<p>以下程式情境為當偵測到使用者輸入會員綁定，傳送導向會員綁定連結訊息<br><figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">callback</span>(<span class="params">Request <span class="variable">$request</span></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="variable">$message_type</span> = <span class="variable">$request</span>-&gt;events[<span class="number">0</span>][<span class="string">&#x27;message&#x27;</span>][<span class="string">&#x27;type&#x27;</span>] ?? <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">    <span class="keyword">if</span> (<span class="variable">$message_type</span> == <span class="string">&#x27;text&#x27;</span> &amp;&amp; <span class="variable">$request</span>-&gt;events[<span class="number">0</span>][<span class="string">&#x27;message&#x27;</span>][<span class="string">&#x27;text&#x27;</span>] == <span class="string">&#x27;會員綁定&#x27;</span>)&#123;</span><br><span class="line">    <span class="variable">$user_id</span> = <span class="variable">$request</span>-&gt;events[<span class="number">0</span>][<span class="string">&#x27;source&#x27;</span>][<span class="string">&#x27;userId&#x27;</span>];</span><br><span class="line">    <span class="variable">$hash_user_id</span> = base64_encode(<span class="variable">$user_id</span>);</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="variable">$response</span> = Http::withToken(</span><br><span class="line">            env(<span class="string">&#x27;LINE_BOT_CHANNEL_ACCESS_TOKEN&#x27;</span>)</span><br><span class="line">        )-&gt;post(</span><br><span class="line">            <span class="string">&quot;https://api.line.me/v2/bot/user/<span class="subst">$user_id</span>/linkToken&quot;</span></span><br><span class="line">        );</span><br><span class="line">        <span class="variable">$linkToken</span> = <span class="variable">$response</span>-&gt;json()[<span class="string">&#x27;linkToken&#x27;</span>];</span><br><span class="line">    &#125; <span class="keyword">catch</span> (<span class="built_in">Exception</span> <span class="variable">$e</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="variable">$e</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="variable">$actions</span> = <span class="keyword">array</span>(</span><br><span class="line">        <span class="keyword">new</span> UriTemplateActionBuilder(<span class="string">&quot;開始綁定&quot;</span>, <span class="string">&quot;https://example.tw/line-binding?linkToken=<span class="subst">$linkToken</span>&amp;userId=<span class="subst">$hash_user_id</span>&quot;</span>),</span><br><span class="line">    );</span><br><span class="line">    <span class="variable">$carousel</span> = <span class="keyword">new</span> ButtonTemplateBuilder(<span class="literal">null</span>, <span class="string">&#x27;現在就開始進行Line個人化服務綁定，按下登入將XXX帳號連結在一起！將可以享受個人化功能。&#x27;</span>, <span class="literal">null</span>, <span class="variable">$actions</span>);</span><br><span class="line">    <span class="variable">$textMessageBuilder</span> = <span class="keyword">new</span> TemplateMessageBuilder(<span class="string">&quot;請在手機中查看此訊息&quot;</span>, <span class="variable">$carousel</span>);</span><br><span class="line">    <span class="variable">$response</span> = <span class="variable">$bot</span>-&gt;replyMessage(<span class="variable">$reply_token</span>, <span class="variable">$textMessageBuilder</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h5 id="3-獲取服務的用戶-ID"><a href="#3-獲取服務的用戶-ID" class="headerlink" title="3. 獲取服務的用戶 ID"></a>3. 獲取服務的用戶 ID</h5><p>當用戶訪問鏈接 <code>URL</code> 時，他們將看到您的服務的登錄屏幕。登錄後，您可以從您的服務中獲取用戶的 <code>ID</code>。</p>
+<h5 id="4-生成隨機數並將用戶重定向到-LINE-平台"><a href="#4-生成隨機數並將用戶重定向到-LINE-平台" class="headerlink" title="4. 生成隨機數並將用戶重定向到 LINE 平台"></a>4. 生成隨機數並將用戶重定向到 LINE 平台</h5><p>官方說法是產生一個難以預測且只能使用一次的字符串的值<code>nonce</code>並介於介於 10 到 255 個字符之間，並將<code>nonce</code> 與獲取的用戶 <code>ID</code> 關聯並保存。這邊是保存在資料庫裡</p>
+<p>保存 <code>nonce</code> 和用戶 <code>ID</code> 後，將用戶重定向到以下端點。</p>
+<p><code>https://access.line.me/dialog/bot/accountLink?linkToken=&#123;link token&#125;&amp;nonce=&#123;nonce&#125;</code><br>當用戶訪問此端點時，<code>LINE</code> 平台將驗證該用戶是否是為其頒發鏈接令牌的用戶。</p>
+<ul>
+<li>如果帳戶可以成功鏈接：屬性值為的賬戶鏈接事件將通過 <code>webhook</code> 發送到 bot 服務器。<code>result ok</code></li>
+<li>如果由於任何原因無法鏈接帳戶，例如由於用戶冒充：屬性值為的帳戶鏈接事件將通過 <code>webhook</code> 發送到機器人服務器。<code>result failed</code></li>
+<li>如果鏈接令牌已過期或已被使用：不會發送任何 <code>webhook</code> 事件，並且會向用戶顯示錯誤</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Support</span>\<span class="title">Str</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Carbon</span>\<span class="title">Carbon</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// line官方帳號鏈接用戶帳戶api</span></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">bindUser</span>(<span class="params">Request <span class="variable">$request</span></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="variable">$request</span>-&gt;validate([</span><br><span class="line">        <span class="string">&#x27;id&#x27;</span> =&gt; <span class="string">&#x27;required|exists:camp.users,id|unique:line_links,user_id&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;line_id&#x27;</span> =&gt; <span class="string">&#x27;required|unique:line_links,line_id&#x27;</span>,</span><br><span class="line">    ]);</span><br><span class="line"></span><br><span class="line">    <span class="variable">$lineLink</span> = LineLink::create([</span><br><span class="line">        <span class="string">&#x27;user_id&#x27;</span> =&gt; <span class="variable">$request</span>-&gt;id,</span><br><span class="line">        <span class="string">&#x27;line_id&#x27;</span> =&gt; <span class="variable">$request</span>-&gt;line_id,</span><br><span class="line">        <span class="string">&#x27;nonce&#x27;</span> =&gt; <span class="keyword">$this</span>-&gt;generateNonce(),</span><br><span class="line">    ]);</span><br><span class="line"></span><br><span class="line">    <span class="variable">$rich_menu_id</span> = LineMenu::where(<span class="string">&#x27;name&#x27;</span>, <span class="string">&#x27;bind&#x27;</span>)-&gt;first()-&gt;rich_menu_id;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> response()-&gt;json([<span class="string">&#x27;success&#x27;</span> =&gt; <span class="literal">true</span>, <span class="string">&#x27;message&#x27;</span> =&gt; <span class="string">&#x27;綁定成功&#x27;</span>, <span class="string">&#x27;nonce&#x27;</span> =&gt; <span class="variable">$lineLink</span>-&gt;nonce]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">generateNonce</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> Str::random() . base64_encode(Carbon::now());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="5-關聯賬戶"><a href="#5-關聯賬戶" class="headerlink" title="5. 關聯賬戶"></a>5. 關聯賬戶</h5><p>一旦 bot 服務器收到帳戶鏈接事件，就執行鏈接處理。</p>
+<p>要鏈接的 LINE 用戶 ID 和步驟 4 中生成的 nonce 包含在 webhook 事件中。使用此 nonce 從您的服務中識別之前與 nonce 關聯並保存的用戶 ID。將此 ID 鏈接到 LINE 用戶 ID 後，帳戶鏈接將完成。</p>
+<h5 id="6-取消連接"><a href="#6-取消連接" class="headerlink" title="6. 取消連接"></a>6. 取消連接</h5><p>使用帳戶鏈接功能，需通知用戶有取消連結功能，並提供取消連結功能</p>
+<p>以下為取消連接<code>api</code>，<code>line_id</code>為<code>line</code>的<code>user id</code>，<code>user_id</code>為服務器用戶<code>id</code><br><figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">unbind</span>(<span class="params">Request <span class="variable">$request</span></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="variable">$lineLink</span> = LineLink::where(<span class="string">&#x27;line_id&#x27;</span>, <span class="variable">$request</span>-&gt;line_id)-&gt;where(<span class="string">&#x27;user_id&#x27;</span>, <span class="variable">$request</span>-&gt;user_id);</span><br><span class="line">    <span class="variable">$lineLink</span>-&gt;delete();</span><br><span class="line">    <span class="keyword">return</span> response()-&gt;json([<span class="string">&#x27;success&#x27;</span> =&gt; <span class="literal">true</span>, <span class="string">&#x27;message&#x27;</span> =&gt; <span class="string">&#x27;解除綁定成功&#x27;</span>]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="使用情境"><a href="#使用情境" class="headerlink" title="使用情境"></a>使用情境</h4><ol>
+<li>可以在使用者綁定後切換豐富選單，讓使用者體驗更佳</li>
+<li>當原本就有很多使用者在大量網站上</li>
+</ol>
+<h4 id="Account-Link-與-LINE-Login-的差異"><a href="#Account-Link-與-LINE-Login-的差異" class="headerlink" title="Account Link 與 LINE Login 的差異"></a>Account Link 與 LINE Login 的差異</h4><p><img src="https://i.imgur.com/Fa1NqR7.jpg" alt=""></p>
+<p>(圖片來自於<a target="_blank" rel="noopener" href="https://engineering.linecorp.com/zh-hant/blog/how-to-use-account-link/">LINE Engineering</a>)</p>
+<h3 id="使用豐富菜單"><a href="#使用豐富菜單" class="headerlink" title="使用豐富菜單"></a>使用豐富菜單</h3><p>有兩種方式可以創建豐富菜單一種是在<a target="_blank" rel="noopener" href="https://manager.line.biz/">line官方管理器設置</a>，另一種是透過api方式設置</p>
+<p>優先級別為以下(高到低)</p>
+<ol>
+<li>使用 <code>Messaging API</code> 替用戶設置豐富菜單</li>
+<li>使用 <code>Messaging API</code> 設置的默認豐富菜單</li>
+<li><a target="_blank" rel="noopener" href="https://manager.line.biz/">line官方管理器設置</a>默認豐富菜單設置</li>
+</ol>
+<h4 id="如何設置的默認豐富菜單"><a href="#如何設置的默認豐富菜單" class="headerlink" title="如何設置的默認豐富菜單"></a>如何設置的默認豐富菜單</h4><p>此範例為新增六格圖文選單，分為三個階段</p>
+<ol>
+<li>新增圖文選單</li>
+<li>上傳圖文選單圖片</li>
+<li>設置為默認豐富菜單</li>
+</ol>
+<p>圖文選單選項</p>
+<ul>
+<li>size: 圖文選單圖片的長寬，必需為以下尺寸:</li>
+<li><code>2500x1686</code>、<code>2500x843</code>、<code>1200x810</code>、<code>1200x405</code>、<code>800x540</code>、<code>800x270</code></li>
+<li><p>selected: 選單是否預設開啟，true 或 false。</p>
+</li>
+<li><p>name: 選單名稱，用於識別和管理選單，不會外顯。</p>
+</li>
+<li><p>chatBarText: 顯示在聊天視窗下方的選單文字。</p>
+</li>
+<li><p>areas: 用於定義按鈕的可點墼區域。</p>
+</li>
+<li><p>bounds 用於定義座標和大小</p>
+</li>
+<li><p>x、y: 起始座標</p>
+</li>
+<li><p>width: 寬度</p>
+</li>
+<li><p>height: 高度</p>
+</li>
+<li><p>action 用於定義觸發的動作</p>
+</li>
+<li><p>type: 動作類型，詳細說明可以參考 官方文件</p>
+</li>
+<li><p>label: 動作標籤，用於客戶端輔助功能</p>
+</li>
+<li><p>text: 發送到聊天視窗的文字</p>
+</li>
+<li><p>data: 透過 webhook 回傳到後端的字串</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 3. 設置為默認豐富菜單</span></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">cretaeDefaultRichMenu</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="variable">$richMenuId</span> = <span class="keyword">$this</span>-&gt;createRichMenu();</span><br><span class="line">    <span class="variable">$uploadStatus</span> = <span class="keyword">$this</span>-&gt;uploadRichMenuImage(<span class="variable">$richMenuId</span>, <span class="string">&#x27;yourImage.jpg&#x27;</span>);</span><br><span class="line">    <span class="keyword">if</span> (<span class="variable">$uploadStatus</span>) &#123;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;setDefaultRichMenu(<span class="variable">$richMenuId</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    LineMenu::updateOrCreate(</span><br><span class="line">        [<span class="string">&#x27;name&#x27;</span> =&gt; <span class="string">&#x27;unbind&#x27;</span>],</span><br><span class="line">        [<span class="string">&#x27;rich_menu_id&#x27;</span> =&gt; <span class="variable">$richMenuId</span>]</span><br><span class="line">    );</span><br><span class="line">    <span class="keyword">return</span> response()-&gt;json([<span class="string">&#x27;status&#x27;</span> =&gt; <span class="string">&#x27;success&#x27;</span>]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 1. 新增圖文選單</span></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">createRichMenu</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="variable">$httpClient</span> = <span class="keyword">new</span> \LINE\LINEBot\HTTPClient\CurlHTTPClient(env(<span class="string">&#x27;LINE_BOT_CHANNEL_ACCESS_TOKEN&#x27;</span>));</span><br><span class="line">    <span class="variable">$bot</span> = <span class="keyword">new</span> \LINE\LINEBot(<span class="variable">$httpClient</span>, [<span class="string">&#x27;channelSecret&#x27;</span> =&gt; env(<span class="string">&#x27;LINE_BOT_CHANNEL_SECRET&#x27;</span>)]);</span><br><span class="line">    <span class="variable">$richMenuBuilder</span> = <span class="keyword">new</span> \LINE\LINEBot\RichMenuBuilder(</span><br><span class="line">        <span class="keyword">new</span> \LINE\LINEBot\RichMenuBuilder\RichMenuSizeBuilder(<span class="number">1686</span>, <span class="number">2500</span>),</span><br><span class="line">        <span class="literal">true</span>,</span><br><span class="line">        <span class="string">&#x27;未綁定前選單&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;開啟選單&#x27;</span>,</span><br><span class="line">        [</span><br><span class="line">            <span class="keyword">new</span> \LINE\LINEBot\RichMenuBuilder\RichMenuAreaBuilder(<span class="keyword">new</span> \LINE\LINEBot\RichMenuBuilder\RichMenuAreaBoundsBuilder(<span class="number">0</span>, <span class="number">0</span>, <span class="number">833</span>, <span class="number">843</span>), <span class="keyword">new</span> \LINE\LINEBot\TemplateActionBuilder\MessageTemplateActionBuilder(<span class="string">&#x27;文字&#x27;</span>, <span class="string">&#x27;會員綁定&#x27;</span>)),</span><br><span class="line">            <span class="keyword">new</span> \LINE\LINEBot\RichMenuBuilder\RichMenuAreaBuilder(<span class="keyword">new</span> \LINE\LINEBot\RichMenuBuilder\RichMenuAreaBoundsBuilder(<span class="number">833</span>, <span class="number">0</span>, <span class="number">833</span>, <span class="number">843</span>), <span class="keyword">new</span> \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder(<span class="string">&#x27;首頁&#x27;</span>, env(<span class="string">&#x27;APP_URL&#x27;</span>))),</span><br><span class="line">            <span class="keyword">new</span> \LINE\LINEBot\RichMenuBuilder\RichMenuAreaBuilder(<span class="keyword">new</span> \LINE\LINEBot\RichMenuBuilder\RichMenuAreaBoundsBuilder(<span class="number">1666</span>, <span class="number">0</span>, <span class="number">833</span>, <span class="number">843</span>), <span class="keyword">new</span> \LINE\LINEBot\TemplateActionBuilder\MessageTemplateActionBuilder(<span class="string">&#x27;文字&#x27;</span>, <span class="string">&#x27;測試&#x27;</span>)),</span><br><span class="line">            <span class="keyword">new</span> \LINE\LINEBot\RichMenuBuilder\RichMenuAreaBuilder(<span class="keyword">new</span> \LINE\LINEBot\RichMenuBuilder\RichMenuAreaBoundsBuilder(<span class="number">0</span>, <span class="number">843</span>, <span class="number">833</span>, <span class="number">843</span>), <span class="keyword">new</span> \LINE\LINEBot\TemplateActionBuilder\MessageTemplateActionBuilder(<span class="string">&#x27;文字&#x27;</span>, <span class="string">&#x27;測試&#x27;</span>)),</span><br><span class="line">            <span class="keyword">new</span> \LINE\LINEBot\RichMenuBuilder\RichMenuAreaBuilder(<span class="keyword">new</span> \LINE\LINEBot\RichMenuBuilder\RichMenuAreaBoundsBuilder(<span class="number">833</span>, <span class="number">843</span>, <span class="number">833</span>, <span class="number">843</span>), <span class="keyword">new</span> \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder(<span class="string">&#x27;line官方管理器&#x27;</span>, <span class="string">&#x27;https://manager.line.biz/&#x27;</span>)),</span><br><span class="line">            <span class="keyword">new</span> \LINE\LINEBot\RichMenuBuilder\RichMenuAreaBuilder(<span class="keyword">new</span> \LINE\LINEBot\RichMenuBuilder\RichMenuAreaBoundsBuilder(<span class="number">1666</span>, <span class="number">843</span>, <span class="number">833</span>, <span class="number">843</span>), <span class="keyword">new</span> \LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder(<span class="string">&#x27;line官方管理器&#x27;</span>, <span class="string">&#x27;https://manager.line.biz/&#x27;</span>)),</span><br><span class="line">        ]</span><br><span class="line">    );</span><br><span class="line">    <span class="variable">$response</span> = <span class="variable">$bot</span>-&gt;createRichMenu(<span class="variable">$richMenuBuilder</span>);</span><br><span class="line">    <span class="variable">$richMenuId</span> = <span class="variable">$response</span>-&gt;getJSONDecodedBody()[<span class="string">&#x27;richMenuId&#x27;</span>];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="variable">$richMenuId</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="number">2</span>. 上傳圖文選單圖片</span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">uploadRichMenuImage</span>(<span class="params"><span class="variable">$richMenuId</span>, <span class="variable">$picPath</span></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="variable">$httpClient</span> = <span class="keyword">new</span> \LINE\LINEBot\HTTPClient\CurlHTTPClient(env(<span class="string">&#x27;LINE_BOT_CHANNEL_ACCESS_TOKEN&#x27;</span>));</span><br><span class="line">    <span class="variable">$bot</span> = <span class="keyword">new</span> \LINE\LINEBot(<span class="variable">$httpClient</span>, [<span class="string">&#x27;channelSecret&#x27;</span> =&gt; env(<span class="string">&#x27;LINE_BOT_CHANNEL_SECRET&#x27;</span>)]);</span><br><span class="line">    <span class="variable">$imagePath</span> = public_path(<span class="variable">$picPath</span>);</span><br><span class="line">    <span class="variable">$contentType</span> = <span class="string">&#x27;image/jpeg&#x27;</span>;</span><br><span class="line">    <span class="variable">$response</span> = <span class="variable">$bot</span>-&gt;uploadRichMenuImage(<span class="variable">$richMenuId</span>, <span class="variable">$imagePath</span>, <span class="variable">$contentType</span>);</span><br><span class="line">    <span class="keyword">if</span> (<span class="variable">$response</span>-&gt;isSucceeded()) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="如何設置綁定用戶豐富菜單"><a href="#如何設置綁定用戶豐富菜單" class="headerlink" title="如何設置綁定用戶豐富菜單"></a>如何設置綁定用戶豐富菜單</h4><ol>
+<li>新增圖文選單</li>
+<li>上傳圖文選單圖片</li>
+<li>與用戶做綁定</li>
+</ol>
+<p>新增圖文選單與上傳圖文選單圖片與上述相似就不在貼程式碼，直接來看用戶綁定</p>
+<p>將取得的圖文選單id以及line的user_id傳入即可綁定，可以在使用者連接官方帳號後進行</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">linkRichMenuToUser</span>(<span class="params"><span class="variable">$user_id</span>, <span class="variable">$richMenuId</span></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="variable">$httpClient</span> = <span class="keyword">new</span> \LINE\LINEBot\HTTPClient\CurlHTTPClient(env(<span class="string">&#x27;LINE_BOT_CHANNEL_ACCESS_TOKEN&#x27;</span>));</span><br><span class="line">    <span class="variable">$bot</span> = <span class="keyword">new</span> \LINE\LINEBot(<span class="variable">$httpClient</span>, [<span class="string">&#x27;channelSecret&#x27;</span> =&gt; env(<span class="string">&#x27;LINE_BOT_CHANNEL_SECRET&#x27;</span>)]);</span><br><span class="line">    <span class="variable">$response</span> = <span class="variable">$bot</span>-&gt;linkRichMenu(<span class="variable">$user_id</span>, <span class="variable">$richMenuId</span>);</span><br><span class="line">    <span class="keyword">if</span> (<span class="variable">$response</span>-&gt;isSucceeded()) &#123;</span><br><span class="line">        Log::info(<span class="string">&#x27;Link rich menu to user success&#x27;</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        Log::error(<span class="string">&#x27;Link rich menu to user failed&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="取消用戶豐富菜單"><a href="#取消用戶豐富菜單" class="headerlink" title="取消用戶豐富菜單"></a>取消用戶豐富菜單</h4><p>將<code>line</code>的<code>user id</code>帶入，發送api即可解除綁定</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">unlinkRichMenuFromUser</span>(<span class="params"><span class="variable">$user_id</span></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="variable">$httpClient</span> = <span class="keyword">new</span> \LINE\LINEBot\HTTPClient\CurlHTTPClient(env(<span class="string">&#x27;LINE_BOT_CHANNEL_ACCESS_TOKEN&#x27;</span>));</span><br><span class="line">    <span class="variable">$bot</span> = <span class="keyword">new</span> \LINE\LINEBot(<span class="variable">$httpClient</span>, [<span class="string">&#x27;channelSecret&#x27;</span> =&gt; env(<span class="string">&#x27;LINE_BOT_CHANNEL_SECRET&#x27;</span>)]);</span><br><span class="line">    <span class="variable">$response</span> = <span class="variable">$bot</span>-&gt;unlinkRichMenu(<span class="variable">$user_id</span>);</span><br><span class="line">    <span class="keyword">if</span> (<span class="variable">$response</span>-&gt;isSucceeded()) &#123;</span><br><span class="line">        Log::info(<span class="string">&#x27;Unlink rich menu from user success&#x27;</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        Log::error(<span class="string">&#x27;Unlink rich menu from user failed&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="LIFF基本使用"><a href="#LIFF基本使用" class="headerlink" title="LIFF基本使用"></a>LIFF基本使用</h2><h3 id="建立Liff"><a href="#建立Liff" class="headerlink" title="建立Liff"></a>建立Liff</h3><p><code>liff</code>也就是<code>line</code>的前端框架，先新增一個新的<code>channel</code>來做測試</p>
+<p><img src="https://i.imgur.com/yoTp3Jl.jpg" alt=""></p>
+<p>新增完後點擊<code>ADD</code>新增</p>
+<p><img src="https://i.imgur.com/UMf4Jih.jpg" alt=""></p>
+<p>可以看到有很多選項要選擇</p>
+<h4 id="Size"><a href="#Size" class="headerlink" title="Size"></a>Size</h4><p>LIFF 瀏覽器可以以這三種尺寸之一顯示</p>
+<p><img src="https://i.imgur.com/1cibgaE.png" alt=""></p>
+<p>(圖片來自於<a target="_blank" rel="noopener" href="https://developers.line.biz/en/docs/liff/overview/#screen-size">line developers</a>)</p>
+<h4 id="Endpoint-URL"><a href="#Endpoint-URL" class="headerlink" title="Endpoint URL"></a>Endpoint URL</h4><p>這邊就是放入要開啟的連結，在點擊liff的連結後，會出現的頁面，假設填入<code>https://www.google.com.tw/</code>，開啟時就會是<code>google</code>的首頁</p>
+<h4 id="Scopes"><a href="#Scopes" class="headerlink" title="Scopes"></a>Scopes</h4><p>這邊就是選擇需要取到哪些資料，點擊<code>View all</code>有一個<code>chat_message.write</code>，這個就是如果需要主動幫使用者發送資料，就必須打勾，不然<code>sendMessages</code> 會無法使用</p>
+<h4 id="Bot-link-feature"><a href="#Bot-link-feature" class="headerlink" title="Bot link feature"></a>Bot link feature</h4><p>這邊就是當使用者登入我們的liff時，要不要推薦他加入我們的官方line@，以下為<code>normal</code>及<code>aggressive</code>差別</p>
+<p><img src="https://i.imgur.com/EbV8nKl.png" alt=""></p>
+<p>(圖片來自於<a target="_blank" rel="noopener" href="https://developers.line.biz/en/docs/line-login/link-a-bot/#displaying-the-option-to-add-your-line-official-account-as-a-friend">line developers</a>)</p>
+<h4 id="Scan-QR"><a href="#Scan-QR" class="headerlink" title="Scan QR"></a>Scan QR</h4><p>這邊指的是要不要使用 LIFF 打開 QR code 掃描器功能。</p>
+<h4 id="LIFF-建立完成"><a href="#LIFF-建立完成" class="headerlink" title="LIFF 建立完成"></a>LIFF 建立完成</h4><p>建立成功後可以看到我們剛剛新增的liff</p>
+<p><img src="https://i.imgur.com/MXpX7xP.jpg" alt=""></p>
+<p>橘色框框<code>shareTargetPicker</code>，就是是否允許主動讓使用者發送我們指定的訊息給他的好友，</p>
+<p><code>LIFF ID</code> 在寫 <code>JavaScript</code> 時會用到。</p>
+<p><code>LIFF URL</code>，這個就是 <code>LIFF</code> 的網址了，在 <code>LINE</code> 上點這個網址，就會開啟<code>LIFF</code>，顯示的頁面就是剛剛填入<code>Endpoint URL</code>的網址</p>
+<h3 id="LIFF-init"><a href="#LIFF-init" class="headerlink" title="LIFF init"></a>LIFF init</h3><p>初始化 LIFF 應用程式</p>
+<h4 id="引入sdk"><a href="#引入sdk" class="headerlink" title="引入sdk"></a>引入sdk</h4><h5 id="CDN"><a href="#CDN" class="headerlink" title="CDN"></a>CDN</h5><p><code>&lt;script charset=&quot;utf-8&quot; src=&quot;https://static.line-scdn.net/liff/edge/2/sdk.js&quot;&gt;&lt;/script&gt;</code></p>
+<h5 id="使用-npm-包"><a href="#使用-npm-包" class="headerlink" title="使用 npm 包"></a>使用 npm 包</h5><p>終端中運行此命令以通過 npm 安裝 LIFF SDK<br><code>$ npm install --save @line/liff</code></p>
+<p>或是透過 Yarn 安裝 LIFF SDK<br><code>$ yarn add @line/liff</code></p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> liff <span class="keyword">from</span> <span class="string">&#x27;@line/liff&#x27;</span>;</span><br><span class="line"></span><br><span class="line">liff.init(&#123;</span><br><span class="line">    <span class="attr">liffId</span>: <span class="string">&#x27;1234567890-AbcdEfgh&#x27;</span>, <span class="comment">// Use own liffId</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<hr>
+<p>引入完成後透過 <code>javascript</code> 來撰寫</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> liffID = <span class="string">&#x27;XXXXXXXXXXXX&#x27;</span>;</span><br><span class="line"></span><br><span class="line">liff.init(&#123;</span><br><span class="line">  <span class="attr">liffId</span>: liffID</span><br><span class="line">&#125;).then(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;LIFF init&#x27;</span>);</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 開始使用liff其他功能</span></span><br><span class="line">  </span><br><span class="line">&#125;).catch(<span class="function"><span class="keyword">function</span>(<span class="params">error</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(error);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>將 <code>liffID</code> 做替換即可，因為 <code>init</code> 要先執行，所以是一個 <code>promise</code>，相關功能要撰寫在 <code>then</code> 函式中</p>
+<h3 id="LIFF獲取環境訊息"><a href="#LIFF獲取環境訊息" class="headerlink" title="LIFF獲取環境訊息"></a>LIFF獲取環境訊息</h3><p>LIFF 可以取得一些使用者的環境資訊，條列如下：</p>
+<ul>
+<li>使用者運行 LIFF 應用程序的環境：web、android、ios</li>
+<li>頁面中的語系（lang）</li>
+<li>獲取 LIFF SDK 的版本</li>
+<li>獲取用戶的 LINE 版本</li>
+<li>確定 LIFF 應用程序是否在 LIFF 瀏覽器中運行</li>
+<li>檢查用戶是否已登錄。</li>
+<li>檢查指定的 API 在您啟動 LIFF 應用程序的環境中是否可用。</li>
+<li>獲取啟動 LIFF 應用程序的屏幕類型</li>
+</ul>
+<p>程式碼如下:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 回傳使用者作業系統：ios、android、web</span></span><br><span class="line">liff.getOS();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 引用 LIFF SDK 的頁面，頁面中的 lang 值</span></span><br><span class="line">liff.getLanguage();</span><br><span class="line"></span><br><span class="line"><span class="comment">// LIFF SDK 的版本</span></span><br><span class="line">liff.getVersion();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用者的 LINE 版本</span></span><br><span class="line">liff.getLineVersion();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 回傳是否由 LINE App 存取</span></span><br><span class="line">liff.isInClient();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用者是否登入 LINE 帳號</span></span><br><span class="line">liff.isLoggedIn();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 是否啟用shareTargetPicker api</span></span><br><span class="line">liff.isApiAvailable(<span class="string">&#x27;shareTargetPicker&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 獲取啟動 LIFF 應用程序的屏幕類型</span></span><br><span class="line">liff.getContext()</span><br></pre></td></tr></table></figure>
+<h3 id="LIFF-功能：登入、登出"><a href="#LIFF-功能：登入、登出" class="headerlink" title="LIFF 功能：登入、登出"></a>LIFF 功能：登入、登出</h3><p>登入、登出 LINE 的功能只能在外部瀏覽器時有作用。</p>
+<div class="note warning modern"><p>不能在 LIFF 瀏覽器中使用liff.login()，因為它在執行時會自動liff.init()。</p>
+</div>
+<p>假設在登入後要轉址的網址是</p>
+<p><code>https://example.com</code></p>
+<p>必須先到 LINE Developers 的後台，在設定頁中將網址填入，這邊 Line 要確認我們是這個頻道的管理者，在這邊加入指定連接，可以防止被發現了我們的 ID 後，拿我們的 LIFF 來做登入動作竊取個資</p>
+<p><img src="https://i.imgur.com/QJBU0Dj.jpg" alt=""></p>
+<p>如有多個網址就是，再往下一行，輸入完成後按下 Update ，就填寫完成</p>
+<p>登入，登出程式碼</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 登入</span></span><br><span class="line"><span class="keyword">if</span> (!liff.isLoggedIn()) &#123;</span><br><span class="line">  liff.login(&#123; </span><br><span class="line">      <span class="comment">// 登入後要轉址到哪個網站</span></span><br><span class="line">      <span class="attr">redirectUri</span>:<span class="string">&quot;https://example.com/path&quot;</span> </span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 登出</span></span><br><span class="line">liff.logout();</span><br></pre></td></tr></table></figure>
+<h3 id="取得使用者資料"><a href="#取得使用者資料" class="headerlink" title="取得使用者資料"></a>取得使用者資料</h3><h4 id="取得使用者公開資料"><a href="#取得使用者公開資料" class="headerlink" title="取得使用者公開資料"></a>取得使用者公開資料</h4><p>利用 <code>liff.getProfile()</code> 獲取當前用戶的個人資料信息</p>
+<div class="note warning modern"><p>在新增 LIFF 應用程序時，在 Scopes 選項中請勾選 profile。如果沒有勾選，或者用戶未授予權限，您將無法獲取用戶配置文件。</p>
+</div>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">liff</span><br><span class="line">  .getProfile()</span><br><span class="line">  .then(<span class="function">(<span class="params">profile</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> name = profile.displayName;</span><br><span class="line">  &#125;)</span><br><span class="line">  .catch(<span class="function">(<span class="params">err</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;error&quot;</span>, err);</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
+<p>取回來的資料為用戶ID，顯示名稱，圖片網址，狀態消息</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;userId&quot;</span>: <span class="string">&quot;U4af4980629...&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;displayName&quot;</span>: <span class="string">&quot;Brown&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;pictureUrl&quot;</span>: <span class="string">&quot;https://profile.line-scdn.net/abcdefghijklmn&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;statusMessage&quot;</span>: <span class="string">&quot;Hello, LINE!&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="取得Email"><a href="#取得Email" class="headerlink" title="取得Email"></a>取得Email</h4><p>利用 <code>liff.getDecodedIDToken()</code> 取得用戶顯示名稱、個人資料圖片 URL、電子郵件地址等信息。</p>
+<p>如要取得用戶email訊息需先至<br><code>Basic settings</code> 找到 <code>Email address permission</code> 點擊 <code>Apply</code></p>
+<p><img src="https://i.imgur.com/JPk3KxF.jpg" alt=""></p>
+<p>填寫以下資訊點擊送出</p>
+<p><img src="https://i.imgur.com/sWXQIM2.jpg" alt=""></p>
+<p>送出後就成功了</p>
+<p><img src="https://i.imgur.com/EyhtGgL.jpg" alt=""></p>
+<p>再到LIFF Scope設置將email打勾</p>
+<p><img src="https://i.imgur.com/TNzeClf.jpg" alt=""></p>
+<div class="note warning modern"><p>如果使用者在授權頁面不允許存取email，那一樣取不到Email資訊</p>
+</div>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 取得使用者 email</span></span><br><span class="line"><span class="comment">// 後台的 Email address permission 要是「Applied」</span></span><br><span class="line"><span class="comment">// LIFF 的設定，Scopes 的「email*」要打勾</span></span><br><span class="line"><span class="comment">// 使用者在登入時，「電子郵件帳號」也要是「許可」的</span></span><br><span class="line"><span class="keyword">var</span> user = liff.getDecodedIDToken();</span><br><span class="line"><span class="keyword">var</span> email = user.email;</span><br><span class="line"><span class="built_in">console</span>.log(email);</span><br></pre></td></tr></table></figure>
+<p>user資料如下</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">&quot;iss&quot;</span>:<span class="string">&quot;&quot;</span>,</span><br><span class="line">    <span class="string">&quot;sub&quot;</span>:<span class="string">&quot;&quot;</span>,</span><br><span class="line">    <span class="string">&quot;aud&quot;</span>:<span class="string">&quot;&quot;</span>,</span><br><span class="line">    <span class="string">&quot;exp&quot;</span>:,</span><br><span class="line">    <span class="string">&quot;iat&quot;</span>:,</span><br><span class="line">    <span class="string">&quot;name&quot;</span>:<span class="string">&quot;xx&quot;</span>,</span><br><span class="line">    <span class="string">&quot;picture&quot;</span>:<span class="string">&quot;https://profile.line.jpg&quot;</span>,</span><br><span class="line">    <span class="string">&quot;email&quot;</span>:<span class="string">&quot;xxx@gmail.com&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<div class="note danger modern"><p>請勿將此 API 獲取的用戶數據發送至服務器</p>
+</div>
+<p>如有需要在服務器取得用戶數據可以透過 <code>liff.getAccessToken()</code> 將 <code>token</code> 傳送至服務器，在後台中取得</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> accessToken = liff.getAccessToken();</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> config = &#123;</span><br><span class="line">    <span class="attr">headers</span>: &#123; <span class="attr">Authorization</span>: <span class="string">`Bearer <span class="subst">$&#123;accessToken&#125;</span>`</span> &#125;</span><br><span class="line">&#125;;</span><br><span class="line">axios.post( </span><br><span class="line">    <span class="string">&#x27;https://api.line.me/v2/profile&#x27;</span>,</span><br><span class="line">    <span class="literal">null</span>,</span><br><span class="line">    config</span><br><span class="line">).then(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`使用者資料: <span class="subst">$&#123;<span class="built_in">JSON</span>.stringify(res.data)&#125;</span>`</span>);</span><br><span class="line">&#125;).catch(<span class="built_in">console</span>.log);</span><br></pre></td></tr></table></figure>
+<h3 id="LIFF傳送訊息"><a href="#LIFF傳送訊息" class="headerlink" title="LIFF傳送訊息"></a>LIFF傳送訊息</h3><p>LIFF傳送訊息有兩個:</p>
+<ul>
+<li>sendMessages(): 發送至一對一用戶聊天室</li>
+<li>shareTargetPicker(): 可選擇發送目標發送</li>
+</ul>
+<h4 id="sendMessages"><a href="#sendMessages" class="headerlink" title="sendMessages"></a>sendMessages</h4><p>需使用此功能，須將後台 Scopes 裡的<strong>chat_message.write</strong> 打勾，並且使用者在授權頁面，<strong>傳送訊息至聊天室</strong> 是許可狀態才可以使用</p>
+<h4 id="shareTargetPicker"><a href="#shareTargetPicker" class="headerlink" title="shareTargetPicker"></a>shareTargetPicker</h4><p>此功能在LIFF設定頁面要將 <code>shareTargetPicker</code> 開啟，並且使用者在授權頁面，<strong>傳送訊息至聊天室</strong> 是許可狀態才能使用</p>
+<h4 id="程式碼-1"><a href="#程式碼-1" class="headerlink" title="程式碼"></a>程式碼</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 傳送訊息</span></span><br><span class="line"><span class="comment">// 訊息對象: https://developers.line.biz/en/reference/messaging-api/#message-objects</span></span><br><span class="line">liff</span><br><span class="line">  .sendMessages([</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">type</span>: <span class="string">&quot;text&quot;</span>,</span><br><span class="line">      <span class="attr">text</span>: <span class="string">&quot;Hello, World!&quot;</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">  ])</span><br><span class="line">  .then(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;message sent&quot;</span>);</span><br><span class="line">  &#125;)</span><br><span class="line">  .catch(<span class="function">(<span class="params">err</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;error&quot;</span>, err);</span><br><span class="line">  &#125;);</span><br><span class="line">  </span><br><span class="line"></span><br><span class="line"><span class="comment">// 傳送訊息給好友</span></span><br><span class="line"><span class="comment">// https://developers.line.biz/en/reference/liff/#share-target-picker</span></span><br><span class="line">liff.shareTargetPicker(</span><br><span class="line">      [</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="attr">type</span>: <span class="string">&quot;text&quot;</span>,</span><br><span class="line">          <span class="attr">text</span>: <span class="string">&quot;Hello, World!&quot;</span>,</span><br><span class="line">        &#125;,</span><br><span class="line">      ],</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">isMultiple</span>: <span class="literal">true</span>,</span><br><span class="line">      &#125;</span><br><span class="line">    )</span><br><span class="line">    .then(<span class="function"><span class="keyword">function</span> (<span class="params">res</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">if</span> (res) &#123;</span><br><span class="line">        <span class="comment">// 成功通過目標選擇器發送消息</span></span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">`[<span class="subst">$&#123;res.status&#125;</span>] Message sent!`</span>)</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">const</span> [majorVer, minorVer] = (liff.getLineVersion() || <span class="string">&quot;&quot;</span>).split(<span class="string">&#x27;.&#x27;</span>);</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">parseInt</span>(majorVer) == <span class="number">10</span> &amp;&amp; <span class="built_in">parseInt</span>(minorVer) &lt; <span class="number">11</span>) &#123;</span><br><span class="line">          <span class="comment">// LINE 10.3.0 - 10.10.0</span></span><br><span class="line">          <span class="comment">// 舊版本Line</span></span><br><span class="line">          <span class="built_in">console</span>.log(<span class="string">&#x27;目標選擇器已打開，有無成功發送不清楚&#x27;</span>)</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          <span class="comment">// LINE 10.11.0 -</span></span><br><span class="line">          <span class="comment">// sending message canceled</span></span><br><span class="line">          <span class="built_in">console</span>.log(<span class="string">&#x27;目標選擇器已關閉&#x27;</span>)</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;).catch(<span class="function"><span class="keyword">function</span> (<span class="params">error</span>) </span>&#123;</span><br><span class="line">      <span class="comment">// something went wrong before sending a message</span></span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">&#x27;something wrong happen&#x27;</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="LIFF-連結"><a href="#LIFF-連結" class="headerlink" title="LIFF 連結"></a>LIFF 連結</h3><h4 id="取得當下連接"><a href="#取得當下連接" class="headerlink" title="取得當下連接"></a>取得當下連接</h4><p>這邊取得的網址不是 Endpoint URL，而是 LIFF 的網址。</p>
+<p>除了取得當前網址還可以替網址加上參數</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 取得當前網址</span></span><br><span class="line"><span class="keyword">const</span> myLink = liff.permanentLink.createUrl();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 替網址加上參數</span></span><br><span class="line"><span class="comment">// For example, if current location is</span></span><br><span class="line"><span class="comment">// /food?menu=pizza</span></span><br><span class="line"><span class="comment">// (LIFF ID = 1234567890-AbcdEfgh)</span></span><br><span class="line">liff.permanentLink.setExtraQueryParam(<span class="string">&quot;user_tracking_id=8888&quot;</span>);</span><br><span class="line"><span class="keyword">const</span> myLink = liff.permanentLink.createUrl();</span><br><span class="line"></span><br><span class="line"><span class="comment">// myLink equals &quot;https://liff.line.me/1234567890-AbcdEfgh/food?menu=pizza&amp;user_tracking_id=8888&quot;</span></span><br></pre></td></tr></table></figure>
+<h3 id="LIFF掃描二維碼"><a href="#LIFF掃描二維碼" class="headerlink" title="LIFF掃描二維碼"></a>LIFF掃描二維碼</h3><p>在設置 LIFF 時須將 Scan QR打勾就可以使用</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">liff</span><br><span class="line">  .scanCodeV2()</span><br><span class="line">  .then(<span class="function">(<span class="params">result</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// result = &#123; value: &quot;&quot; &#125;</span></span><br><span class="line">  &#125;)</span><br><span class="line">  .catch(<span class="function">(<span class="params">error</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;error&quot;</span>, error);</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="LIFF開啟即關閉視窗"><a href="#LIFF開啟即關閉視窗" class="headerlink" title="LIFF開啟即關閉視窗"></a>LIFF開啟即關閉視窗</h3><h4 id="開啟視窗"><a href="#開啟視窗" class="headerlink" title="開啟視窗"></a>開啟視窗</h4><p>在 LINE 的應用內瀏覽器或外部瀏覽器中打開指定的 URL，可以設置 <code>external</code>，為 <code>true</code> 時在外部瀏覽器開啟，<code>false</code> 則在 <code>line</code> 內部瀏覽器裡面開啟</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">liff.openWindow(&#123;</span><br><span class="line">  <span class="attr">url</span>: <span class="string">&quot;https://line.me&quot;</span>,</span><br><span class="line">  <span class="attr">external</span>: <span class="literal">true</span>,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="關閉視窗"><a href="#關閉視窗" class="headerlink" title="關閉視窗"></a>關閉視窗</h4><p>關閉LIFF應用程式</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">liff.closeWindow();</span><br></pre></td></tr></table></figure>
+<h3 id="公開LIFF"><a href="#公開LIFF" class="headerlink" title="公開LIFF"></a>公開LIFF</h3><p>如果要讓其他人可以使用 LIFF，要將他轉為公開</p>
+<p><img src="https://i.imgur.com/vmF9I68.jpg" alt=""></p>
+<p>當它變成 <code>Published</code> 就大功告成拉</p>
+<p><img src="https://i.imgur.com/f4g8lT1.jpg" alt=""></p>
+</article><div class="post-copyright"><div class="post-copyright__title"><span class="post-copyright-info"><h>紀錄在Laravel中使用Line message api以及LIFF</h></span></div><div class="post-copyright__type"><span class="post-copyright-info"><a href="https://joe94113.github.io/2022/07/24/use-line-message-api-and-liff-in-laravel/">https://joe94113.github.io/2022/07/24/use-line-message-api-and-liff-in-laravel/</a></span></div><div class="post-copyright-m"><div class="post-copyright-m-info"><div class="post-copyright-a"><h>作者</h><div class="post-copyright-cc-info"><h>Joe</h></div></div><div class="post-copyright-c"><h>發布於</h><div class="post-copyright-cc-info"><h>2022-07-24</h></div></div><div class="post-copyright-u"><h>更新於</h><div class="post-copyright-cc-info"><h>2022-07-24</h></div></div><div class="post-copyright-c"><h>許可協議</h><div class="post-copyright-cc-info"><a class="icon" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a><a rel="noopener" target="_blank" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></div></div></div></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Backend/">Backend</a><a class="post-meta__tags" href="/tags/Laravel/">Laravel</a></div><div class="post_share"><div class="social-share" data-image="https://imgur.com/yaJXYhU.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button button--animated"><i class="fas fa-qrcode"></i> 打賞</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/images/donat.jpg" target="_blank"><img class="post-qr-code-img" src="/images/donat.jpg" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="/images/ETH.jpg" target="_blank"><img class="post-qr-code-img" src="/images/ETH.jpg" alt="乙太幣"/></a><div class="post-qr-code-desc">乙太幣</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/06/19/vue-provide/"><img class="prev-cover" src="/images/default/default4.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Vue provide跨層級資料傳遞</div></div></a></div><div class="next-post pull-right"><a href="/2022/07/24/Laravel-sendmail-with-google/"><img class="next-cover" src="/images/default/default1.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Laravel在低安全性功能關閉後該如何寄信</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相關推薦</span></div><div class="relatedPosts-list"><div><a href="/2021/12/26/Laravel-Notification-Channels-FCM/" title="Laravel-Notification-Channels-FCM"><img class="cover" src="https://imgur.com/bFglVKg.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-12-26</div><div class="title">Laravel-Notification-Channels-FCM</div></div></a></div><div><a href="/2021/12/21/Laravel-change-Connection-for-Notifications-table/" title="laravel notification table 連接到其他資料庫"><img class="cover" src="https://imgur.com/bFglVKg.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-12-21</div><div class="title">laravel notification table 連接到其他資料庫</div></div></a></div><div><a href="/2021/10/27/Laravel_Seeder/" title="Laravel Seeders"><img class="cover" src="https://www.medalibouk.com/storage/posts/July2020/KdAAsrMDdEXIZurSseKa.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-10-27</div><div class="title">Laravel Seeders</div></div></a></div><div><a href="/2021/09/10/Laravel_start/" title="Laravel起步走"><img class="cover" src="https://developerhoster.com/content/images/size/w960/2021/09/banner-2.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-09-10</div><div class="title">Laravel起步走</div></div></a></div><div><a href="/2021/10/25/Laravel%E4%BD%BF%E7%94%A8AJAX_POST%E5%95%8F%E9%A1%8C/" title="Laravel csrf token mismatch for ajax POST Request"><img class="cover" src="https://dpsvdv74uwwos.cloudfront.net/statics/img/blogposts/csrf-tokens.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-10-25</div><div class="title">Laravel csrf token mismatch for ajax POST Request</div></div></a></div><div><a href="/2021/12/02/Laravel%E5%93%88%E5%B8%8C%E6%95%B8%E6%93%9AID/" title="Laravel哈希數據ID"><img class="cover" src="https://cloud.githubusercontent.com/assets/499192/11159205/faa429ae-8a5d-11e5-8c5d-c60a89290c5e.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-12-02</div><div class="title">Laravel哈希數據ID</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 評論</span></div><div id="comment-switch"><span class="first-comment">Valine</span><span class="switch-btn"></span><span class="second-comment">Disqus</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div><div><div id="disqus_thread"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/images/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Joe</div><div class="author-info__description">人生，努力了、珍惜了、問心無愧，如此，甚好。</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">78</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">標籤</div><div class="length-num">33</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分類</div><div class="length-num">10</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/joe94113"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="mailto:joe94113@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://www.instagram.com/guan___zhi/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a><a class="social-icon" href="https://stackoverflow.com/users/15393688/joe" target="_blank" title="Stackoverflow"><i class="fab fa-stack-overflow"></i></a><a class="social-icon" href="https://www.linkedin.com/in/joe94113/" target="_blank" title="Linkedin"><i class="fab fa-linkedin"></i></a><a class="social-icon" href="https://codepen.io/joe94113" target="_blank" title="Codepen"><i class="fab fa-codepen"></i></a><a class="social-icon" href="https://www.kaggle.com/joe94113" target="_blank" title="Kaggle"><i class="fab fa-kaggle"></i></a></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目錄</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%B4%80%E9%8C%84%E5%9C%A8Laravel%E4%B8%AD%E4%BD%BF%E7%94%A8Line-message-api%E4%BB%A5%E5%8F%8ALIFF"><span class="toc-number">1.</span> <span class="toc-text">紀錄在Laravel中使用Line message api以及LIFF</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#message-api"><span class="toc-number">1.1.</span> <span class="toc-text">message api</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BB%BA%E7%AB%8Bmessage-api"><span class="toc-number">1.1.1.</span> <span class="toc-text">建立message api</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B0%E5%A2%9Emessage-api-webhook-url%E7%A8%8B%E5%BC%8F"><span class="toc-number">1.1.2.</span> <span class="toc-text">新增message api webhook url程式:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9E%E8%81%B2%E8%9F%B2"><span class="toc-number">1.1.3.</span> <span class="toc-text">回聲蟲</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A8%8A%E6%81%AF%E9%A1%9E%E5%9E%8B"><span class="toc-number">1.1.4.</span> <span class="toc-text">訊息類型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%9A%E9%A0%81%E8%A8%8A%E6%81%AF"><span class="toc-number">1.1.4.1.</span> <span class="toc-text">多頁訊息</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BD%88%E6%80%A7%E8%A8%8A%E6%81%AFFlex-Message"><span class="toc-number">1.1.4.2.</span> <span class="toc-text">彈性訊息Flex Message</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%A8%8B%E5%BC%8F%E7%A2%BC"><span class="toc-number">1.1.4.2.1.</span> <span class="toc-text">程式碼</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%88%90%E6%9E%9C"><span class="toc-number">1.1.4.3.</span> <span class="toc-text">成果</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%8F%88%E6%8E%A5%E7%94%A8%E6%88%B6%E5%B8%B3%E6%88%B6"><span class="toc-number">1.1.5.</span> <span class="toc-text">鏈接用戶帳戶</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AF%A6%E4%BD%9C%E7%B6%81%E5%AE%9A%E6%B5%81%E7%A8%8B"><span class="toc-number">1.1.5.1.</span> <span class="toc-text">實作綁定流程</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E5%8F%96%E5%BE%97%E9%8F%88%E6%8E%A5%E4%BB%A4%E7%89%8C"><span class="toc-number">1.1.5.1.1.</span> <span class="toc-text">1. 取得鏈接令牌</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-%E5%B0%87%E7%94%A8%E6%88%B6%E9%87%8D%E5%AE%9A%E5%90%91%E5%88%B0%E9%8F%88%E6%8E%A5-URL"><span class="toc-number">1.1.5.1.2.</span> <span class="toc-text">2. 將用戶重定向到鏈接 URL</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-%E7%8D%B2%E5%8F%96%E6%9C%8D%E5%8B%99%E7%9A%84%E7%94%A8%E6%88%B6-ID"><span class="toc-number">1.1.5.1.3.</span> <span class="toc-text">3. 獲取服務的用戶 ID</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-%E7%94%9F%E6%88%90%E9%9A%A8%E6%A9%9F%E6%95%B8%E4%B8%A6%E5%B0%87%E7%94%A8%E6%88%B6%E9%87%8D%E5%AE%9A%E5%90%91%E5%88%B0-LINE-%E5%B9%B3%E5%8F%B0"><span class="toc-number">1.1.5.1.4.</span> <span class="toc-text">4. 生成隨機數並將用戶重定向到 LINE 平台</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-%E9%97%9C%E8%81%AF%E8%B3%AC%E6%88%B6"><span class="toc-number">1.1.5.1.5.</span> <span class="toc-text">5. 關聯賬戶</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#6-%E5%8F%96%E6%B6%88%E9%80%A3%E6%8E%A5"><span class="toc-number">1.1.5.1.6.</span> <span class="toc-text">6. 取消連接</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E6%83%85%E5%A2%83"><span class="toc-number">1.1.5.2.</span> <span class="toc-text">使用情境</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Account-Link-%E8%88%87-LINE-Login-%E7%9A%84%E5%B7%AE%E7%95%B0"><span class="toc-number">1.1.5.3.</span> <span class="toc-text">Account Link 與 LINE Login 的差異</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E8%B1%90%E5%AF%8C%E8%8F%9C%E5%96%AE"><span class="toc-number">1.1.6.</span> <span class="toc-text">使用豐富菜單</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E8%A8%AD%E7%BD%AE%E7%9A%84%E9%BB%98%E8%AA%8D%E8%B1%90%E5%AF%8C%E8%8F%9C%E5%96%AE"><span class="toc-number">1.1.6.1.</span> <span class="toc-text">如何設置的默認豐富菜單</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E8%A8%AD%E7%BD%AE%E7%B6%81%E5%AE%9A%E7%94%A8%E6%88%B6%E8%B1%90%E5%AF%8C%E8%8F%9C%E5%96%AE"><span class="toc-number">1.1.6.2.</span> <span class="toc-text">如何設置綁定用戶豐富菜單</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%96%E6%B6%88%E7%94%A8%E6%88%B6%E8%B1%90%E5%AF%8C%E8%8F%9C%E5%96%AE"><span class="toc-number">1.1.6.3.</span> <span class="toc-text">取消用戶豐富菜單</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#LIFF%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8"><span class="toc-number">1.2.</span> <span class="toc-text">LIFF基本使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BB%BA%E7%AB%8BLiff"><span class="toc-number">1.2.1.</span> <span class="toc-text">建立Liff</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Size"><span class="toc-number">1.2.1.1.</span> <span class="toc-text">Size</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Endpoint-URL"><span class="toc-number">1.2.1.2.</span> <span class="toc-text">Endpoint URL</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Scopes"><span class="toc-number">1.2.1.3.</span> <span class="toc-text">Scopes</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Bot-link-feature"><span class="toc-number">1.2.1.4.</span> <span class="toc-text">Bot link feature</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Scan-QR"><span class="toc-number">1.2.1.5.</span> <span class="toc-text">Scan QR</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#LIFF-%E5%BB%BA%E7%AB%8B%E5%AE%8C%E6%88%90"><span class="toc-number">1.2.1.6.</span> <span class="toc-text">LIFF 建立完成</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LIFF-init"><span class="toc-number">1.2.2.</span> <span class="toc-text">LIFF init</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BC%95%E5%85%A5sdk"><span class="toc-number">1.2.2.1.</span> <span class="toc-text">引入sdk</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#CDN"><span class="toc-number">1.2.2.1.1.</span> <span class="toc-text">CDN</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-npm-%E5%8C%85"><span class="toc-number">1.2.2.1.2.</span> <span class="toc-text">使用 npm 包</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LIFF%E7%8D%B2%E5%8F%96%E7%92%B0%E5%A2%83%E8%A8%8A%E6%81%AF"><span class="toc-number">1.2.3.</span> <span class="toc-text">LIFF獲取環境訊息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LIFF-%E5%8A%9F%E8%83%BD%EF%BC%9A%E7%99%BB%E5%85%A5%E3%80%81%E7%99%BB%E5%87%BA"><span class="toc-number">1.2.4.</span> <span class="toc-text">LIFF 功能：登入、登出</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%96%E5%BE%97%E4%BD%BF%E7%94%A8%E8%80%85%E8%B3%87%E6%96%99"><span class="toc-number">1.2.5.</span> <span class="toc-text">取得使用者資料</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%96%E5%BE%97%E4%BD%BF%E7%94%A8%E8%80%85%E5%85%AC%E9%96%8B%E8%B3%87%E6%96%99"><span class="toc-number">1.2.5.1.</span> <span class="toc-text">取得使用者公開資料</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%96%E5%BE%97Email"><span class="toc-number">1.2.5.2.</span> <span class="toc-text">取得Email</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LIFF%E5%82%B3%E9%80%81%E8%A8%8A%E6%81%AF"><span class="toc-number">1.2.6.</span> <span class="toc-text">LIFF傳送訊息</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#sendMessages"><span class="toc-number">1.2.6.1.</span> <span class="toc-text">sendMessages</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#shareTargetPicker"><span class="toc-number">1.2.6.2.</span> <span class="toc-text">shareTargetPicker</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A8%8B%E5%BC%8F%E7%A2%BC-1"><span class="toc-number">1.2.6.3.</span> <span class="toc-text">程式碼</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LIFF-%E9%80%A3%E7%B5%90"><span class="toc-number">1.2.7.</span> <span class="toc-text">LIFF 連結</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%96%E5%BE%97%E7%95%B6%E4%B8%8B%E9%80%A3%E6%8E%A5"><span class="toc-number">1.2.7.1.</span> <span class="toc-text">取得當下連接</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LIFF%E6%8E%83%E6%8F%8F%E4%BA%8C%E7%B6%AD%E7%A2%BC"><span class="toc-number">1.2.8.</span> <span class="toc-text">LIFF掃描二維碼</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LIFF%E9%96%8B%E5%95%9F%E5%8D%B3%E9%97%9C%E9%96%89%E8%A6%96%E7%AA%97"><span class="toc-number">1.2.9.</span> <span class="toc-text">LIFF開啟即關閉視窗</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%96%8B%E5%95%9F%E8%A6%96%E7%AA%97"><span class="toc-number">1.2.9.1.</span> <span class="toc-text">開啟視窗</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%97%9C%E9%96%89%E8%A6%96%E7%AA%97"><span class="toc-number">1.2.9.2.</span> <span class="toc-text">關閉視窗</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%AC%E9%96%8BLIFF"><span class="toc-number">1.2.10.</span> <span class="toc-text">公開LIFF</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/07/24/Laravel-sendmail-with-google/" title="Laravel在低安全性功能關閉後該如何寄信"><img src="/images/default/default1.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Laravel在低安全性功能關閉後該如何寄信"/></a><div class="content"><a class="title" href="/2022/07/24/Laravel-sendmail-with-google/" title="Laravel在低安全性功能關閉後該如何寄信">Laravel在低安全性功能關閉後該如何寄信</a><time datetime="2022-07-24T06:32:48.000Z" title="發表於 2022-07-24 14:32:48">2022-07-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/07/24/use-line-message-api-and-liff-in-laravel/" title="紀錄在Laravel中使用Line message api以及LIFF"><img src="https://imgur.com/yaJXYhU.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="紀錄在Laravel中使用Line message api以及LIFF"/></a><div class="content"><a class="title" href="/2022/07/24/use-line-message-api-and-liff-in-laravel/" title="紀錄在Laravel中使用Line message api以及LIFF">紀錄在Laravel中使用Line message api以及LIFF</a><time datetime="2022-07-24T06:24:05.000Z" title="發表於 2022-07-24 14:24:05">2022-07-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/06/19/vue-provide/" title="Vue provide跨層級資料傳遞"><img src="/images/default/default4.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Vue provide跨層級資料傳遞"/></a><div class="content"><a class="title" href="/2022/06/19/vue-provide/" title="Vue provide跨層級資料傳遞">Vue provide跨層級資料傳遞</a><time datetime="2022-06-18T16:01:17.000Z" title="發表於 2022-06-19 00:01:17">2022-06-19</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/06/19/vue-mixns/" title="Vue mixns混合元件以及擴展元件extend"><img src="https://imgur.com/bFglVKg.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Vue mixns混合元件以及擴展元件extend"/></a><div class="content"><a class="title" href="/2022/06/19/vue-mixns/" title="Vue mixns混合元件以及擴展元件extend">Vue mixns混合元件以及擴展元件extend</a><time datetime="2022-06-18T16:00:38.000Z" title="發表於 2022-06-19 00:00:38">2022-06-19</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/05/30/fix-laravel-admin-multiple-select-problem/" title="Laravel admin 級聯選擇編輯時預設無資料"><img src="https://imgur.com/uSM4JVh.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Laravel admin 級聯選擇編輯時預設無資料"/></a><div class="content"><a class="title" href="/2022/05/30/fix-laravel-admin-multiple-select-problem/" title="Laravel admin 級聯選擇編輯時預設無資料">Laravel admin 級聯選擇編輯時預設無資料</a><time datetime="2022-05-30T10:10:59.000Z" title="發表於 2022-05-30 18:10:59">2022-05-30</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://imgur.com/yaJXYhU.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By Joe</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主題 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Hi, welcome to my <a href="">blog</a>!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="閱讀模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="簡繁轉換">繁</button><button id="darkmode" type="button" title="淺色和深色模式轉換"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="單欄和雙欄切換"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="設定"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目錄"><i class="fas fa-list-ul"></i></button><button id="chat_btn" type="button" title="rightside.chat_btn"><i class="fas fa-sms"></i></button><a id="to_comment" href="#post-comment" title="直達評論"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到頂部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜尋</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜尋文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: 'AvmaKpg1Jm6knyjqmUvLisTT-MdYXbMMI',
+      appKey: 'QccmMlgJBk3dFxRA6c5aLOqw',
+      placeholder: 'Please leave your footprints',
+      avatar: 'monsterid',
+      meta: 'nick,mail,link'.split(','),
+      pageSize: '10',
+      lang: 'zh-TW',
+      recordIP: false,
+      serverURLs: '',
+      emojiCDN: '//i0.hdslb.com/bfs/emote/',
+      emojiMaps: {"tv_doge":"6ea59c827c414b4a2955fe79e0f6fd3dcd515e24.png","tv_親親":"a8111ad55953ef5e3be3327ef94eb4a39d535d06.png","tv_偷笑":"bb690d4107620f1c15cff29509db529a73aee261.png","tv_再見":"180129b8ea851044ce71caf55cc8ce44bd4a4fc8.png","tv_冷漠":"b9cbc755c2b3ee43be07ca13de84e5b699a3f101.png","tv_發怒":"34ba3cd204d5b05fec70ce08fa9fa0dd612409ff.png","tv_發財":"34db290afd2963723c6eb3c4560667db7253a21a.png","tv_可愛":"9e55fd9b500ac4b96613539f1ce2f9499e314ed9.png","tv_吐血":"09dd16a7aa59b77baa1155d47484409624470c77.png","tv_呆":"fe1179ebaa191569b0d31cecafe7a2cd1c951c9d.png","tv_嘔吐":"9f996894a39e282ccf5e66856af49483f81870f3.png","tv_困":"241ee304e44c0af029adceb294399391e4737ef2.png","tv_壞笑":"1f0b87f731a671079842116e0991c91c2c88645a.png","tv_大佬":"093c1e2c490161aca397afc45573c877cdead616.png","tv_大哭":"23269aeb35f99daee28dda129676f6e9ea87934f.png","tv_委屈":"d04dba7b5465779e9755d2ab6f0a897b9b33bb77.png","tv_害羞":"a37683fb5642fa3ddfc7f4e5525fd13e42a2bdb1.png","tv_尷尬":"7cfa62dafc59798a3d3fb262d421eeeff166cfa4.png","tv_微笑":"70dc5c7b56f93eb61bddba11e28fb1d18fddcd4c.png","tv_思考":"90cf159733e558137ed20aa04d09964436f618a1.png","tv_驚嚇":"0d15c7e2ee58e935adc6a7193ee042388adc22af.png"},
+      enableQQ: false,
+      path: window.location.pathname,
+      requiredFields: ["nick,mail"],
+      visitor: false
+    }, null))
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !false) {
+  if (false) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script><script>function loadDisqus () {
+  var disqus_config = function () {
+    this.page.url = 'https://joe94113.github.io/2022/07/24/use-line-message-api-and-liff-in-laravel/'
+    this.page.identifier = '2022/07/24/use-line-message-api-and-liff-in-laravel/'
+    this.page.title = '紀錄在Laravel中使用Line message api以及LIFF'
+  };
+
+  window.disqusReset = () => {
+    DISQUS.reset({
+      reload: true,
+      config: disqus_config
+    })
+  }
+
+  if (window.DISQUS) disqusReset()
+  else {
+    (function() { 
+      var d = document, s = d.createElement('script');
+      s.src = 'https://joe94113.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  }
+}
+
+if ('Valine' === 'Disqus' || !false) {
+  if (false) btf.loadComment(document.getElementById('disqus_thread'), loadDisqus)
+  else loadDisqus()
+} else {
+  function loadOtherComment () {
+    loadDisqus()
+  }
+}
+</script></div><script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.17.0/js/md5.min.js"></script><script>window.addEventListener('load', () => {
+  const changeContent = (content) => {
+    if (content === '') return content
+
+    content = content.replace(/<img.*?src="(.*?)"?[^\>]+>/ig, '[圖片]') // replace image link
+    content = content.replace(/<a[^>]+?href=["']?([^"']+)["']?[^>]*>([^<]+)<\/a>/gi, '[連結]') // replace url
+    content = content.replace(/<pre><code>.*?<\/pre>/gi, '[代碼]') // replace code
+    content = content.replace(/<[^>]+>/g,"") // remove html tag
+
+    if (content.length > 150) {
+      content = content.substring(0,150) + '...'
+    }
+    return content
+  }
+
+  const getIcon = (icon, mail) => {
+    if (icon) return icon
+    let defaultIcon = '?d=monsterid'
+    let iconUrl = `https://gravatar.loli.net/avatar/${md5(mail.toLowerCase()) + defaultIcon}`
+    return iconUrl
+  }
+
+  const generateHtml = array => {
+    let result = ''
+
+    if (array.length) {
+      for (let i = 0; i < array.length; i++) {
+        result += '<div class=\'aside-list-item\'>'
+
+        if (true) {
+          const name = 'src'
+          result += `<a href='${array[i].url}' class='thumbnail'><img ${name}='${array[i].avatar}' alt='${array[i].nick}'></a>`
+        }
+
+        result += `<div class='content'>
+        <a class='comment' href='${array[i].url}'>${array[i].content}</a>
+        <div class='name'><span>${array[i].nick} / </span><time datetime="${array[i].date}">${btf.diffDate(array[i].date, true)}</time></div>
+        </div></div>`
+      }
+    } else {
+      result += '沒有評論'
+    }
+
+    let $dom = document.querySelector('#card-newest-comments .aside-list')
+    $dom.innerHTML= result
+    window.lazyLoadInstance && window.lazyLoadInstance.update()
+    window.pjax && window.pjax.refresh($dom)
+  }
+
+  const getComment = () => {
+    const serverURL = 'https://AvmaKpg1.api.lncldglobal.com'
+
+    var settings = {
+      "method": "GET",
+      "headers": {
+        "X-LC-Id": 'AvmaKpg1Jm6knyjqmUvLisTT-MdYXbMMI',
+        "X-LC-Key": 'QccmMlgJBk3dFxRA6c5aLOqw',
+        "Content-Type": "application/json"
+      },
+    }
+
+    fetch(`${serverURL}/1.1/classes/Comment?limit=5&order=-createdAt`,settings)
+      .then(response => response.json())
+      .then(data => {
+        const valineArray = data.results.map(function (e) {
+          return {
+            'avatar': getIcon(e.QQAvatar, e.mail),
+            'content': changeContent(e.comment),
+            'nick': e.nick,
+            'url': e.url + '#' + e.objectId,
+            'date': e.updatedAt,
+          }
+        })
+        saveToLocal.set('valine-newest-comments', JSON.stringify(valineArray), 10/(60*24))
+        generateHtml(valineArray)
+      }).catch(e => {
+        const $dom = document.querySelector('#card-newest-comments .aside-list')
+        $dom.innerHTML= "無法獲取評論，請確認相關配置是否正確"
+      }) 
+  }
+
+  const newestCommentInit = () => {
+    if (document.querySelector('#card-newest-comments .aside-list')) {
+      const data = saveToLocal.get('valine-newest-comments')
+      if (data) {
+        generateHtml(JSON.parse(data))
+      } else {
+        getComment()
+      }
+    }
+  }
+
+  newestCommentInit()
+  document.addEventListener('pjax:complete', newestCommentInit)
+})</script><div class="aplayer no-destroy" data-id="6954660951" data-server="netease" data-type="playlist" data-fixed="true" data-mini="true" data-listFolded="false" data-order="random" data-preload="none" data-autoplay="true" data-theme="#9e8ee6" muted></div><script defer src="/live2d-widget/autoload.js"></script><script async src="//at.alicdn.com/t/font_2264842_3izu8i5eoc2.js"></script><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-fluttering-ribbon.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = false;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-heart.min.js" async="async" mobile="false"></script><script src="//code.tidio.co/vzs39ctlcaqi6itgnorfqsaezuyjd70f.js" async="async"></script><script>function onTidioChatApiReady() {
+  window.tidioChatApi.hide();
+  window.tidioChatApi.on("close", function() {
+    window.tidioChatApi.hide();
+  });
+}
+if (window.tidioChatApi) {
+  window.tidioChatApi.on("ready", onTidioChatApiReady);
+} else {
+  document.addEventListener("tidioChat-ready", onTidioChatApiReady);
+}
+
+var chatBtnFn = () => {
+  document.getElementById("chat_btn").addEventListener("click", function(){
+    window.tidioChatApi.show();
+    window.tidioChatApi.open();
+  });
+}
+chatBtnFn()
+</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/gh/metowolf/MetingJS@1.2/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = [
+  'title',
+  '#config-diff',
+  '#body-wrap',
+  '#rightside-config-hide',
+  '#rightside-config-show',
+  '.js-pjax'
+]
+
+if (false) {
+  pjaxSelectors.unshift('meta[property="og:image"]', 'meta[property="og:title"]', 'meta[property="og:url"]')
+}
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"]):not([href="/aboutBlog/"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: true,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.removeEventListener('scroll', window.tocScrollFn)
+  window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', 'UA-177446378-1', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // Analytics
+  if (false) {
+    MtaH5.pgv()
+  }
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start --><script data-pjax>function history_calendar_injector_config(){
+                var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+                var item_html = '<div class="card-widget card-history"><div class="card-content"><div class="item-headline"><i class="fas fa-clock fa-spin"></i><span>那年今日</span></div><div id="history-baidu" style="height: 100px;overflow: hidden"><div class="history_swiper-container" id="history-container" style="width: 100%;height: 100%"><div class="swiper-wrapper" id="history_container_wrapper" style="height:20px"></div></div></div></div>';
+                console.log('已挂载history_calendar')
+                // parent_div_git.innerHTML=item_html+parent_div_git.innerHTML // 无报错，但不影响使用(支持pjax跳转)
+                parent_div_git.insertAdjacentHTML("afterbegin",item_html) // 有报错，但不影响使用(支持pjax跳转)
+            }if( document.getElementsByClassName('sticky_layout')[0] && (location.pathname ==='all'|| 'all' ==='all')){
+
+            history_calendar_injector_config()
+        } </script><script data-pjax  src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script><script data-pjax src="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/js/main.js"></script><script data-pjax>
+  function butterfly_clock_injector_config(){
+    var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+    var item_html = '<div class="card-widget card-clock"><div class="card-glass"><div class="card-background"><div class="card-content"><div id="hexo_electric_clock"><img class="entered loading" id="card-clock-loading" src="/images/loading.gif" style="height: 120px; width: 100%;" data-ll-status="loading"/></div></div></div></div></div>';
+    console.log('已挂载butterfly_clock')
+    parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_clock_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_clock_injector_config();
+  }
+  </script><script src="https://pv.sohu.com/cityjson?ie=utf-8"></script><script data-pjax src="https://cdn.jsdelivr.net/npm/hexo-butterfly-clock/lib/clock.min.js"></script><script data-pjax>
+  function butterfly_swiper_injector_config(){
+    var parent_div_git = document.getElementById('recent-posts');
+    var item_html = '<div class="recent-post-item" style="height: auto;width: 100%"><div class="blog-slider swiper-container-fade swiper-container-horizontal" id="swiper_container"><div class="blog-slider__wrp swiper-wrapper" style="transition-duration: 0ms;"><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="2022/04/14/laravel-tinymce/" alt=""><img width="48" height="48" src="https://assets.matters.news/embed/63cc794e-3f74-4e7e-9bde-5750f7183df9.png" alt="" onerror="this.src=https://cdn.jsdelivr.net/npm/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2022-04-14</span><a class="blog-slider__title" href="2022/04/14/laravel-tinymce/" alt="">Laravel 使用 TinyMCE 以及處理上傳圖片(驗證，防呆，刪除)</a><div class="blog-slider__text">再怎麼看我也不知道怎麼描述它的啦！</div><a class="blog-slider__button" href="2022/04/14/laravel-tinymce/" alt="">详情   </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="2022/01/04/laravel-scout-search-example/" alt=""><img width="48" height="48" src="https://storage.googleapis.com/twg-content/images/MarketingResources_Thumbnail_Search.width-1200.jpg" alt="" onerror="this.src=https://cdn.jsdelivr.net/npm/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2022-01-04</span><a class="blog-slider__title" href="2022/01/04/laravel-scout-search-example/" alt="">Laravel8 Scout Search</a><div class="blog-slider__text">Laravel scount Algolia search搜尋範例</div><a class="blog-slider__button" href="2022/01/04/laravel-scout-search-example/" alt="">详情   </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="2021/10/14/laravel_storeAdd_notification_to_user/" alt=""><img width="48" height="48" src="https://developers.google.com/web/updates/images/generic/notifications.png?hl=zh-tw" alt="" onerror="this.src=https://cdn.jsdelivr.net/npm/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2021-10-14</span><a class="blog-slider__title" href="2021/10/14/laravel_storeAdd_notification_to_user/" alt="">Laravel use notification when some data add</a><div class="blog-slider__text">當有商家新增了將通知給使用者</div><a class="blog-slider__button" href="2021/10/14/laravel_storeAdd_notification_to_user/" alt="">详情   </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="2021/09/08/laravel_google_place_api/" alt=""><img width="48" height="48" src="https://spiralking.com/wp-content/uploads/2019/04/google-place.jpg" alt="" onerror="this.src=https://cdn.jsdelivr.net/npm/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2021-09-08</span><a class="blog-slider__title" href="2021/09/08/laravel_google_place_api/" alt="">Laravel 使用 google place api輸入地址取得經緯度</a><div class="blog-slider__text">laravel使用google place api</div><a class="blog-slider__button" href="2021/09/08/laravel_google_place_api/" alt="">详情   </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="2021/09/10/laravel_auto_download/" alt=""><img width="48" height="48" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtSaORKeMowAMvfKdUm3KLkXgiby-2JKSFEA&amp;usqp=CAU" alt="" onerror="this.src=https://cdn.jsdelivr.net/npm/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2021-09-10</span><a class="blog-slider__title" href="2021/09/10/laravel_auto_download/" alt="">laravel排程下載外部Url檔案，及更新進資料庫資料</a><div class="blog-slider__text">laravel排程下載csv檔案並存入資料庫</div><a class="blog-slider__button" href="2021/09/10/laravel_auto_download/" alt="">详情   </a></div></div></div><div class="blog-slider__pagination swiper-pagination-clickable swiper-pagination-bullets"></div></div></div>';
+    console.log('已挂载butterfly_swiper')
+    parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  var elist = 'undefined'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_swiper_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_swiper_injector_config();
+  }
+  </script><script defer src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.1.6/js/swiper.min.js"></script><script defer data-pjax src="https://cdn.jsdelivr.net/npm/hexo-butterfly-swiper/lib/swiper_init.js"></script><script data-pjax src="https://cdn.jsdelivr.net/npm/hexo-filter-gitcalendar/lib/gitcalendar.js"></script><script data-pjax>
+                        function gitcalendar_injector_config(){
+                          var parent_div_git = document.getElementById('recent-posts');
+                          var item_html = '<div class="recent-post-item" style="width:100%;height:auto;padding:10px;"><style>#git_container{min-height: 280px}@media screen and (max-width:650px) {#git_container{min-height: 0px}}</style><div id="git_loading" style="width:10%;height:100%;margin:0 auto;display: block;"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50" xml:space="preserve"><path fill="#d0d0d0" d="M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z" transform="rotate(275.098 25 25)"><animatetransform attributeType="xml" attributeName="transform" type="rotate" from="0 25 25" to="360 25 25" dur="0.6s" repeatCount="indefinite"></animatetransform></path></svg><style>#git_container{display: none;}</style></div><div id="git_container"></div></div>';
+                          parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+                          console.log('已挂载gitcalendar')
+                          }
+
+                        if( document.getElementById('recent-posts') && (location.pathname ==='/'|| '/' ==='all')){
+                            gitcalendar_injector_config()
+                            GitCalendarInit("https://python-github-calendar-api-gray.vercel.app/api?joe94113",['#ebedf0', '#fdcdec', '#fc9bd9', '#fa6ac5', '#f838b2', '#f5089f', '#c4067e', '#92055e', '#540336', '#48022f', '#30021f'],'joe94113')
+                        }
+                      </script><script async src="//at.alicdn.com/t/font_2032782_8d5kxvn09md.js"></script><!-- hexo injector body_end end --></body></html>
