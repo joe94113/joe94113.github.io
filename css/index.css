@@ -3527,7 +3527,7 @@ li.categoryBar-list-item:nth-child(1)>span::after {
   content: '前端開發工具' !important;
 }
 li.categoryBar-list-item:nth-child(2)>span::after {
-  content: '網頁基礎' !important;
+  content: '網頁變漂亮' !important;
 }
 li.categoryBar-list-item:nth-child(3)>span::after {
   content: '網頁動起來' !important;
